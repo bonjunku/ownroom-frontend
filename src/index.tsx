@@ -37,6 +37,7 @@ const InnerContainer = styled.div`
 const StyledImg = styled.img`
   height: 50%;
 `;
+
 const Navbar = () => {
   return (
     <StyledNavbar>
@@ -46,6 +47,16 @@ const Navbar = () => {
     </StyledNavbar>
   );
 };
+
+const BannerContainer = styled.img`
+  height: 650px;
+  width: 100%;
+`;
+const Banner = () => (
+  <BannerContainer
+    src={process.env.PUBLIC_URL + 'img/home/배너이미지.jpg'}
+  ></BannerContainer>
+);
 
 ReactDOM.render(
   <React.StrictMode>
@@ -62,6 +73,7 @@ ReactDOM.render(
         <Grid />
       </Gridbox>
       <Navbar />
+      <Banner />
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<App />} />
