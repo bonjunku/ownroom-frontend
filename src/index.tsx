@@ -29,17 +29,19 @@ const Grid = styled.div`
 const InnerContainer = styled.div`
   width: 1680px;
   height: 100%;
+  display: flex;
+  align-items: center;
   background-color: white;
 `;
 
 const StyledImg = styled.img`
-  height: 100%;
+  height: 50%;
 `;
 const Navbar = () => {
   return (
     <StyledNavbar>
       <InnerContainer>
-        <StyledImg src={process.env.PUBLIC_URL + 'img/home/logo.png'} />
+        <StyledImg src={process.env.PUBLIC_URL + 'img/home/logo_symbol.png'} />
       </InnerContainer>
     </StyledNavbar>
   );
