@@ -18,16 +18,16 @@ const Gridbox = styled.div`
   justify-content: space-between;
   position: fixed;
   height: 100%;
-  width: 1680px;
+  width: 1440px;
   opacity: 15%;
 `;
 const Grid = styled.div`
   background-color: red;
-  width: 189px;
+  width: 159px;
   height: 100%;
 `;
 const InnerContainer = styled.div`
-  width: 1680px;
+  width: 1440px;
   height: 100%;
   display: flex;
   align-items: center;
