@@ -3,16 +3,11 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { GlobalStyle } from './styles/global';
 
-import App from './App';
+import Home from './pages/home/home';
 import styled from 'styled-components';
+import { Navbar } from './components/@shared/navbar';
+import { Banner1, Banner2 } from './components/home/banner';
 
-const StyledNavbar = styled.nav`
-  height: 80px;
-  background-color: blue;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-`;
 const Gridbox = styled.div`
   display: flex;
   justify-content: space-between;
@@ -26,43 +21,12 @@ const Grid = styled.div`
   width: 159px;
   height: 100%;
 `;
-const InnerContainer = styled.div`
-  width: 1440px;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  background-color: white;
-`;
-
-const StyledImg = styled.img`
-  height: 50%;
-`;
-
-const Navbar = () => {
-  return (
-    <StyledNavbar>
-      <InnerContainer>
-        <StyledImg src={process.env.PUBLIC_URL + 'img/home/logo_symbol.png'} />
-      </InnerContainer>
-    </StyledNavbar>
-  );
-};
-
-const BannerContainer = styled.img`
-  height: 650px;
-  width: 100%;
-`;
-const Banner = () => (
-  <BannerContainer
-    src={process.env.PUBLIC_URL + 'img/home/배너이미지.jpg'}
-  ></BannerContainer>
-);
 
 ReactDOM.render(
   <React.StrictMode>
     <>
       <GlobalStyle />
-      <Gridbox>
+      {/* <Gridbox>
         <Grid />
         <Grid />
         <Grid />
@@ -71,12 +35,12 @@ ReactDOM.render(
         <Grid />
         <Grid />
         <Grid />
-      </Gridbox>
+      </Gridbox> */}
+
       <Navbar />
-      <Banner />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<App />} />
+          <Route path="/" element={<Home />} />
         </Routes>
       </BrowserRouter>
     </>
