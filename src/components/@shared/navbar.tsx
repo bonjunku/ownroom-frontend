@@ -4,6 +4,7 @@ import { Container } from './container';
 
 export const StyledImg = styled.img`
   height: 30.4px;
+  margin-top: 24.3px;
 `;
 export const StyledNavbar = styled.nav`
   width: 100%;
@@ -16,7 +17,7 @@ export const StyledNavbar = styled.nav`
 export const Navbar = () => {
   return (
     <StyledNavbar>
-      <Container width={'1440px'} height={'100px'}>
+      <Container width={'1440px'} height={'80px'}>
         <StyledImg src={process.env.PUBLIC_URL + 'img/home/logo_symbol.png'} />
       </Container>
     </StyledNavbar>

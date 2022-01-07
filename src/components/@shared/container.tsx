@@ -25,6 +25,9 @@ export const Container = styled.div<IContainer>`
       flex-direction:${flexDirection};
     `;
   }}
-  border: 3px solid blue;
+  /* border: 3px solid blue; */
   display: flex;
+  @media all and (max-width: 1000px) {
+    width: 100%;
+  }
 `;
