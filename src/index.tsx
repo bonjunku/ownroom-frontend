@@ -37,8 +37,8 @@ ReactDOM.render(
         <Grid />
       </Gridbox> */}
 
-      <Navbar />
       <BrowserRouter>
+        <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
         </Routes>

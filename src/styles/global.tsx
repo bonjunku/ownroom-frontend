@@ -2,7 +2,8 @@ import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
   :root{
-    background-color: yellow;
+    background-color: var(--brand-yellow-001);
+  
 
   /* Color */
   --brand-orange-001: #ff9a62;

@@ -5,6 +5,7 @@ export interface IContainer {
   height?: string;
   direction?: 'right' | 'left' | 'center';
   flexDirection?: 'column' | 'row';
+  option?: string;
 }
 
 export const Container = styled.div<IContainer>`
@@ -25,9 +26,10 @@ export const Container = styled.div<IContainer>`
       flex-direction:${flexDirection};
     `;
   }}
-  /* border: 3px solid blue; */
+
+  /* border: 1px solid blue; */
   display: flex;
-  @media all and (max-width: 1000px) {
-    width: 100%;
-  }
+  ${({ option }) => {
+    return `${option};`;
+  }}
 `;
