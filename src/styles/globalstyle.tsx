@@ -72,10 +72,6 @@ export const GlobalStyle = createGlobalStyle`
     color:var(--gray-white)
   }
 
-
-
-
-
   body{
     width:100%;
     height:100%;
