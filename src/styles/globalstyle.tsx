@@ -86,39 +86,10 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   /* font */
-  @font-face {
-  font-family: NotoSansCJKKR;
-  src: local(NotoSansCJKKR-Regular),
-    url(/path/to/NotoSansCJKKR-Regular.wof2) format("woff2"),
-    url(/path/to/NotoSansCJKKR-Regular.woff) format("woff"),
-    url(/path/to/NotoSansCJKKR-Regular.ttf) format("truetype");
-  font-weight: normal;
-  font-style: normal;
-  font-stretch: normal;
-}
-@font-face {
-  font-family: NotoSansCJKKR;
-  src: local(NotoSansCJKKR-Bold),
-    url(/path/to/NotoSansCJKKR-Bold.woff2) format("woff2"),
-    url(/path/to/NotoSansCJKKR-Bold.woff) format("woff"),
-    url(/path/to/NotoSansCJKKR-Bold.ttf) format("truetype");
-  font-weight: bold;
-  font-style: normal;
-  font-stretch: normal;
-}
-@font-face {
-  font-family: Taviraj;
-  src: local(Taviraj-MediumItalic),
-    url(/path/to/Taviraj-MediumItalic.woff2) format("woff2"),
-    url(/path/to/Taviraj-MediumItalic.woff) format("woff"),
-    url(/path/to/Taviraj-MediumItalic.ttf) format("truetype");
-  font-weight: 500;
-  font-style: italic;
-  font-stretch: normal;
-}
+
 
 .ENHeadline0{
-  font-family: 궁서;
+
   font-size: 65px;
   font-weight: normal;
   font-stretch: normal;
@@ -127,7 +98,7 @@ export const GlobalStyle = createGlobalStyle`
   letter-spacing: normal;
 }
 .ENHeadline1 {
-  font-family: 궁서;
+
   font-size: 36px;
   font-weight: 500;
   font-stretch: normal;
@@ -136,7 +107,7 @@ export const GlobalStyle = createGlobalStyle`
   letter-spacing: -0.36px;
 }
 .ENBody-1{
-  font-family: 궁서;
+  
   font-size: 24px;
   font-weight: 300;
   font-stretch: normal;
@@ -146,7 +117,7 @@ export const GlobalStyle = createGlobalStyle`
   text-align: left;
 }
 .KRDisplay-1 {
-  font-family: 궁서;
+  
   font-size: 43px;
   font-weight: bold;
   font-stretch: normal;
@@ -155,7 +126,7 @@ export const GlobalStyle = createGlobalStyle`
   letter-spacing: normal;
 }
 .KRDisplay-2 {
-  font-family:궁서;
+
   font-size: 34px;
   font-weight: bold;
   font-stretch: normal;
@@ -164,7 +135,7 @@ export const GlobalStyle = createGlobalStyle`
   letter-spacing: normal;
 }
 .KRDisplay-3 {
-  font-family: 'Noto Sans KR';
+
   font-size: 24px;
   font-weight: bold;
   font-stretch: normal;
@@ -173,7 +144,7 @@ export const GlobalStyle = createGlobalStyle`
   letter-spacing: normal;
 }
 .KRHeadline-1 {
-  font-family:'Noto Sans KR';
+
   font-size: 20px;
   font-weight: bold;
   font-stretch: normal;
@@ -182,7 +153,7 @@ export const GlobalStyle = createGlobalStyle`
   letter-spacing: normal;
 }
 .KRBody-1 {
-  font-family:'Noto Sans KR';
+
   font-size: 20px;
   font-weight: normal;
   font-stretch: normal;
@@ -191,7 +162,7 @@ export const GlobalStyle = createGlobalStyle`
   letter-spacing: normal;
 }
 .KRHeadline-2 {
-  font-family: 'Noto Sans KR';
+
   font-size: 18px;
   font-weight: bold;
   font-stretch: normal;
@@ -200,7 +171,7 @@ export const GlobalStyle = createGlobalStyle`
   letter-spacing: normal;
 }
 .KRBody-2 {
-  font-family: 'Noto Sans KR';
+
   font-size: 18px;
   font-weight: normal;
   font-stretch: normal;
@@ -209,7 +180,7 @@ export const GlobalStyle = createGlobalStyle`
   letter-spacing: normal;
 }
 .KRHeadline-3 {
-  font-family: 'Noto Sans KR';
+
   font-size: 15px;
   font-weight: bold;
   font-stretch: normal;
@@ -218,7 +189,7 @@ export const GlobalStyle = createGlobalStyle`
   letter-spacing: normal;
 }
 .KRBody-3 {
-  font-family: 'Noto Sans KR';
+
   font-size: 15px;
   font-weight: normal;
   font-stretch: normal;
