@@ -75,9 +75,6 @@ export const Banner2 = () => (
           <br />
           온룸은 맞춤형 인테리어 기회를 제공합니다.
         </Text>
-        <Text className="ENBody-1 graywhite" style={Banner1Text3CSS}>
-          Make your own room
-        </Text>
       </Container>
     </Container>
   </Container>

@@ -1,6 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
+ 
   :root{
     width:100%;
     height: 100%;
@@ -88,7 +89,7 @@ export const GlobalStyle = createGlobalStyle`
   @font-face {
   font-family: NotoSansCJKKR;
   src: local(NotoSansCJKKR-Regular),
-    url(/path/to/NotoSansCJKKR-Regular.woff2) format("woff2"),
+    url(/path/to/NotoSansCJKKR-Regular.wof2) format("woff2"),
     url(/path/to/NotoSansCJKKR-Regular.woff) format("woff"),
     url(/path/to/NotoSansCJKKR-Regular.ttf) format("truetype");
   font-weight: normal;
@@ -117,7 +118,7 @@ export const GlobalStyle = createGlobalStyle`
 }
 
 .ENHeadline0{
-  font-family: Taviraj;
+  font-family: 궁서;
   font-size: 65px;
   font-weight: normal;
   font-stretch: normal;
@@ -126,7 +127,7 @@ export const GlobalStyle = createGlobalStyle`
   letter-spacing: normal;
 }
 .ENHeadline1 {
-  font-family: Taviraj;
+  font-family: 궁서;
   font-size: 36px;
   font-weight: 500;
   font-stretch: normal;
@@ -135,7 +136,7 @@ export const GlobalStyle = createGlobalStyle`
   letter-spacing: -0.36px;
 }
 .ENBody-1{
-  font-family: Taviraj;
+  font-family: 궁서;
   font-size: 24px;
   font-weight: 300;
   font-stretch: normal;
@@ -145,7 +146,7 @@ export const GlobalStyle = createGlobalStyle`
   text-align: left;
 }
 .KRDisplay-1 {
-  font-family: NotoSansCJKKR;
+  font-family: 궁서;
   font-size: 43px;
   font-weight: bold;
   font-stretch: normal;
@@ -154,7 +155,7 @@ export const GlobalStyle = createGlobalStyle`
   letter-spacing: normal;
 }
 .KRDisplay-2 {
-  font-family:'Noto Sans KR';
+  font-family:궁서;
   font-size: 34px;
   font-weight: bold;
   font-stretch: normal;
