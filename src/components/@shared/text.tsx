@@ -5,6 +5,5 @@ interface IText extends React.HTMLAttributes<HTMLElement> {
 }
 
 export const Text = styled.span`
-  all: unset;
   display: inline-block;
 `;
