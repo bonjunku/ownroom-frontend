@@ -2,7 +2,6 @@ import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
   :root{
-    background-color: var(--brand-yellow-001);
     width:100%;
     height: 100%;
  
@@ -69,6 +68,9 @@ export const GlobalStyle = createGlobalStyle`
   .gray007{
     color:var(--gray-gray-007)
   }
+  .graywhite{
+    color:var(--gray-white)
+  }
 
 
 
@@ -117,13 +119,14 @@ export const GlobalStyle = createGlobalStyle`
   font-style: italic;
   font-stretch: normal;
 }
-.KRDisplay-1 {
-  font-family: NotoSansCJKKR;
-  font-size: 43px;
-  font-weight: bold;
+
+.ENHeadline0{
+  font-family: Taviraj;
+  font-size: 65px;
+  font-weight: normal;
   font-stretch: normal;
-  font-style: normal;
-  line-height: 1.4;
+  font-style: italic;
+  line-height: 1.3;
   letter-spacing: normal;
 }
 .ENHeadline1 {
@@ -134,6 +137,25 @@ export const GlobalStyle = createGlobalStyle`
   font-style: italic;
   line-height: 1.28;
   letter-spacing: -0.36px;
+}
+.ENBody-1{
+  font-family: Taviraj;
+  font-size: 24px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.4;
+  letter-spacing: normal;
+  text-align: left;
+}
+.KRDisplay-1 {
+  font-family: NotoSansCJKKR;
+  font-size: 43px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.4;
+  letter-spacing: normal;
 }
 .KRDisplay-2 {
   font-family:'Noto Sans KR';

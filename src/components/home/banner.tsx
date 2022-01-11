@@ -1,160 +1,209 @@
 import React from 'react';
-import styled from 'styled-components';
-import { Container, IContainer } from '../@shared/container';
-
-// StyledBanner
-export const StyledBanner1 = styled.img`
-  height: 650px;
-  width: 1920px;
-`;
-export const StyledBanner2 = styled.div`
-  height: 620px;
-  width: 100%;
-  background-color: white;
-  display: flex;
-  justify-content: space-around;
-`;
-export const StyledBanner3 = styled.div`
-  height: 613px;
-  width: 100%;
-  background-color: var(--brand-yellow-001);
-  display: flex;
-  justify-content: space-around;
-`;
-
-// BannerText
-
-export const Banner2Text1 = styled.span`
-  margin-top: 195px;
-  color: var(--brand-orange-001);
-`;
-export const Banner2Text2 = styled.span`
-  margin-top: 30px;
-`;
-
-export const Banner3Text1 = styled.span`
-  margin-right: 92px;
-  margin-top: 195px;
-  color: var(--brand-orange-001);
-`;
-export const Banner3Text2 = styled.span`
-  margin-top: 30px;
-`;
-
-export const Banner4Text1 = styled.span`
-  margin-top: 195px;
-  color: var(--brand-orange-001);
-`;
-export const Banner4Text2 = styled.span`
-  margin-top: 30px;
-`;
-
-// BannerImg
-
-export const BannerImg = styled.img`
-  width: 850px;
-  height: 420px;
-  margin-top: 100px;
-`;
+import styled, { CSSProperties } from 'styled-components';
+import { Container } from '../@shared/container';
+import { Img } from '../@shared/img';
+import { Text } from '../@shared/text';
 
 export const Banner1 = () => (
-  <StyledBanner1
-    src={process.env.PUBLIC_URL + 'img/home/배너이미지.jpg'}
-  ></StyledBanner1>
+  <>
+    <Container height="80px" />
+    <Container height="600px" style={Banner1BackgroundCSS}>
+      <Container width="1920px" position="relative">
+        <Img
+          src={process.env.PUBLIC_URL + 'img/home/home1.jpg'}
+          style={Banner1ImgCSS}
+        />
+        <Container width="1136px" position="absolute">
+          <Text className="ENHeadline0 graywhite" style={Banner1Text1CSS}>
+            Home styling with ownroom
+          </Text>
+          <Text className="KRBody-1 graywhite" style={Banner1Text2CSS}>
+            누구나 나 다운 집에 살 수 있도록
+          </Text>
+          <Text className="ENBody-1 graywhite" style={Banner1Text3CSS}>
+            Make your own room
+          </Text>
+        </Container>
+      </Container>
+    </Container>
+  </>
 );
 
-// BannerButton
-export const BannerButton = styled.button`
-  margin-top: 24px;
-  width: 162px;
-  height: 42px;
-  flex-grow: 0;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  padding: 8px 16px 6px;
-  border-radius: 10px;
-  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.08);
-  border: solid 1px var(--brand-orange-001);
-  background-color: var(--brand-orange-001);
-  color: var(--gray-white);
-`;
+const Banner1BackgroundCSS: CSSProperties = {
+  backgroundColor: 'var(--brand-yellow-001)',
+};
+
+const Banner1ImgCSS: CSSProperties = {
+  position: 'absolute',
+};
+
+const Banner1Text1CSS: CSSProperties = {
+  position: 'absolute',
+  top: '58px',
+  left: 0,
+};
+const Banner1Text2CSS: CSSProperties = {
+  position: 'absolute',
+  top: '200px',
+  left: 0,
+};
+const Banner1Text3CSS: CSSProperties = {
+  position: 'absolute',
+  top: '238px',
+  left: 0,
+};
 
 export const Banner2 = () => (
-  <StyledBanner2>
-    <Container width={'1440px'} height={'620px'}>
-      <Container width={'100%'} direction={'left'} flexDirection="column">
-        <Banner2Text1 className="KRDisplay-2">
-          1인가구에게 알맞는
+  <Container height="480px">
+    <Container width="1920px" position="relative">
+      <Container width="1136px" position="absolute">
+        <Img
+          src={process.env.PUBLIC_URL + 'img/home/home3.jpg'}
+          width="600px"
+          height="340px"
+          style={Banner2ImgCSS}
+        />
+        <Text className="KRDisplay-2 orange001" style={Banner2Text1CSS}>
+          1인 가구에게 알맞은
           <br />
           일대일 인테리어 컨설팅 서비스
-        </Banner2Text1>
-        <Banner2Text2 className="KRBody-2">
+        </Text>
+        <Text className="KRBody-2 gray002" style={Banner2Text2CSS}>
           부담이 적은 무시공만으로 나만의 공간을 바꿔보세요.
           <br />
-          각자의 방에서 더 의미있는 시간을 보낼 수 있도록
+          각자의 방에서 더 의미 있는 시간을 보낼 수 있도록
           <br />
           온룸은 맞춤형 인테리어 기회를 제공합니다.
-        </Banner2Text2>
-      </Container>
-      <Container direction={'right'} width={'100%'}>
-        <BannerImg
-          src={process.env.PUBLIC_URL + 'img/home/배너이미지.jpg'}
-        ></BannerImg>
+        </Text>
+        <Text className="ENBody-1 graywhite" style={Banner1Text3CSS}>
+          Make your own room
+        </Text>
       </Container>
     </Container>
-  </StyledBanner2>
+  </Container>
 );
+
+const Banner2ImgCSS: CSSProperties = {
+  position: 'absolute',
+  right: 0,
+};
+
+const Banner2Text1CSS: CSSProperties = {
+  position: 'absolute',
+  top: '126px',
+  left: 0,
+};
+
+const Banner2Text2CSS: CSSProperties = {
+  position: 'absolute',
+  top: '258px',
+  left: 0,
+};
 
 export const Banner3 = () => (
-  <StyledBanner3>
-    <Container width="1440px">
-      <Container>
-        <BannerImg
-          src={process.env.PUBLIC_URL + 'img/home/배너이미지.jpg'}
-        ></BannerImg>
-      </Container>
-      <Container width="100%" direction="right" flexDirection="column">
-        <Banner3Text1 className="KRDisplay-2">
+  <Container height="480px" style={Banner3BackgroundCSS}>
+    <Container width="1920px" position="relative">
+      <Container width="1136px" position="absolute">
+        <Img
+          src={process.env.PUBLIC_URL + 'img/home/home4.jpg'}
+          width="600px"
+          height="340px"
+          style={Banner3ImgCSS}
+        />
+        <Text className="KRDisplay-2 orange001" style={Banner3Text1CSS}>
           내가 원하는 스타일의
-          <br /> 컨설턴트를 골라보세요.
-        </Banner3Text1>
-        <Banner3Text2 className="KRBody-2">
-          온룸은 내가 원하는 컨설턴트를 직접 선택할 수 있어요.
           <br />
+          컨설턴트를 골라보세요.
+        </Text>
+        <Text className="KRBody-2 gray002" style={Banner3Text2CSS}>
+          온룸은 내가 원하는 컨설턴트를 직접 선택할 수 있어요. <br />
           다양한 스타일의 포트폴리오를 확인한 후 내가 선택한
-          <br />
-          컨설턴트와 함께 나만의 공간을 꾸며보세요!
-        </Banner3Text2>
+          <br /> 컨설턴트와 함께 나만의 공간을 꾸며보세요!
+        </Text>
       </Container>
     </Container>
-  </StyledBanner3>
+  </Container>
 );
 
+const Banner3BackgroundCSS: CSSProperties = {
+  backgroundColor: 'var(--brand-yellow-001)',
+};
+
+const Banner3ImgCSS: CSSProperties = {
+  position: 'absolute',
+  left: 0,
+};
+
+const Banner3Text1CSS: CSSProperties = {
+  position: 'absolute',
+  top: '126px',
+  right: '79px',
+};
+
+const Banner3Text2CSS: CSSProperties = {
+  position: 'absolute',
+  top: '258px',
+  right: '15px',
+};
+
 export const Banner4 = () => (
-  <StyledBanner2>
-    <Container width={'1440px'} height={'620px'}>
-      <Container width={'100%'} direction={'left'} flexDirection="column">
-        <Banner4Text1 className="KRDisplay-2">
-          누구나 컨설턴트가
-          <br />될 수 있습니다.
-        </Banner4Text1>
-        <Banner4Text2 className="KRBody-2">
-          인테리어에 관심이 많고 자신만의 노하우가 있다면
-          <br />
+  <Container height="480px">
+    <Container width="1920px" position="relative">
+      <Container width="1136px" position="absolute">
+        <Img
+          src={process.env.PUBLIC_URL + 'img/home/home2.jpg'}
+          width="600px"
+          height="340px"
+          style={Banner4ImgCSS}
+        />
+        <Text className="KRDisplay-2 orange001" style={Banner4Text1CSS}>
+          누구나 컨설턴트가 <br />될 수 있습니다.
+        </Text>
+        <Text className="KRBody-2 gray002" style={Banner4Text2CSS}>
+          인테리어에 관심이 많고 자신만의 노하우가 있다면 <br />
           누구나 컨설턴트 신청이 가능합니다.
-          <br />
-          온룸에서 나만의 컨설팅을 직접 진행해 보세요.
-        </Banner4Text2>
-        <BannerButton className="">컨설턴트 신청하기</BannerButton>
-      </Container>
-      <Container direction={'right'} width={'100%'}>
-        <BannerImg
-          src={process.env.PUBLIC_URL + 'img/home/배너이미지.jpg'}
-        ></BannerImg>
+          <br /> 온룸에서 나만의 컨설팅을 직접 진행해 보세요.
+        </Text>
+        <Banner4Button>
+          <Text className="KRHeadline-2 graywhite">컨설팅 신청</Text>
+        </Banner4Button>
       </Container>
     </Container>
-  </StyledBanner2>
+  </Container>
 );
+
+const Banner4Button = styled.button`
+  cursor: pointer;
+  position: absolute;
+  top: 343px;
+  left: 0;
+  width: 119px;
+  height: 44px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 10px;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.08);
+  background-color: var(--brand-orange-001);
+`;
+
+const Banner4ImgCSS: CSSProperties = {
+  position: 'absolute',
+  right: 0,
+};
+
+const Banner4Text1CSS: CSSProperties = {
+  position: 'absolute',
+  top: '83px',
+  left: 0,
+};
+
+const Banner4Text2CSS: CSSProperties = {
+  position: 'absolute',
+  top: '215px',
+  left: 0,
+};

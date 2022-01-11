@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import styled, { CSSProperties } from 'styled-components';
 import { Container } from './container';
 import { Img } from './img';
@@ -8,7 +7,12 @@ import { Text } from './text';
 
 export const Navbar = () => {
   return (
-    <Container height="80px" position="fixed" mobileheight="1000px">
+    <Container
+      height="80px"
+      position="fixed"
+      mobileheight="1000px"
+      style={navbarCSS}
+    >
       <Container width="1920px">
         <Container width="1136px" position="relative">
           <StyledLink to="/" style={logoCSS}>
@@ -39,6 +43,11 @@ export const Navbar = () => {
   );
 };
 
+const navbarCSS: CSSProperties = {
+  zIndex: 1,
+  backgroundColor: 'var(--gray-white)',
+};
+
 const Consultant = styled.div`
   display: flex;
 `;
@@ -50,7 +59,7 @@ const consultantCSS: CSSProperties = {
 
 const SubConsultant = styled.div`
   margin-left: 24px;
-  border-left: 2px solid;
+  border-left: 2px solid #aaaaad;
   padding-left: 24px;
   ${Consultant}:not(:hover) & {
     display: none;

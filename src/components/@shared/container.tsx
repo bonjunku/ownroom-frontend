@@ -18,9 +18,9 @@ export const Container = styled.div<IContainer>`
   justify-content: center;
   align-items: center;
 
-  @media all and (max-width: 1440px) {
+  @media all and (max-width: 1136px) {
     width: 100%;
   }
 
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
 `;
