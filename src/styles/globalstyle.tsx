@@ -1,7 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
- 
+
   :root{
     width:100%;
     height: 100%;
@@ -89,7 +89,7 @@ export const GlobalStyle = createGlobalStyle`
 
 
 .ENHeadline0{
-
+  font-family: Taviraj;
   font-size: 65px;
   font-weight: normal;
   font-stretch: normal;
@@ -98,7 +98,7 @@ export const GlobalStyle = createGlobalStyle`
   letter-spacing: normal;
 }
 .ENHeadline1 {
-
+  font-family: Taviraj;
   font-size: 36px;
   font-weight: 500;
   font-stretch: normal;
@@ -107,7 +107,7 @@ export const GlobalStyle = createGlobalStyle`
   letter-spacing: -0.36px;
 }
 .ENBody-1{
-  
+  font-family: Taviraj;
   font-size: 24px;
   font-weight: 300;
   font-stretch: normal;
@@ -117,7 +117,7 @@ export const GlobalStyle = createGlobalStyle`
   text-align: left;
 }
 .KRDisplay-1 {
-  
+  font-family: Noto Sans KR;
   font-size: 43px;
   font-weight: bold;
   font-stretch: normal;
@@ -126,7 +126,7 @@ export const GlobalStyle = createGlobalStyle`
   letter-spacing: normal;
 }
 .KRDisplay-2 {
-
+  font-family: Noto Sans KR;
   font-size: 34px;
   font-weight: bold;
   font-stretch: normal;
@@ -135,7 +135,7 @@ export const GlobalStyle = createGlobalStyle`
   letter-spacing: normal;
 }
 .KRDisplay-3 {
-
+  font-family: Noto Sans KR;
   font-size: 24px;
   font-weight: bold;
   font-stretch: normal;
@@ -144,7 +144,7 @@ export const GlobalStyle = createGlobalStyle`
   letter-spacing: normal;
 }
 .KRHeadline-1 {
-
+  font-family: Noto Sans KR;
   font-size: 20px;
   font-weight: bold;
   font-stretch: normal;
@@ -153,7 +153,7 @@ export const GlobalStyle = createGlobalStyle`
   letter-spacing: normal;
 }
 .KRBody-1 {
-
+  font-family: Noto Sans KR;
   font-size: 20px;
   font-weight: normal;
   font-stretch: normal;
@@ -162,7 +162,7 @@ export const GlobalStyle = createGlobalStyle`
   letter-spacing: normal;
 }
 .KRHeadline-2 {
-
+  font-family: Noto Sans KR;
   font-size: 18px;
   font-weight: bold;
   font-stretch: normal;
@@ -171,7 +171,7 @@ export const GlobalStyle = createGlobalStyle`
   letter-spacing: normal;
 }
 .KRBody-2 {
-
+  font-family: Noto Sans KR;
   font-size: 18px;
   font-weight: normal;
   font-stretch: normal;
@@ -180,7 +180,7 @@ export const GlobalStyle = createGlobalStyle`
   letter-spacing: normal;
 }
 .KRHeadline-3 {
-
+  font-family: Noto Sans KR;
   font-size: 15px;
   font-weight: bold;
   font-stretch: normal;
@@ -188,8 +188,8 @@ export const GlobalStyle = createGlobalStyle`
   line-height: 1.8;
   letter-spacing: normal;
 }
-.KRBody-3 {
-
+.KRBody-3 { 
+  font-family: Noto Sans KR;
   font-size: 15px;
   font-weight: normal;
   font-stretch: normal;
