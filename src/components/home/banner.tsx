@@ -18,7 +18,7 @@ export const Banner1 = () => (
             Home styling with ownroom
           </Text>
           <Text className="KRBody-1 graywhite" style={Banner1Text2CSS}>
-            누구나 나 다운 집에 살 수 있도록
+            누구나 나다운 집에 살 수 있도록
           </Text>
           <Text className="ENBody-1 graywhite" style={Banner1Text3CSS}>
             Make your own room
