@@ -1,0 +1,211 @@
+import { createGlobalStyle } from 'styled-components';
+
+export const GlobalStyle = createGlobalStyle`
+  :root{
+    background-color: var(--brand-yellow-001);
+    width:100%;
+    height: 100%;
+ 
+  /* Color */
+  --brand-orange-001: #ff9a62;
+  --brand-orange-003: #ffe7d9;
+  --brand-orange-002: #ffb78e;
+  --brand-orange-004: #ffefe7;
+  --brand-orange-005: #fcfaf7;
+  --brand-yellow-001: #f8f6ea;
+  --gray-gray-001: #353535;
+  --brand-red-001: #ff3e3e;
+  --dark: rgba(0, 0, 0, 0.5);
+  --gray-gray-002: #737373;
+  --gray-gray-003: #aaaaad;
+  --gray-gray-004: #d0d0d3;
+  --gray-gray-005: #e8e8eb;
+  --gray-white: #fff;
+  --gray-gray-007: #fafafa;
+  --gray-gray-006: #f3f3f4;
+  }
+  .orange001{
+    color:var(--brand-orange-001)
+  }
+  .orange002{
+    color:var(--brand-orange-002)
+  }
+  .orange003{
+    color:var(--brand-orange-003);
+  }
+  .orange004{
+    color:var(--brand-orange-004);
+  }
+  .orange005{
+    color:var(--brand-orange-005);
+  }
+  .yellow001{
+    color:var(--brand-yellow-001)
+  }
+  .red001{
+    color:var(--brand-red-001)
+  }
+  .dark{
+    color:var(--dark)
+  }
+  .gray001{
+    color:var(--gray-gray-001)
+  }
+  .gray002{
+    color:var(--gray-gray-002)
+  }
+  .gray003{
+    color:var(--gray-gray-003)
+  }
+  .gray004{
+    color:var(--gray-gray-004)
+  }
+  .gray005{
+    color:var(--gray-gray-005)
+  }
+  .gray006{
+    color:var(--gray-gray-006)
+  }
+  .gray007{
+    color:var(--gray-gray-007)
+  }
+
+
+
+
+
+  body{
+    width:100%;
+    height:100%;
+    overflow-y:scroll;
+  }
+
+  * {
+    padding:0px;
+    margin:0px;
+    box-sizing:border-box; 
+  }
+
+  /* font */
+  @font-face {
+  font-family: NotoSansCJKKR;
+  src: local(NotoSansCJKKR-Regular),
+    url(/path/to/NotoSansCJKKR-Regular.woff2) format("woff2"),
+    url(/path/to/NotoSansCJKKR-Regular.woff) format("woff"),
+    url(/path/to/NotoSansCJKKR-Regular.ttf) format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+}
+@font-face {
+  font-family: NotoSansCJKKR;
+  src: local(NotoSansCJKKR-Bold),
+    url(/path/to/NotoSansCJKKR-Bold.woff2) format("woff2"),
+    url(/path/to/NotoSansCJKKR-Bold.woff) format("woff"),
+    url(/path/to/NotoSansCJKKR-Bold.ttf) format("truetype");
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+}
+@font-face {
+  font-family: Taviraj;
+  src: local(Taviraj-MediumItalic),
+    url(/path/to/Taviraj-MediumItalic.woff2) format("woff2"),
+    url(/path/to/Taviraj-MediumItalic.woff) format("woff"),
+    url(/path/to/Taviraj-MediumItalic.ttf) format("truetype");
+  font-weight: 500;
+  font-style: italic;
+  font-stretch: normal;
+}
+.KRDisplay-1 {
+  font-family: NotoSansCJKKR;
+  font-size: 43px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.4;
+  letter-spacing: normal;
+}
+.ENHeadline1 {
+  font-family: Taviraj;
+  font-size: 36px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: italic;
+  line-height: 1.28;
+  letter-spacing: -0.36px;
+}
+.KRDisplay-2 {
+  font-family:'Noto Sans KR';
+  font-size: 34px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.29;
+  letter-spacing: normal;
+}
+.KRDisplay-3 {
+  font-family: 'Noto Sans KR';
+  font-size: 24px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+}
+.KRHeadline-1 {
+  font-family:'Noto Sans KR';
+  font-size: 20px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.6;
+  letter-spacing: normal;
+}
+.KRBody-1 {
+  font-family:'Noto Sans KR';
+  font-size: 20px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.6;
+  letter-spacing: normal;
+}
+.KRHeadline-2 {
+  font-family: 'Noto Sans KR';
+  font-size: 18px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.56;
+  letter-spacing: normal;
+}
+.KRBody-2 {
+  font-family: 'Noto Sans KR';
+  font-size: 18px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.78;
+  letter-spacing: normal;
+}
+.KRHeadline-3 {
+  font-family: 'Noto Sans KR';
+  font-size: 15px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.8;
+  letter-spacing: normal;
+}
+.KRBody-3 {
+  font-family: 'Noto Sans KR';
+  font-size: 15px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.67;
+  letter-spacing: normal;
+}
+  
+`;

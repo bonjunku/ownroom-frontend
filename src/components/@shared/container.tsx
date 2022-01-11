@@ -1,35 +1,26 @@
 import styled from 'styled-components';
 
-export interface IContainer {
+interface IContainer {
+  type?: 'column' | 'row';
   width?: string;
   height?: string;
-  direction?: 'right' | 'left' | 'center';
-  flexDirection?: 'column' | 'row';
-  option?: string;
+  position?: 'static' | 'relative' | 'absolute' | 'fixed';
+  mobileheight?: string;
 }
 
 export const Container = styled.div<IContainer>`
-  ${({ width, height }) => {
-    return `
-     width: ${width};
-     height: ${height};
-   `;
-  }}
-  ${({ direction }) => {
-    return `
-      display:flex;
-      justify-content:${direction};
-    `;
-  }}
-  ${({ flexDirection }) => {
-    return `
-      flex-direction:${flexDirection};
-    `;
-  }}
+  position: ${({ position }) => position || 'static'};
+  width: ${({ width }) => width || '100%'};
+  height: ${({ height }) => height || '100%'};
 
-  /* border: 1px solid blue; */
   display: flex;
-  ${({ option }) => {
-    return `${option};`;
-  }}
+  flex-direction: ${({ type }) => type || 'row'};
+  justify-content: center;
+  align-items: center;
+
+  @media all and (max-width: 1440px) {
+    width: 100%;
+  }
+
+  border: 1px solid blue;
 `;
