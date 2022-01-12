@@ -191,7 +191,10 @@ const Banner4Text2CSS: CSSProperties = {
 export const Banner5 = () => (
   <Container height="466px">
     <Container width="1920px">
-      <Img src={process.env.PUBLIC_URL + 'img/home/home5.jpg'}></Img>
+      <Img
+        src={process.env.PUBLIC_URL + 'img/home/home5.jpg'}
+        height="466px"
+      ></Img>
     </Container>
   </Container>
 );
@@ -200,7 +203,10 @@ export const Banner6 = () => (
   <Container type="column">
     <Container height="60px"></Container>
     <Container width="1920px">
-      <Img src={process.env.PUBLIC_URL + 'img/home/home6.jpg'}></Img>
+      <Img
+        src={process.env.PUBLIC_URL + 'img/home/home6.jpg'}
+        height="660px"
+      ></Img>
     </Container>
   </Container>
 );
