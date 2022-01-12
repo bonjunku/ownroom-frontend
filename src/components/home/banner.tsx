@@ -187,3 +187,28 @@ const Banner4Text2CSS: CSSProperties = {
   top: '215px',
   left: 0,
 };
+
+export const Banner5 = () => (
+  <Container height="466px">
+    <Container width="1920px">
+      <Img src={process.env.PUBLIC_URL + 'img/home/home5.jpg'}></Img>
+    </Container>
+  </Container>
+);
+
+export const Banner6 = () => (
+  <Container type="column">
+    <Container height="60px"></Container>
+    <Container width="1920px">
+      <Img src={process.env.PUBLIC_URL + 'img/home/home6.jpg'}></Img>
+    </Container>
+  </Container>
+);
+
+export const Footer = () => (
+  <Container height="300px" style={FooterCSS}></Container>
+);
+
+const FooterCSS: CSSProperties = {
+  backgroundColor: 'var(--brand-yellow-001)',
+};

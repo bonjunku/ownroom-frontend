@@ -6,6 +6,9 @@ import {
   Banner2,
   Banner3,
   Banner4,
+  Banner5,
+  Banner6,
+  Footer,
 } from '../../components/home/banner';
 
 const Home = () => (
@@ -16,6 +19,9 @@ const Home = () => (
     <Banner4 />
     <ConsultantTitle />
     <Portfolio />
+    <Banner5 />
+    <Banner6 />
+    <Footer />
   </>
 );
 
