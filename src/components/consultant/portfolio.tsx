@@ -87,7 +87,6 @@ const StyledPortfolioItem = styled.div`
   height: 481px;
   /* border: 1px red solid; */
   position: relative;
-  margin: auto;
 `;
 
 const PortfolioThumbnail = styled.img``;
