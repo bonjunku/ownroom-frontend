@@ -1,4 +1,6 @@
 import React from 'react';
+import { Portfolio } from '../../components/consultant/consultantNavbar';
+import { ConsultantTitle } from '../../components/consultant/consultantTitle';
 import {
   Banner1,
   Banner2,
@@ -12,6 +14,8 @@ const Home = () => (
     <Banner2 />
     <Banner3 />
     <Banner4 />
+    <ConsultantTitle />
+    <Portfolio />
   </>
 );
 

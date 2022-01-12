@@ -5,7 +5,12 @@ interface IContainer {
   width?: string;
   height?: string;
   position?: 'static' | 'relative' | 'absolute' | 'fixed';
-  mobileheight?: string;
+  justifyContent?:
+    | 'center'
+    | 'right'
+    | 'left'
+    | 'space-between'
+    | 'space-evenly';
 }
 
 export const Container = styled.div<IContainer>`
@@ -15,7 +20,7 @@ export const Container = styled.div<IContainer>`
 
   display: flex;
   flex-direction: ${({ type }) => type || 'row'};
-  justify-content: center;
+  justify-content: ${({ justifyContent }) => justifyContent || 'center'};
   align-items: center;
 
   @media all and (max-width: 1136px) {
