@@ -11,17 +11,13 @@ export const Portfolio = () => {
     <Container type="column">
       <Container width="1920px">
         <Container width="1136px" justifyContent="left">
-          <Container
-            width="362px"
-            justifyContent="space-between"
-            className="KRHeadline-1 gray002"
-          >
+          <PortfolioNavbar className="KRHeadline-1 gray002">
             <Text>모던</Text>
             <Text>미니멀</Text>
             <Text>내츄럴</Text>
             <Text>앤틱</Text>
             <Text>북유럽</Text>
-          </Container>
+          </PortfolioNavbar>
         </Container>
       </Container>
       <Container width="1920px">
@@ -44,6 +40,12 @@ export const Portfolio = () => {
     </Container>
   );
 };
+
+const PortfolioNavbar = styled.div`
+  width: 362px;
+  display: flex;
+  justify-content: space-between;
+`;
 
 const PortfolioItemContainerCSS: CSSProperties = {
   paddingTop: '40px',
@@ -115,6 +117,6 @@ const DividingLine = styled.div`
   width: 360px;
   height: 1px;
   background-color: var(--gray-gray-004);
-  margin-top: 5px;
+  margin-top: 8px;
   margin-bottom: 11px;
 `;
