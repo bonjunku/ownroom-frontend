@@ -7,12 +7,7 @@ import { Text } from './text';
 
 export const Navbar = () => {
   return (
-    <Container
-      height="80px"
-      position="fixed"
-      mobileheight="1000px"
-      style={navbarCSS}
-    >
+    <Container height="80px" position="fixed" style={navbarCSS}>
       <Container width="1920px">
         <Container width="1136px" position="relative">
           <StyledLink to="/" style={logoCSS}>
@@ -24,12 +19,12 @@ export const Navbar = () => {
           <Consultant style={consultantCSS}>
             <Text className="KRHeadline-2 gray002">컨설턴트</Text>
             <SubConsultant>
-              <StyledLink to="/menu2" style={subconsultantCSS}>
+              <StyledLink to="/consultant/portfolios" style={subconsultantCSS}>
                 <Text className="KRHeadline-3 gray003">
                   포트폴리오 둘러보기
                 </Text>
               </StyledLink>
-              <StyledLink to="/menu3">
+              <StyledLink to="/consultant/apply">
                 <Text className="KRHeadline-3 gray003">컨설턴트 신청하기</Text>
               </StyledLink>
             </SubConsultant>
