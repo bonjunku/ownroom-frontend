@@ -13,6 +13,7 @@ export const Navbar = () => {
           <StyledLink to="/" style={logoCSS}>
             <Img
               src={process.env.PUBLIC_URL + '/img/home/logo_symbol.png'}
+              width="100px"
               height="27.1px"
             />
           </StyledLink>
