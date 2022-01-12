@@ -8,7 +8,6 @@ import {
   Banner4,
   Banner5,
   Banner6,
-  Footer,
 } from '../../components/home/banner';
 
 const Home = () => (
@@ -21,7 +20,6 @@ const Home = () => (
     <Portfolio />
     <Banner5 />
     <Banner6 />
-    <Footer />
   </>
 );
 

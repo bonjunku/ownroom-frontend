@@ -204,11 +204,3 @@ export const Banner6 = () => (
     </Container>
   </Container>
 );
-
-export const Footer = () => (
-  <Container height="300px" style={FooterCSS}></Container>
-);
-
-const FooterCSS: CSSProperties = {
-  backgroundColor: 'var(--brand-yellow-001)',
-};
