@@ -142,7 +142,7 @@ const Banner3Text1CSS: CSSProperties = {
 const Banner3Text2CSS: CSSProperties = {
   position: 'absolute',
   top: '258px',
-  right: '15px',
+  right: '13px',
 };
 
 export const Banner4 = () => (
