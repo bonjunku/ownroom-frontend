@@ -1,5 +1,6 @@
 import React from 'react';
 import styled, { CSSProperties } from 'styled-components';
+import { Button } from '../@shared/buttons';
 import { Container } from '../@shared/container';
 import { Img } from '../@shared/img';
 import { Text } from '../@shared/text';
@@ -10,6 +11,7 @@ export const Banner1 = () => (
     <Container height="600px" style={Banner1BackgroundCSS}>
       <Container width="1920px" position="relative">
         <Img
+          width="1920px"
           src={process.env.PUBLIC_URL + 'img/home/home1.jpg'}
           style={Banner1ImgCSS}
         />
@@ -161,32 +163,13 @@ export const Banner4 = () => (
           누구나 컨설턴트 신청이 가능합니다.
           <br /> 온룸에서 나만의 컨설팅을 직접 진행해 보세요.
         </Text>
-        <Banner4Button>
+        <Button width="119px" height="44px" top="343px" left="0">
           <Text className="KRHeadline-2 graywhite">컨설팅 신청</Text>
-        </Banner4Button>
+        </Button>
       </Container>
     </Container>
   </Container>
 );
-
-const Banner4Button = styled.button`
-  cursor: pointer;
-  position: absolute;
-  top: 343px;
-  left: 0;
-  width: 119px;
-  height: 44px;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: flex-start;
-  gap: 10px;
-  border: none;
-  padding: 8px 16px;
-  border-radius: 8px;
-  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.08);
-  background-color: var(--brand-orange-001);
-`;
 
 const Banner4ImgCSS: CSSProperties = {
   position: 'absolute',

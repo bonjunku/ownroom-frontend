@@ -22,6 +22,7 @@ export const Container = styled.div<IContainer>`
   flex-direction: ${({ type }) => type || 'row'};
   justify-content: ${({ justifyContent }) => justifyContent || 'center'};
   align-items: center;
+  overflow: hidden;
 
   @media all and (max-width: 1136px) {
     width: 100%;
