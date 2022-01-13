@@ -164,7 +164,7 @@ export const Banner4 = () => (
           <br /> 온룸에서 나만의 컨설팅을 직접 진행해 보세요.
         </Text>
         <Button width="119px" height="44px" top="343px" left="0">
-          <Text className="KRHeadline-2 graywhite">컨설팅 신청</Text>
+          <Text className="KRHeadline-2 graywhite">컨설턴트 신청하기</Text>
         </Button>
       </Container>
     </Container>
