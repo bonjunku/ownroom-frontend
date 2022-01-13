@@ -16,7 +16,7 @@ export const Banner1 = () => (
           style={Banner1ImgCSS}
         />
         <Container width="1136px" position="absolute">
-          <Text className="ENHeadline0 graywhite" style={Banner1Text1CSS}>
+          <Text className="ENHeadline-0 graywhite" style={Banner1Text1CSS}>
             Home styling with ownroom
           </Text>
           <Text className="KRBody-1 graywhite" style={Banner1Text2CSS}>

@@ -16,11 +16,11 @@ export const ConsultantPortfolios = () => {
         />
         <Text
           style={ConsultantPortfoliosText1CSS}
-          className="ENHeadline1 gray001"
+          className="ENHeadline-1 gray001"
         >
           Consultant Portfolio
         </Text>
-        <Text style={ConsultantPortfoliosText2CSS} className="gray001">
+        <Text style={ConsultantPortfoliosText2CSS} className="KRBody-2 gray001">
           다양한 컨설턴트의 포트폴리오를 둘러보세요.
         </Text>
       </Container>

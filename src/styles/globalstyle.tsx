@@ -88,7 +88,7 @@ export const GlobalStyle = createGlobalStyle`
   /* font */
 
 
-.ENHeadline0{
+.ENHeadline-0{
   font-family: Taviraj;
   font-size: 65px;
   font-weight: normal;
@@ -97,7 +97,7 @@ export const GlobalStyle = createGlobalStyle`
   line-height: 1.3;
   letter-spacing: normal;
 }
-.ENHeadline1 {
+.ENHeadline-1 {
   font-family: Taviraj;
   font-size: 36px;
   font-weight: 500;
