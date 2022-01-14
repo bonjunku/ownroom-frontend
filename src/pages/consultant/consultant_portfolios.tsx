@@ -7,7 +7,6 @@ import { CSSProperties } from 'styled-components';
 export const ConsultantPortfolios = () => {
   return (
     <>
-      <Container height="80px" />
       <Container height="300px" position="relative">
         <Img
           src={

@@ -9,6 +9,7 @@ import { Banner1, Banner2 } from './components/home/banner';
 import { Portfolio } from './components/consultant/portfolio';
 import { Footer } from './components/@shared/footer';
 import { ConsultantPortfolios } from './pages/consultant/consultant_portfolios';
+import { Container } from './components/@shared/container';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <GlobalStyle />
       <BrowserRouter>
         <Navbar />
+        <Container height="80px" />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="consultant">

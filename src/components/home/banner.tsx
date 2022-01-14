@@ -7,7 +7,6 @@ import { Text } from '../@shared/text';
 
 export const Banner1 = () => (
   <>
-    <Container height="80px" />
     <Container height="600px" style={Banner1BackgroundCSS}>
       <Container width="1920px" position="relative">
         <Img
