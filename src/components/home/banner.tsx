@@ -162,7 +162,7 @@ export const Banner4 = () => (
           누구나 컨설턴트 신청이 가능합니다.
           <br /> 온룸에서 나만의 컨설팅을 직접 진행해 보세요.
         </Text>
-        <Button width="119px" height="44px" top="343px" left="0">
+        <Button width="169px" height="44px" top="343px" left="0">
           <Text className="KRHeadline-2 graywhite">컨설턴트 신청하기</Text>
         </Button>
       </Container>
