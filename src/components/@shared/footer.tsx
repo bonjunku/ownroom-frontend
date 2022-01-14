@@ -99,13 +99,12 @@ const FooterFormDownloadMenuCSS: CSSProperties = {
 
 const FooterInstaIconCSS: CSSProperties = {
   position: `absolute`,
-  right: '163px',
+  right: '166px',
   top: '65px',
 };
 
 const FooterInstaLink = styled.div`
-  border: 1px red solid;
-  width: 155px;
+  width: 184px;
   height: 32px;
   position: absolute;
   top: 56px;

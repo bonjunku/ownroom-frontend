@@ -56,7 +56,9 @@ export const PortfolioItem = () => {
   return (
     <StyledPortfolioItem>
       <PortfolioThumbnailContainer>
-        <PortfolioThumbnail src="https://user-images.githubusercontent.com/62752488/149134308-b3295031-3ac2-4e59-9238-82abd3758b02.png"></PortfolioThumbnail>
+        <PortfolioThumbnail
+          src={process.env.PUBLIC_URL + '/img/home/home6.jpg'}
+        ></PortfolioThumbnail>
       </PortfolioThumbnailContainer>
       <Text className="KRHeadline-1 gray001">
         원룸에서도 느낄 수 있는 유러피안 감성
