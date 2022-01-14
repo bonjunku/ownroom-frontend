@@ -6,7 +6,7 @@ import { wrap } from 'cheerio/lib/api/manipulation';
 import { Img } from '../@shared/img';
 import { Button } from '../@shared/buttons';
 
-export const Portfolio = () => {
+export const PortfolioList = () => {
   return (
     <Container type="column">
       <Container width="1920px">
@@ -54,31 +54,35 @@ const PortfolioItemContainerCSS: CSSProperties = {
 
 export const PortfolioItem = () => {
   return (
-    <StyledPortfolioItem>
-      <PortfolioThumbnailContainer>
-        <PortfolioThumbnail
-          src={process.env.PUBLIC_URL + '/img/home/home6.jpg'}
-        ></PortfolioThumbnail>
-      </PortfolioThumbnailContainer>
-      <Text className="KRHeadline-1 gray001">
-        원룸에서도 느낄 수 있는 유러피안 감성
-      </Text>
-      <DividingLine />
-      <Text className="KRHeadline-1 gray001" style={PortfolioInfo1CSS}>
-        hsummi
-      </Text>
-      <Text className="KRBody-3 gray002" style={PortfolioInfo2CSS}>
-        평당 3만원
-      </Text>
-      <Text className="KRBody-3 orange001">3명 가능</Text>
-      <Text className="KRBody-3 gray001" style={PortfolioBodyCSS}>
-        이곳에 보이는 최대 글자 공백포함 66자입니다 이곳에 보<br />
-        이는 최대 글자 공백포함 66자입니다 이곳에 보이는 글...
-      </Text>
-      <Button width="97px" height="33px" top="310px" right="0">
-        <Text className="KRHeadline-3 gray007">컨설팅 신청</Text>
-      </Button>
-    </StyledPortfolioItem>
+    <StyledLink to={'/'}>
+      <StyledPortfolioItem>
+        <PortfolioThumbnailContainer>
+          <PortfolioThumbnail
+            src={process.env.PUBLIC_URL + '/img/home/home6.jpg'}
+          ></PortfolioThumbnail>
+        </PortfolioThumbnailContainer>
+        <Text className="KRHeadline-1 gray001">
+          원룸에서도 느낄 수 있는 유러피안 감성
+        </Text>
+        <DividingLine />
+        <Text className="KRHeadline-1 gray001" style={PortfolioInfo1CSS}>
+          hsummi
+        </Text>
+        <Text className="KRBody-3 gray002" style={PortfolioInfo2CSS}>
+          평당 3만원
+        </Text>
+        <Text className="KRBody-3 orange001">3명 가능</Text>
+        <Text className="KRBody-3 gray001" style={PortfolioBodyCSS}>
+          이곳에 보이는 최대 글자 공백포함 66자입니다 이곳에 보<br />
+          이는 최대 글자 공백포함 66자입니다 이곳에 보이는 글...
+        </Text>
+        <StyledLink to="/login">
+          <Button width="97px" height="33px" top="310px" right="0">
+            <Text className="KRHeadline-3 gray007">컨설팅 신청</Text>
+          </Button>
+        </StyledLink>
+      </StyledPortfolioItem>
+    </StyledLink>
   );
 };
 

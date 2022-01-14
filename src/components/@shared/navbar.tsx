@@ -20,7 +20,10 @@ export const Navbar = () => {
           <Consultant style={consultantCSS}>
             <Text className="KRHeadline-2 gray002">컨설턴트</Text>
             <SubConsultant>
-              <StyledLink to="/consultant/portfolios" style={subconsultantCSS}>
+              <StyledLink
+                to="/consultant/portfolioList"
+                style={subconsultantCSS}
+              >
                 <Text className="KRHeadline-3 gray003">
                   포트폴리오 둘러보기
                 </Text>

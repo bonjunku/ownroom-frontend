@@ -6,9 +6,9 @@ import Home from './pages/home/home';
 import styled, { CSSProperties } from 'styled-components';
 import { Navbar } from './components/@shared/navbar';
 import { Banner1, Banner2 } from './components/home/banner';
-import { Portfolio } from './components/consultant/portfolio';
+import { PortfolioList } from './components/consultant/portfolio';
 import { Footer } from './components/@shared/footer';
-import { ConsultantPortfolios } from './pages/consultant/consultant_portfolios';
+import { ConsultantPortfolio } from './pages/consultant/consultant_portfolio';
 import { Container } from './components/@shared/container';
 
 function App() {
@@ -21,7 +21,10 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="consultant">
-            <Route path="portfolios" element={<ConsultantPortfolios />}></Route>
+            <Route
+              path="portfolioList"
+              element={<ConsultantPortfolio />}
+            ></Route>
           </Route>
         </Routes>
         <Footer />

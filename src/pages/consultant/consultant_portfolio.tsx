@@ -1,10 +1,10 @@
 import { Container } from '../../components/@shared/container';
 import { Img } from '../../components/@shared/img';
-import { Portfolio } from '../../components/consultant/portfolio';
+import { PortfolioList } from '../../components/consultant/portfolio';
 import { Text } from '../../components/@shared/text';
 import { CSSProperties } from 'styled-components';
 
-export const ConsultantPortfolios = () => {
+export const ConsultantPortfolio = () => {
   return (
     <>
       <Container height="300px" position="relative">
@@ -14,27 +14,27 @@ export const ConsultantPortfolios = () => {
           }
         />
         <Text
-          style={ConsultantPortfoliosText1CSS}
+          style={ConsultantPortfolioText1CSS}
           className="ENHeadline-1 gray001"
         >
           Consultant Portfolio
         </Text>
-        <Text style={ConsultantPortfoliosText2CSS} className="KRBody-2 gray001">
+        <Text style={ConsultantPortfolioText2CSS} className="KRBody-2 gray001">
           다양한 컨설턴트의 포트폴리오를 둘러보세요.
         </Text>
       </Container>
       <Container height="50px" />
-      <Portfolio></Portfolio>
+      <PortfolioList></PortfolioList>
     </>
   );
 };
 
-const ConsultantPortfoliosText1CSS: CSSProperties = {
+const ConsultantPortfolioText1CSS: CSSProperties = {
   position: 'absolute',
   top: '104px',
 };
 
-const ConsultantPortfoliosText2CSS: CSSProperties = {
+const ConsultantPortfolioText2CSS: CSSProperties = {
   position: 'absolute',
   top: '164px',
 };
