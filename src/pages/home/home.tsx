@@ -1,5 +1,5 @@
 import React from 'react';
-import { PortfolioList } from '../../components/consultant/portfolio';
+import { PortfolioList } from '../../components/consultant/portfolioList';
 import { ConsultantTitle } from '../../components/consultant/consultantTitle';
 import {
   Banner1,

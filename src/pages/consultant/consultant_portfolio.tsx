@@ -1,6 +1,6 @@
 import { Container } from '../../components/@shared/container';
 import { Img } from '../../components/@shared/img';
-import { PortfolioList } from '../../components/consultant/portfolio';
+import { PortfolioList } from '../../components/consultant/portfolioList';
 import { Text } from '../../components/@shared/text';
 import { CSSProperties } from 'styled-components';
 

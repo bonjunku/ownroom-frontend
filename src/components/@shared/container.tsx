@@ -6,11 +6,13 @@ interface IContainer {
   height?: string;
   position?: 'static' | 'relative' | 'absolute' | 'fixed';
   justifyContent?:
+    | 'start'
     | 'center'
     | 'right'
     | 'left'
     | 'space-between'
     | 'space-evenly';
+  alignItems?: 'start' | 'center';
 }
 
 export const Container = styled.div<IContainer>`
@@ -21,7 +23,7 @@ export const Container = styled.div<IContainer>`
   display: flex;
   flex-direction: ${({ type }) => type || 'row'};
   justify-content: ${({ justifyContent }) => justifyContent || 'center'};
-  align-items: center;
+  align-items: ${({ alignItems }) => alignItems || 'center'};
   overflow: hidden;
 
   @media all and (max-width: 1136px) {

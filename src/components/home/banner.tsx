@@ -1,6 +1,6 @@
 import React from 'react';
 import styled, { CSSProperties } from 'styled-components';
-import { Button } from '../@shared/buttons';
+import { Button } from '../@shared/button';
 import { Container } from '../@shared/container';
 import { Img } from '../@shared/img';
 import { Text } from '../@shared/text';
