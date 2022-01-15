@@ -70,7 +70,7 @@ export const Portfolio = () => {
         >
           <Container
             style={PortfolioConsultantContainerDecoratorCSS}
-            height="11.8px"
+            height="12px"
           ></Container>
           <Text
             className="KRHeadline-1 gray001"

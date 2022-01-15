@@ -11,6 +11,7 @@ import { Footer } from './components/@shared/footer';
 import { ConsultantPortfolio } from './pages/consultant/consultant_portfolio';
 import { Container } from './components/@shared/container';
 import { Portfolio } from './components/consultant/portfolio';
+import { MyPage } from './pages/mypage/mypage';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
             ></Route>
           </Route>
           <Route path="portfolio/id" element={<Portfolio />}></Route>
+          <Route path="mypage" element={<MyPage />}></Route>
         </Routes>
         <Footer />
       </BrowserRouter>

@@ -5,6 +5,7 @@ export const GlobalStyle = createGlobalStyle`
   :root{
     width:100%;
     height: 100%;
+  
  
   /* Color */
   --brand-orange-001: #ff9a62;
@@ -77,6 +78,7 @@ export const GlobalStyle = createGlobalStyle`
     width:100%;
     height:100%;
     overflow-y:scroll;
+
   }
 
   * {

@@ -33,6 +33,9 @@ export const Navbar = () => {
               </StyledLink>
             </SubConsultant>
           </Consultant>
+          <StyledLink to="/mypage" style={login2CSS}>
+            <Text className="KRHeadline-2 gray002">마이컨설팅</Text>
+          </StyledLink>
           <StyledLink to="/login" style={loginCSS}>
             <Text className="KRHeadline-2 gray002">로그인</Text>
           </StyledLink>
@@ -77,4 +80,9 @@ const logoCSS: CSSProperties = {
 const loginCSS: CSSProperties = {
   position: 'absolute',
   right: 0,
+};
+
+const login2CSS: CSSProperties = {
+  position: 'absolute',
+  right: '100px',
 };
