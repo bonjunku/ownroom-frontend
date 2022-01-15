@@ -45,7 +45,7 @@ export const LogIn = () => {
           </Form>
 
           <Button width="470px" height="60px" style={LogInButtonCSS}>
-            <Text>로그인</Text>
+            <Text className="KRHeadline-1 graywhite">로그인</Text>
           </Button>
           <Container width="290px" height="32px" style={LogInTextContainerCSS}>
             <Text style={LogInText4CSS}>온룸을 처음 이용하시나요?</Text>
