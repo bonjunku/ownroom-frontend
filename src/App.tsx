@@ -12,6 +12,7 @@ import { ConsultantPortfolio } from './pages/consultant/consultant_portfolio';
 import { Container } from './components/@shared/container';
 import { Portfolio } from './components/consultant/portfolio';
 import { MyPage } from './pages/mypage/mypage';
+import { LogIn } from './pages/login/login';
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
           </Route>
           <Route path="portfolio/id" element={<Portfolio />}></Route>
           <Route path="mypage" element={<MyPage />}></Route>
+          <Route path="logIn" element={<LogIn />}></Route>
         </Routes>
         <Footer />
       </BrowserRouter>

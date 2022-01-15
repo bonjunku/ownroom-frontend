@@ -138,6 +138,36 @@ export const MyPage = () => {
                   </Text>
                 </Button>
               </Container>
+
+              <Container height="100px" style={MyPageItemCSS}>
+                <Text
+                  className="KRHeadline-2 gray001"
+                  style={MyPageItemText1CSS}
+                >
+                  soyddoyy
+                </Text>
+                <Text className="KRBody-3 gray002" style={MyPageItemText2CSS}>
+                  시작일 2022.01.03
+                </Text>
+                <Button
+                  width="184px"
+                  height="44px"
+                  style={MyPageItemButton1CSS}
+                >
+                  <Text className="KRHeadline-2 orange001">
+                    컨설팅 신청서 확인
+                  </Text>
+                </Button>
+                <Button
+                  width="184px"
+                  height="44px"
+                  style={MyPageItemButton2CSS}
+                >
+                  <Text className="KRHeadline-2 orange001">
+                    컨설팅 신청서 작성
+                  </Text>
+                </Button>
+              </Container>
             </Container>
           </Container>
         </Container>
