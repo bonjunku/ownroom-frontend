@@ -12,7 +12,7 @@ export const Banner1 = () => (
         <Img
           width="1920px"
           height="600px"
-          src={process.env.PUBLIC_URL + 'img/home/home1.jpg'}
+          src={process.env.PUBLIC_URL + 'img/home/home1.png'}
           style={Banner1ImgCSS}
         />
         <Container width="1136px" position="absolute">
@@ -57,13 +57,13 @@ const Banner1Text3CSS: CSSProperties = {
 };
 
 export const Banner2 = () => (
-  <Container height="480px">
+  <Container height="420px">
     <Container width="1920px" position="relative">
-      <Container width="1136px" position="absolute">
+      <Container width="1016px" position="absolute">
         <Img
-          src={process.env.PUBLIC_URL + 'img/home/home3.jpg'}
-          width="600px"
-          height="340px"
+          src={process.env.PUBLIC_URL + 'img/home/home2.png'}
+          width="550px"
+          height="320px"
           style={Banner2ImgCSS}
         />
         <Text className="KRDisplay-2 orange001" style={Banner2Text1CSS}>
@@ -90,24 +90,24 @@ const Banner2ImgCSS: CSSProperties = {
 
 const Banner2Text1CSS: CSSProperties = {
   position: 'absolute',
-  top: '126px',
+  top: '107px',
   left: 0,
 };
 
 const Banner2Text2CSS: CSSProperties = {
   position: 'absolute',
-  top: '258px',
+  top: '223px',
   left: 0,
 };
 
 export const Banner3 = () => (
-  <Container height="480px" style={Banner3BackgroundCSS}>
+  <Container height="420px" style={Banner3BackgroundCSS}>
     <Container width="1920px" position="relative">
-      <Container width="1136px" position="absolute">
+      <Container width="1016px" position="absolute">
         <Img
-          src={process.env.PUBLIC_URL + 'img/home/home4.jpg'}
-          width="600px"
-          height="340px"
+          src={process.env.PUBLIC_URL + 'img/home/home3.png'}
+          width="550px"
+          height="320px"
           style={Banner3ImgCSS}
         />
         <Text className="KRDisplay-2 orange001" style={Banner3Text1CSS}>
@@ -136,22 +136,22 @@ const Banner3ImgCSS: CSSProperties = {
 
 const Banner3Text1CSS: CSSProperties = {
   position: 'absolute',
-  top: '126px',
-  right: '79px',
+  top: '107px',
+  right: '101px',
 };
 
 const Banner3Text2CSS: CSSProperties = {
   position: 'absolute',
-  top: '258px',
-  right: '13px',
+  top: '223px',
+  right: '43px',
 };
 
 export const Banner4 = () => (
   <Container height="480px">
     <Container width="1920px" position="relative">
-      <Container width="1136px" position="absolute">
+      <Container width="1016px" position="absolute">
         <Img
-          src={process.env.PUBLIC_URL + 'img/home/home2.jpg'}
+          src={process.env.PUBLIC_URL + 'img/home/home4.png'}
           width="600px"
           height="340px"
           style={Banner4ImgCSS}
@@ -164,7 +164,7 @@ export const Banner4 = () => (
           누구나 컨설턴트 신청이 가능합니다.
           <br /> 온룸에서 나만의 컨설팅을 직접 진행해 보세요.
         </Text>
-        <Button width="169px" height="44px" top="343px" left="0">
+        <Button width="169px" height="44px" top="305px" left="0">
           <Text className="KRHeadline-2 graywhite">컨설턴트 신청하기</Text>
         </Button>
       </Container>
@@ -179,13 +179,13 @@ const Banner4ImgCSS: CSSProperties = {
 
 const Banner4Text1CSS: CSSProperties = {
   position: 'absolute',
-  top: '83px',
+  top: '71px',
   left: 0,
 };
 
 const Banner4Text2CSS: CSSProperties = {
   position: 'absolute',
-  top: '215px',
+  top: '181px',
   left: 0,
 };
 
@@ -193,7 +193,7 @@ export const Banner5 = () => (
   <Container height="466px">
     <Container width="1920px">
       <Img
-        src={process.env.PUBLIC_URL + 'img/home/home5.jpg'}
+        src={process.env.PUBLIC_URL + 'img/home/home5.png'}
         height="466px"
       ></Img>
     </Container>
@@ -202,12 +202,13 @@ export const Banner5 = () => (
 
 export const Banner6 = () => (
   <Container type="column">
-    <Container height="60px"></Container>
+    <Container height="60px">
     <Container width="1920px">
       <Img
-        src={process.env.PUBLIC_URL + 'img/home/home6.jpg'}
+        src={process.env.PUBLIC_URL + 'img/home/home6.png'}
         height="660px"
       ></Img>
+    </Container>
     </Container>
   </Container>
 );
