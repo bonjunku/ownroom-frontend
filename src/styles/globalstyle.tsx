@@ -105,7 +105,7 @@ export const GlobalStyle = createGlobalStyle`
   font-weight: 500;
   font-stretch: normal;
   font-style: italic;
-  line-height: 1.28;
+  line-height: 46px;
   letter-spacing: -0.36px;
 }
 .ENBody-1{
@@ -120,20 +120,20 @@ export const GlobalStyle = createGlobalStyle`
 }
 .KRDisplay-1 {
   font-family: Noto Sans KR;
-  font-size: 43px;
+  font-size: 36px;
   font-weight: bold;
   font-stretch: normal;
   font-style: normal;
-  line-height: 1.4;
+  line-height: 52px;
   letter-spacing: normal;
 }
 .KRDisplay-2 {
   font-family: Noto Sans KR;
-  font-size: 34px;
+  font-size: 28px;
   font-weight: bold;
   font-stretch: normal;
   font-style: normal;
-  line-height: 1.29;
+  line-height: 34px;
   letter-spacing: normal;
 }
 .KRDisplay-3 {
@@ -142,61 +142,62 @@ export const GlobalStyle = createGlobalStyle`
   font-weight: bold;
   font-stretch: normal;
   font-style: normal;
-  line-height: 1.5;
+  line-height: 36px;
   letter-spacing: normal;
 }
 .KRHeadline-1 {
   font-family: Noto Sans KR;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: bold;
   font-stretch: normal;
   font-style: normal;
-  line-height: 1.6;
-  letter-spacing: normal;
-}
-.KRBody-1 {
-  font-family: Noto Sans KR;
-  font-size: 20px;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.6;
+  line-height: 32px;
   letter-spacing: normal;
 }
 .KRHeadline-2 {
   font-family: Noto Sans KR;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: bold;
   font-stretch: normal;
   font-style: normal;
-  line-height: 1.56;
-  letter-spacing: normal;
-}
-.KRBody-2 {
-  font-family: Noto Sans KR;
-  font-size: 18px;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.78;
+  line-height: 26px;
   letter-spacing: normal;
 }
 .KRHeadline-3 {
   font-family: Noto Sans KR;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: bold;
   font-stretch: normal;
   font-style: normal;
-  line-height: 1.8;
+  line-height: 26px;
   letter-spacing: normal;
 }
-.KRBody-3 { 
+.KRBody-1 {
+  font-family: Noto Sans KR;
+  font-size: 18px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 32px;
+  letter-spacing: normal;
+}
+.KRBody-2 {
   font-family: Noto Sans KR;
   font-size: 15px;
   font-weight: normal;
   font-stretch: normal;
   font-style: normal;
-  line-height: 1.67;
+  line-height: 30px;
+  letter-spacing: normal;
+}
+
+.KRBody-3 { 
+  font-family: Noto Sans KR;
+  font-size: 13px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 23px;
   letter-spacing: normal;
 }
   
