@@ -5,13 +5,14 @@ import { Container } from '../../components/@shared/container';
 import { Form } from '../../components/@shared/Form';
 import { Img } from '../../components/@shared/img';
 import { Input } from '../../components/@shared/input';
+import { StyledLink } from '../../components/@shared/link';
 import { Text } from '../../components/@shared/text';
 import SymbolWithText from '../../static/images/symbol_with_text.svg';
 
 export const LogIn = () => {
   return (
     <>
-      <Container height="1080px">
+      <Container height="1000px">
         <Container width="470px" position="relative">
           <Text className="ENHeadline-1 gray001" style={LogInTitleCSS}>
             Login
@@ -49,7 +50,9 @@ export const LogIn = () => {
           </Button>
           <Container width="290px" height="32px" style={LogInTextContainerCSS}>
             <Text style={LogInText4CSS}>온룸을 처음 이용하시나요?</Text>
-            <Text>회원가입</Text>
+            <StyledLink to="/signup">
+              <Text>회원가입</Text>
+            </StyledLink>
           </Container>
           <Img
             src={SymbolWithText}
@@ -65,11 +68,11 @@ export const LogIn = () => {
 
 const LogInTitleCSS: CSSProperties = {
   position: 'absolute',
-  top: '190px',
+  top: '119px',
 };
 const LogInDecoratorCSS: CSSProperties = {
   position: 'absolute',
-  top: '262px',
+  top: '182px',
 
   width: '62px',
   height: '4px',
@@ -78,7 +81,7 @@ const LogInDecoratorCSS: CSSProperties = {
 const LogInText1CSS: CSSProperties = {
   textAlign: 'center',
   position: 'absolute',
-  top: '296px',
+  top: '216px',
 };
 const LogInText2CSS: CSSProperties = {
   position: 'absolute',
@@ -95,12 +98,12 @@ const LogInText4CSS: CSSProperties = {
 };
 const LogInTextContainerCSS: CSSProperties = {
   position: 'absolute',
-  top: '710px',
+  top: '630px',
 };
 
 const LogInFormCSS: CSSProperties = {
   position: 'absolute',
-  top: '414px',
+  top: '334px',
   width: '470px',
   height: '154px',
 };
@@ -118,10 +121,10 @@ const LogInInputPasswordCSS: CSSProperties = {
 
 const LogInButtonCSS: CSSProperties = {
   position: 'absolute',
-  top: '599px',
+  top: '519px',
 };
 
 const LoginBottomLogoCSS: CSSProperties = {
   position: 'absolute',
-  bottom: '141px',
+  top: '782px',
 };

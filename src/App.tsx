@@ -13,6 +13,7 @@ import { Container } from './components/@shared/container';
 import { Portfolio } from './components/consultant/portfolio';
 import { MyPage } from './pages/mypage/mypage';
 import { LogIn } from './pages/login/login';
+import { SignUp } from './pages/signup/signup';
 
 function App() {
   return (
@@ -31,7 +32,8 @@ function App() {
           </Route>
           <Route path="portfolio/id" element={<Portfolio />}></Route>
           <Route path="mypage" element={<MyPage />}></Route>
-          <Route path="logIn" element={<LogIn />}></Route>
+          <Route path="login" element={<LogIn />}></Route>
+          <Route path="signup" element={<SignUp />}></Route>
         </Routes>
         <Footer />
       </BrowserRouter>
