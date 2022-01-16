@@ -53,7 +53,7 @@ const Banner1Text3CSS: CSSProperties = {
   position: 'absolute',
   top: '217px',
   left: 0,
-  fontStyle: 'normal'
+  fontStyle: 'normal',
 };
 
 export const Banner2 = () => (
@@ -147,9 +147,9 @@ const Banner3Text2CSS: CSSProperties = {
 };
 
 export const Banner4 = () => (
-  <Container height="420px" style={ BackGroundColorCSS}>
-    <Container width="1920px" position="relative" style={ BackGroundColorCSS}>
-      <Container width="1016px" position="absolute"style={ BackGroundColorCSS}>
+  <Container height="420px" style={BackGroundColorCSS}>
+    <Container width="1920px" position="relative" style={BackGroundColorCSS}>
+      <Container width="1016px" position="absolute" style={BackGroundColorCSS}>
         <Img
           src={process.env.PUBLIC_URL + 'img/home/home4.png'}
           width="550px"
@@ -172,9 +172,9 @@ export const Banner4 = () => (
   </Container>
 );
 
-const BackGroundColorCSS : CSSProperties ={
-  backgroundColor:'var(--gray-gray-007)'
-}
+const BackGroundColorCSS: CSSProperties = {
+  backgroundColor: 'var(--gray-gray-007)',
+};
 
 const Banner4ImgCSS: CSSProperties = {
   position: 'absolute',
@@ -198,21 +198,29 @@ export const Banner5 = () => (
     <Container width="1920px">
       <Img
         src={process.env.PUBLIC_URL + 'img/home/home5.png'}
+        width="1920px"
         height="466px"
+        style={Banner5ImgCSS}
       ></Img>
+      <Container width="1191.6px"></Container>
     </Container>
   </Container>
 );
 
+const Banner5ImgCSS: CSSProperties = {
+  position: 'absolute',
+  zIndex: -1,
+};
+
 export const Banner6 = () => (
   <Container type="column">
     <Container height="60px">
-    <Container width="1920px">
-      <Img
-        src={process.env.PUBLIC_URL + 'img/home/home6.png'}
-        height="660px"
-      ></Img>
-    </Container>
+      <Container width="1920px">
+        <Img
+          src={process.env.PUBLIC_URL + 'img/home/home6.png'}
+          height="660px"
+        ></Img>
+      </Container>
     </Container>
   </Container>
 );
