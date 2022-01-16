@@ -426,6 +426,7 @@ const PortfolioConsultantButtonCSS: CSSProperties = {
   position: 'absolute',
   top: '37.2px',
   right: '40px',
+  borderRadius:'3px'
 };
 
 const PortfolioBodyContainerCSS: CSSProperties = {

@@ -22,7 +22,7 @@ export const Button = styled.button<IButton>`
   align-items: center;
   gap: 10px;
   border: none;
-  border-radius: 8px;
+  border-radius: 6px;
   box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.08);
   background-color: var(--brand-orange-001);
 `;
