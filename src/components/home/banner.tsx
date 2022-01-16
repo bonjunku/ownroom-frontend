@@ -147,13 +147,13 @@ const Banner3Text2CSS: CSSProperties = {
 };
 
 export const Banner4 = () => (
-  <Container height="480px">
-    <Container width="1920px" position="relative">
-      <Container width="1016px" position="absolute">
+  <Container height="420px" style={ BackGroundColorCSS}>
+    <Container width="1920px" position="relative" style={ BackGroundColorCSS}>
+      <Container width="1016px" position="absolute"style={ BackGroundColorCSS}>
         <Img
           src={process.env.PUBLIC_URL + 'img/home/home4.png'}
-          width="600px"
-          height="340px"
+          width="550px"
+          height="320px"
           style={Banner4ImgCSS}
         />
         <Text className="KRDisplay-2 orange001" style={Banner4Text1CSS}>
@@ -164,13 +164,17 @@ export const Banner4 = () => (
           누구나 컨설턴트 신청이 가능합니다.
           <br /> 온룸에서 나만의 컨설팅을 직접 진행해 보세요.
         </Text>
-        <Button width="169px" height="44px" top="305px" left="0">
+        <Button width="146px" height="44px" top="305px" left="0">
           <Text className="KRHeadline-2 graywhite">컨설턴트 신청하기</Text>
         </Button>
       </Container>
     </Container>
   </Container>
 );
+
+const BackGroundColorCSS : CSSProperties ={
+  backgroundColor:'var(--gray-gray-007)'
+}
 
 const Banner4ImgCSS: CSSProperties = {
   position: 'absolute',
