@@ -30,6 +30,6 @@ export const Container = styled.div<IContainer>`
     width: 100%;
     flex-direction: column;
   }
-  /* 
-  border: 1px blue solid; */
+
+  /* border: 1px blue solid; */
 `;

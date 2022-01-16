@@ -47,7 +47,7 @@ export const Footer = () => (
         style={FooterInstaIconCSS}
       ></Img>
       <FooterInstaLink></FooterInstaLink>
-      <Text className="KRBody-1 orange001" style={FooterInstaLinkCSS}>
+      <Text className="KRBody-2 orange001" style={FooterInstaLinkCSS}>
         ownroom.official
       </Text>
     </Container>
@@ -99,7 +99,7 @@ const FooterFormDownloadMenuCSS: CSSProperties = {
 
 const FooterInstaIconCSS: CSSProperties = {
   position: `absolute`,
-  right: '166px',
+  right: '126px',
   top: '65px',
 };
 
