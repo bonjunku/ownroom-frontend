@@ -2,7 +2,6 @@ import styled, { CSSProperties } from 'styled-components';
 import { Container } from '../@shared/container';
 import { Text } from '../@shared/text';
 import { StyledLink } from '../@shared/link';
-import { wrap } from 'cheerio/lib/api/manipulation';
 import { Img } from '../@shared/img';
 import { Button } from '../@shared/button';
 
@@ -58,7 +57,7 @@ export const PortfolioItem = () => {
       <StyledPortfolioItem>
         <PortfolioThumbnailContainer>
           <PortfolioThumbnail
-            src={process.env.PUBLIC_URL + '/img/home/home6.jpg'}
+            src={process.env.PUBLIC_URL + '/img/home/home6.png'}
           ></PortfolioThumbnail>
         </PortfolioThumbnailContainer>
         <Text className="KRHeadline-1 gray001">

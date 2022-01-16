@@ -203,7 +203,7 @@ export const Banner6 = () => (
     <Container height="60px"></Container>
     <Container width="1920px">
       <Img
-        src={process.env.PUBLIC_URL + 'img/home/home6.jpg'}
+        src={process.env.PUBLIC_URL + 'img/home/home6.png'}
         height="660px"
       ></Img>
     </Container>
