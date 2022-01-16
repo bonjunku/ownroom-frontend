@@ -92,7 +92,7 @@ export const GlobalStyle = createGlobalStyle`
 
 .ENHeadline-0{
   font-family: Taviraj;
-  font-size: 65px;
+  font-size: 55px;
   font-weight: normal;
   font-stretch: normal;
   font-style: italic;
@@ -108,9 +108,10 @@ export const GlobalStyle = createGlobalStyle`
   line-height: 46px;
   letter-spacing: -0.36px;
 }
+
 .ENBody-1{
   font-family: Taviraj;
-  font-size: 24px;
+  font-size: 21px;
   font-weight: 300;
   font-stretch: normal;
   font-style: normal;

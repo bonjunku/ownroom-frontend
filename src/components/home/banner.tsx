@@ -7,10 +7,11 @@ import { Text } from '../@shared/text';
 
 export const Banner1 = () => (
   <>
-    <Container height="600px" style={Banner1BackgroundCSS}>
+    <Container height="440px" style={Banner1BackgroundCSS}>
       <Container width="1920px" position="relative">
         <Img
           width="1920px"
+          height="600px"
           src={process.env.PUBLIC_URL + 'img/home/home1.jpg'}
           style={Banner1ImgCSS}
         />
@@ -45,13 +46,14 @@ const Banner1Text1CSS: CSSProperties = {
 };
 const Banner1Text2CSS: CSSProperties = {
   position: 'absolute',
-  top: '200px',
+  top: '181px',
   left: 0,
 };
 const Banner1Text3CSS: CSSProperties = {
   position: 'absolute',
-  top: '238px',
+  top: '217px',
   left: 0,
+  fontStyle: 'normal'
 };
 
 export const Banner2 = () => (
