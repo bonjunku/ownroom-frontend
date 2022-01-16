@@ -134,7 +134,7 @@ export const GlobalStyle = createGlobalStyle`
   font-weight: bold;
   font-stretch: normal;
   font-style: normal;
-  line-height: 34px;
+  line-height: 42px;
   letter-spacing: normal;
 }
 .KRDisplay-3 {

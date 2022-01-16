@@ -4,7 +4,7 @@ import { Text } from '../../components/@shared/text';
 
 export const ConsultantTitle = () => {
   return (
-    <Container height="146px">
+    <Container height="94px">
       <Container width="1920px">
         <Container width="1136px" position="relative">
           <Text className="KRDisplay-2 gray001" style={ConsultantTitleCSS}>
@@ -19,5 +19,5 @@ export const ConsultantTitle = () => {
 const ConsultantTitleCSS: CSSProperties = {
   position: 'absolute',
   left: 0,
-  top: '80px',
+  top: '60px',
 };
