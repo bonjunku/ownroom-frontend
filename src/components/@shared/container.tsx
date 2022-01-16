@@ -30,5 +30,5 @@ export const Container = styled.div<IContainer>`
     width: 100%;
   }
 
-  /* border: 1px solid blue; */
+  border: 1px solid blue;
 `;
