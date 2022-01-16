@@ -15,7 +15,7 @@ export const SignUp = () => {
       <Container height="1320px">
         <Container width="470px" position="relative">
           <Text className="ENHeadline-1 gray001" style={SignUpTitleCSS}>
-            SignUp
+            Signp
           </Text>
           <Container style={SignUpDecoratorCSS} />
           <Text className="KRBody-1 gray001" style={SignUpText1CSS}>
@@ -70,11 +70,11 @@ export const SignUp = () => {
               style={SignUpInputContactCSS}
               placeholder="연락처"
             ></Input>
+            <Button width="470px" height="60px" style={SignUpButtonCSS}>
+              <Text className="KRHeadline-1 graywhite">회원가입</Text>
+            </Button>
           </Form>
 
-          <Button width="470px" height="60px" style={SignUpButtonCSS}>
-            <Text className="KRHeadline-1 graywhite">로그인</Text>
-          </Button>
           <Container
             width="290px"
             height="32px"
@@ -183,7 +183,7 @@ const SignUpIdCheckButtonCSS: CSSProperties = {
 
 const SignUpButtonCSS: CSSProperties = {
   position: 'absolute',
-  top: '954px',
+  top: '624px',
 };
 
 const SignUpBottomLogoCSS: CSSProperties = {
