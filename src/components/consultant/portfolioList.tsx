@@ -4,13 +4,14 @@ import { Text } from '../@shared/text';
 import { StyledLink } from '../@shared/link';
 import { Img } from '../@shared/img';
 import { Button } from '../@shared/button';
+import { buildQueries } from '@testing-library/react';
 
 export const PortfolioList = () => {
   return (
     <Container type="column">
       <Container width="1920px">
         <Container width="1136px" justifyContent="left">
-          <PortfolioNavbar className="KRHeadline-1 gray002">
+          <PortfolioNavbar className="KRHeadline-1 gray002" >
             <Text>모던</Text>
             <Text>미니멀</Text>
             <Text>내츄럴</Text>
@@ -35,7 +36,9 @@ export const PortfolioList = () => {
           <PortfolioItem />
           <PortfolioItem />
         </Container>
+        
       </Container>
+      <Container height='20px'/>
     </Container>
   );
 };
@@ -47,7 +50,7 @@ const PortfolioNavbar = styled.div`
 `;
 
 const PortfolioItemContainerCSS: CSSProperties = {
-  paddingTop: '40px',
+  paddingTop: '46px',
   flexWrap: 'wrap',
 };
 
@@ -60,23 +63,22 @@ export const PortfolioItem = () => {
             src={process.env.PUBLIC_URL + '/img/home/home6.jpg'}
           ></PortfolioThumbnail>
         </PortfolioThumbnailContainer>
-        <Text className="KRHeadline-1 gray001">
+        <Text className="KRHeadline-1 gray001" style={PortfolioTitleCSS}>
           원룸에서도 느낄 수 있는 유러피안 감성
         </Text>
         <DividingLine />
-        <Text className="KRHeadline-1 gray001" style={PortfolioInfo1CSS}>
+        <Text className="KRHeadline-2 gray001" style={PortfolioInfo1CSS}>
           hsummi
         </Text>
         <Text className="KRBody-3 gray002" style={PortfolioInfo2CSS}>
           평당 3만원
         </Text>
-        <Text className="KRBody-3 orange001">3명 가능</Text>
+        <Text className="KRBody-3 orange001" style={PortfolioInfo3CSS}>3명 가능</Text>
         <Text className="KRBody-3 gray001" style={PortfolioBodyCSS}>
-          이곳에 보이는 최대 글자 공백포함 66자입니다 이곳에 보<br />
-          이는 최대 글자 공백포함 66자입니다 이곳에 보이는 글...
+          이곳에 보이는 최대 글자 공백포함 66자입니다 이곳에 보이는 최대 글자 공백포함 66자입니다 이곳에 보이는 글...
         </Text>
         <StyledLink to="/login">
-          <Button width="97px" height="33px" top="310px" right="0">
+          <Button width="92px" height="32px" top="310px" right="5px">
             <Text className="KRHeadline-3 gray007">컨설팅 신청</Text>
           </Button>
         </StyledLink>
@@ -87,8 +89,8 @@ export const PortfolioItem = () => {
 
 const StyledPortfolioItem = styled.div`
   width: 360px;
-  height: 481px;
-  /* border: 1px red solid; */
+  height: 478px;
+ 
   position: relative;
 `;
 
@@ -104,21 +106,38 @@ const PortfolioThumbnailContainer = styled.div`
   margin-bottom: 22px;
 `;
 
+const PortfolioTitleCSS: CSSProperties={
+  position:'absolute',
+  top:'262px',
+  left:0,
+
+}
 const PortfolioInfo1CSS: CSSProperties = {
-  marginRight: '13px',
+  position:'absolute',
+  top:'311px'
 };
 const PortfolioInfo2CSS: CSSProperties = {
-  marginRight: '10px',
+  position:'absolute',
+  left:'71px',
+  top:'313px'
+  
+};
+const PortfolioInfo3CSS: CSSProperties = {
+  position:'absolute',
+  left:'143px',
+  top:'313px'
+  
 };
 
 const PortfolioBodyCSS: CSSProperties = {
-  marginTop: '5px',
+  position:'absolute',
+  top:'348px'
 };
 
 const DividingLine = styled.div`
+  position:absolute;
+  top:299px;
   width: 360px;
   height: 1px;
   background-color: var(--gray-gray-004);
-  margin-top: 8px;
-  margin-bottom: 11px;
 `;

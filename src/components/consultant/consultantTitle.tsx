@@ -4,7 +4,7 @@ import { Text } from '../../components/@shared/text';
 
 export const ConsultantTitle = () => {
   return (
-    <Container height="94px">
+    <Container height="116px">
       <Container width="1920px">
         <Container width="1136px" position="relative">
           <Text className="KRDisplay-2 gray001" style={ConsultantTitleCSS}>
