@@ -11,7 +11,7 @@ export const PortfolioList = () => {
     <Container type="column">
       <Container width="1920px">
         <Container width="1136px" justifyContent="left">
-          <PortfolioNavbar className="KRHeadline-1 gray002" >
+          <PortfolioNavbar className="KRHeadline-1 gray002">
             <Text>모던</Text>
             <Text>미니멀</Text>
             <Text>내츄럴</Text>
@@ -36,9 +36,8 @@ export const PortfolioList = () => {
           <PortfolioItem />
           <PortfolioItem />
         </Container>
-        
       </Container>
-      <Container height='20px'/>
+      <Container height="20px" />
     </Container>
   );
 };
@@ -67,15 +66,24 @@ export const PortfolioItem = () => {
           원룸에서도 느낄 수 있는 유러피안 감성
         </Text>
         <DividingLine />
-        <Text className="KRHeadline-2 gray001" style={PortfolioInfo1CSS}>
-          hsummi
-        </Text>
-        <Text className="KRBody-3 gray002" style={PortfolioInfo2CSS}>
-          평당 3만원
-        </Text>
-        <Text className="KRBody-3 orange001" style={PortfolioInfo3CSS}>3명 가능</Text>
+        <Container
+          style={PortfolioInfoContainerCSS}
+          height="23px"
+          justifyContent="left"
+        >
+          <Text className="KRHeadline-2 gray001" style={PortfolioInfo1CSS}>
+            hsummi
+          </Text>
+          <Text className="KRBody-3 gray002" style={PortfolioInfo2CSS}>
+            평당 3만원
+          </Text>
+          <Text className="KRBody-3 orange001" style={PortfolioInfo3CSS}>
+            3명 가능
+          </Text>
+        </Container>
         <Text className="KRBody-3 gray001" style={PortfolioBodyCSS}>
-          이곳에 보이는 최대 글자 공백포함 66자입니다 이곳에 보이는 최대 글자 공백포함 66자입니다 이곳에 보이는 글...
+          이곳에 보이는 최대 글자 공백포함 66자입니다 이곳에 보이는 최대 글자
+          공백포함 66자입니다 이곳에 보이는 글...
         </Text>
         <StyledLink to="/login">
           <Button width="92px" height="32px" top="310px" right="5px">
@@ -90,7 +98,7 @@ export const PortfolioItem = () => {
 const StyledPortfolioItem = styled.div`
   width: 360px;
   height: 478px;
- 
+
   position: relative;
 `;
 
@@ -106,37 +114,34 @@ const PortfolioThumbnailContainer = styled.div`
   margin-bottom: 22px;
 `;
 
-const PortfolioTitleCSS: CSSProperties={
-  position:'absolute',
-  top:'262px',
-  left:0,
+const PortfolioTitleCSS: CSSProperties = {
+  position: 'absolute',
+  top: '262px',
+  left: 0,
+};
 
-}
+const PortfolioInfoContainerCSS: CSSProperties = {
+  position: 'absolute',
+  top: '313px',
+  left: 0,
+};
 const PortfolioInfo1CSS: CSSProperties = {
-  position:'absolute',
-  top:'311px'
+  position: 'relative',
+  marginRight: '16px',
 };
 const PortfolioInfo2CSS: CSSProperties = {
-  position:'absolute',
-  left:'71px',
-  top:'313px'
-  
+  marginRight: '14px',
 };
-const PortfolioInfo3CSS: CSSProperties = {
-  position:'absolute',
-  left:'143px',
-  top:'313px'
-  
-};
+const PortfolioInfo3CSS: CSSProperties = {};
 
 const PortfolioBodyCSS: CSSProperties = {
-  position:'absolute',
-  top:'348px'
+  position: 'absolute',
+  top: '348px',
 };
 
 const DividingLine = styled.div`
-  position:absolute;
-  top:299px;
+  position: absolute;
+  top: 299px;
   width: 360px;
   height: 1px;
   background-color: var(--gray-gray-004);
