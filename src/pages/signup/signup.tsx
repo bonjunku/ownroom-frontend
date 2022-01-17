@@ -12,10 +12,10 @@ import SymbolWithText from '../../static/images/symbol_with_text.svg';
 export const SignUp = () => {
   return (
     <>
-      <Container height="1320px">
+      <Container height="1320px" style={BackgroundCSS}>
         <Container width="470px" position="relative">
           <Text className="ENHeadline-1 gray001" style={SignUpTitleCSS}>
-            Signp
+            Sign up
           </Text>
           <Container style={SignUpDecoratorCSS} />
           <Text className="KRBody-1 gray001" style={SignUpText1CSS}>
@@ -31,12 +31,12 @@ export const SignUp = () => {
               영문, 숫자를 포함한 아이디를 입력해주세요.(5-10자)
             </Text>
             <Input
-              width={'315px'}
-              height={'60px'}
+              width={'264px'}
+              height={'50px'}
               placeholder="아이디"
               style={SignUpInputIdCSS}
             ></Input>
-            <Button width="120px" height="60px" style={SignUpIdCheckButtonCSS}>
+            <Button width="100px" height="50px" style={SignUpIdCheckButtonCSS}>
               <Text className="KRHeadline-1 graywhite">중복확인</Text>
             </Button>
             <Text className="KRHeadline-1 orange001" style={SignUpText4CSS}>
@@ -47,8 +47,8 @@ export const SignUp = () => {
             </Text>
             <Input
               type="password"
-              width={'470px'}
-              height={'60px'}
+              width={'380px'}
+              height={'50px'}
               style={SignUpInputPasswordCSS}
               placeholder="비밀번호"
             ></Input>
@@ -56,8 +56,8 @@ export const SignUp = () => {
               이름 *
             </Text>
             <Input
-              width={'470px'}
-              height={'60px'}
+              width={'380px'}
+              height={'50px'}
               style={SignUpInputNameCSS}
               placeholder="이름"
             ></Input>
@@ -65,21 +65,16 @@ export const SignUp = () => {
               연락처 *
             </Text>
             <Input
-              width={'470px'}
-              height={'60px'}
+              width={'380px'}
+              height={'50px'}
               style={SignUpInputContactCSS}
               placeholder="연락처"
             ></Input>
-            <Button width="470px" height="60px" style={SignUpButtonCSS}>
+            <Button width="400px" height="60px" style={SignUpButtonCSS}>
               <Text className="KRHeadline-1 graywhite">회원가입</Text>
             </Button>
           </Form>
 
-          <Container
-            width="290px"
-            height="32px"
-            style={SignUpTextContainerCSS}
-          ></Container>
           <Img
             src={SymbolWithText}
             width="170px"
@@ -90,6 +85,9 @@ export const SignUp = () => {
       </Container>
     </>
   );
+};
+const BackgroundCSS: CSSProperties = {
+  backgroundColor: 'var(--gray-gray-007)',
 };
 
 const SignUpTitleCSS: CSSProperties = {
@@ -141,14 +139,15 @@ const SignUpText7CSS: CSSProperties = {
 };
 const SignUpTextContainerCSS: CSSProperties = {
   position: 'absolute',
-  top: '630px',
+  top: '650px',
+  backgroundColor: 'red',
 };
 
 const SignUpFormCSS: CSSProperties = {
   position: 'absolute',
   top: '330px',
-  width: '470px',
-  height: '574px',
+  width: '400px',
+  height: '674px',
 };
 
 const SignUpInputIdCSS: CSSProperties = {
@@ -188,5 +187,5 @@ const SignUpButtonCSS: CSSProperties = {
 
 const SignUpBottomLogoCSS: CSSProperties = {
   position: 'absolute',
-  top: '1134px',
+  top: '1124px',
 };

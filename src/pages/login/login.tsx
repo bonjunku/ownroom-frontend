@@ -12,7 +12,7 @@ import SymbolWithText from '../../static/images/symbol_with_text.svg';
 export const LogIn = () => {
   return (
     <>
-      <Container height="1000px">
+      <Container height="1000px" style={BackgroundCSS}>
         <Container width="470px" position="relative">
           <Text className="ENHeadline-1 gray001" style={LogInTitleCSS}>
             Login
@@ -66,6 +66,9 @@ export const LogIn = () => {
       </Container>
     </>
   );
+};
+const BackgroundCSS: CSSProperties = {
+  backgroundColor: 'var(--gray-gray-007)',
 };
 
 const LogInTitleCSS: CSSProperties = {
