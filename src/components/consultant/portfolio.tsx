@@ -2,6 +2,7 @@ import { CSSProperties } from 'styled-components';
 import { Button } from '../@shared/button';
 import { Container } from '../@shared/container';
 import { DecoratedContainer } from '../@shared/decoratedContainer';
+import { StyledLink } from '../@shared/link';
 import { Text } from '../@shared/text';
 
 export const Portfolio = () => {
@@ -93,13 +94,15 @@ export const Portfolio = () => {
               포함하여 총 125자입니다.
             </Text>
           </Container>
-          <Button
-            width="92px"
-            height="32px"
-            style={PortfolioConsultantButtonCSS}
-          >
-            <Text className="KRHeadline-3 gray007">컨설팅 신청</Text>
-          </Button>
+          <StyledLink to="../application/consulting">
+            <Button
+              width="92px"
+              height="32px"
+              style={PortfolioConsultantButtonCSS}
+            >
+              <Text className="KRHeadline-3 gray007">컨설팅 신청</Text>
+            </Button>
+          </StyledLink>
         </Container>
       </Container>
       <Container height="128.4px" style={PortfolioBodyContainerCSS}></Container>

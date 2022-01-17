@@ -14,7 +14,8 @@ import { Portfolio } from './components/consultant/portfolio';
 import { MyPage } from './pages/mypage/mypage';
 import { LogIn } from './pages/login/login';
 import { SignUp } from './pages/signup/signup';
-import { ConsultantApplication } from './pages/consultant/consultantApplication';
+import { ConsultantApplication } from './pages/application/consultantApplication';
+import { ConsultingApplication } from './pages/application/consultingApplication';
 
 function App() {
   return (
@@ -25,6 +26,12 @@ function App() {
         <Container height="80px" />
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="application">
+            <Route
+              path="consulting"
+              element={<ConsultingApplication />}
+            ></Route>
+          </Route>
           <Route path="consultant">
             <Route
               path="portfolioList"

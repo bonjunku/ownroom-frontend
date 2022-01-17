@@ -85,7 +85,7 @@ export const PortfolioItem = () => {
           이 곳에 보이는 글자는 공백 포함 77자입니다. 이 곳에 보이는 글자는 공백
           포함 77자입니다. 이 곳에 보이는 글자는 공백 포함77자입니...
         </Text>
-        <StyledLink to="/login">
+        <StyledLink to="/application/consulting">
           <Button width="92px" height="32px" top="310px" right="5px">
             <Text className="KRHeadline-3 gray007">컨설팅 신청</Text>
           </Button>
