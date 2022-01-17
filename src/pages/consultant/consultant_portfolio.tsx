@@ -31,10 +31,10 @@ export const ConsultantPortfolio = () => {
 
 const ConsultantPortfolioText1CSS: CSSProperties = {
   position: 'absolute',
-  top: '104px',
+  top: '108px',
 };
 
 const ConsultantPortfolioText2CSS: CSSProperties = {
   position: 'absolute',
-  top: '164px',
+  top: '160px',
 };
