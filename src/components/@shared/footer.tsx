@@ -3,15 +3,16 @@ import { Container } from './container';
 import { Img } from './img';
 import { Text } from '../@shared/text';
 import InstaIcon from '../../static/images/icon_insta.svg';
+import FooterLogo from '../../static/images/logo_footer.svg';
 import styled from 'styled-components';
 
 export const Footer = () => (
   <Container height="300px" style={FooterCSS}>
     <Container width="1136px" position="relative">
       <Img
-        src={process.env.PUBLIC_URL + '/img/home/logo.png'}
-        width="160px"
-        height="66.8px"
+        src={FooterLogo}
+        width="131px"
+        height="55px"
         style={FooterLogoCSS}
       ></Img>
       <Text className="KRHeadline-3 orange001" style={FooterLogoTextCSS}>
@@ -61,7 +62,7 @@ const FooterCSS: CSSProperties = {
 const FooterLogoCSS: CSSProperties = {
   position: 'absolute',
   left: 0,
-  top: '60.5px',
+  top: '60px',
 };
 const FooterLogoTextCSS: CSSProperties = {
   position: 'absolute',
