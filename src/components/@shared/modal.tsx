@@ -40,7 +40,7 @@ const ModalWindow: CSSProperties = {
 
 const ModalImgCSS: CSSProperties = {
   position: 'absolute',
-  top: '44px',
+  top: '54px',
 };
 
 const ModalMessage1CSS: CSSProperties = {
