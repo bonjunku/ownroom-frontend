@@ -28,8 +28,8 @@ export const LogIn = () => {
               아이디
             </Text>
             <Input
-              width={'340px'}
-              height={'60px'}
+              width={'280px'}
+              height={'50px'}
               placeholder="아이디"
               style={LogInInputIdCSS}
             ></Input>
@@ -38,20 +38,22 @@ export const LogIn = () => {
             </Text>
             <Input
               type="password"
-              width={'340px'}
-              height={'60px'}
+              width={'280px'}
+              height={'50px'}
               style={LogInInputPasswordCSS}
               placeholder="비밀번호"
             ></Input>
-            <Button width="470px" height="60px" style={LogInButtonCSS}>
+            <Button width="400px" height="60px" style={LogInButtonCSS}>
               <Text className="KRHeadline-1 graywhite">로그인</Text>
             </Button>
           </Form>
 
           <Container width="290px" height="32px" style={LogInTextContainerCSS}>
-            <Text style={LogInText4CSS}>온룸을 처음 이용하시나요?</Text>
+            <Text className="KRBody-1 gray002" style={LogInText4CSS}>
+              온룸을 처음 이용하시나요?
+            </Text>
             <StyledLink to="/signup">
-              <Text>회원가입</Text>
+              <Text className="KRBody-1 gray001">회원가입</Text>
             </StyledLink>
           </Container>
           <Img
@@ -68,7 +70,7 @@ export const LogIn = () => {
 
 const LogInTitleCSS: CSSProperties = {
   position: 'absolute',
-  top: '119px',
+  top: '110px',
 };
 const LogInDecoratorCSS: CSSProperties = {
   position: 'absolute',
@@ -85,12 +87,12 @@ const LogInText1CSS: CSSProperties = {
 };
 const LogInText2CSS: CSSProperties = {
   position: 'absolute',
-  top: '14px',
+  top: '9px',
   left: 0,
 };
 const LogInText3CSS: CSSProperties = {
   position: 'absolute',
-  top: '105px',
+  top: '87px',
   left: 0,
 };
 const LogInText4CSS: CSSProperties = {
@@ -98,33 +100,33 @@ const LogInText4CSS: CSSProperties = {
 };
 const LogInTextContainerCSS: CSSProperties = {
   position: 'absolute',
-  top: '630px',
+  top: '606px',
 };
 
 const LogInFormCSS: CSSProperties = {
   position: 'absolute',
-  top: '334px',
-  width: '470px',
+  top: '340px',
+  width: '400px',
   height: '154px',
 };
 
 const LogInInputIdCSS: CSSProperties = {
   position: 'absolute',
-  left: '110px',
+  left: '100px',
 };
 
 const LogInInputPasswordCSS: CSSProperties = {
   position: 'absolute',
-  top: '93px',
-  left: '110px',
+  top: '78px',
+  left: '100px',
 };
 
 const LogInButtonCSS: CSSProperties = {
   position: 'absolute',
-  top: '184px',
+  top: '156px',
 };
 
 const LoginBottomLogoCSS: CSSProperties = {
   position: 'absolute',
-  top: '782px',
+  top: '758px',
 };
