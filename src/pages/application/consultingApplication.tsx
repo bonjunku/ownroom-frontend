@@ -72,7 +72,7 @@ export const ConsultingApplication = () => {
             className="KRBody-3 orange001"
             style={ApplicationContainer1Text3CSS}
           >
-            (파일명-'오너 본인 이름_컨설팅 신청서')
+            (파일명-'고객 본인 이름_컨설팅 신청서')
           </Text>
           <Img
             src={process.env.PUBLIC_URL + '/img/consultant/1.png'}

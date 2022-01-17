@@ -20,14 +20,14 @@ export const ConsultantApplication = () => {
             className="KRDisplay-2 gray001"
             style={ApplicationBannerText1CSS}
           >
-            컨설팅 신청서
+            컨설턴트 신청서
           </Text>
           <Text className="KRBody-2 gray001" style={ApplicationBannerText2CSS}>
             컨설턴트와 함께 나만의 방을 만들어보세요.
           </Text>
         </Container>
       </Container>
-      <Container height="1010px" position="relative" style={backgroundColorCSS}>
+      <Container height="870px" position="relative" style={backgroundColorCSS}>
         {/* 1번 컨테이너 */}
         <Container
           width="846px"
@@ -46,7 +46,7 @@ export const ConsultantApplication = () => {
             className="KRDisplay-3 gray001"
             style={ApplicationContainerTitleCSS}
           >
-            컨설팅 신청서를 다운받아 작성해 주세요.
+            컨설턴트 신청서를 다운받아 작성해 주세요.
           </Text>
           <Img
             src={IconDownload}
@@ -58,22 +58,16 @@ export const ConsultantApplication = () => {
             className="KRBody-2 gray001"
             style={ApplicationContainer1Text1CSS}
           >
-            온룸 컨설팅 신청서 양식.docx
+            온룸 컨설턴트 신청서 양식.docx
           </Text>
           <div style={ApplicationContainer1DividingLineCSS} />
           <Text
             className="KRBody-3 gray002"
             style={ApplicationContainer1Text2CSS}
           >
-            양식을 다운 받아 컨설팅 신청서를 작성한 후<br />
-            신청서를 페이지에 업로드하면 해당 컨설턴트에게 전달됩니다.
+            양식을 다운 받아 컨설턴트 신청서를 작성해주세요.
           </Text>
-          <Text
-            className="KRBody-3 orange001"
-            style={ApplicationContainer1Text3CSS}
-          >
-            (파일명-'오너 본인 이름_컨설팅 신청서')
-          </Text>
+
           <Img
             src={process.env.PUBLIC_URL + '/img/consultant/1.png'}
             width={'90.5px'}
@@ -102,11 +96,20 @@ export const ConsultantApplication = () => {
           >
             작성한 양식을 업로드해 주세요.
           </Text>
-          <ApplicationContainer2FileContainer>
-            <Text className="KRBody-3 gray003">
-              작성한 양식을 업로드해 주세요.
-            </Text>
-          </ApplicationContainer2FileContainer>
+          <Text
+            className="KRBody-3 gray002"
+            style={ApplicationContainer2Text1CSS}
+          >
+            ownroom@gmail.com으로 제출해 주시면
+            <br />
+            확인 후 컨설턴트 전환을 진행해 드립니다.
+          </Text>
+          <Text
+            className="KRBody-3 orange001"
+            style={ApplicationContainer2Text2CSS}
+          >
+            (파일명-'본인 이름_컨설턴트 신청서')
+          </Text>
           <Img
             src={process.env.PUBLIC_URL + '/img/consultant/2.png'}
             width={'145.5px'}
@@ -114,9 +117,6 @@ export const ConsultantApplication = () => {
             style={ApplicationContainerBackgroundNumber2CSS}
           ></Img>
         </Container>
-        <Button width="400px" height="50px" style={SaveButtonCSS}>
-          <Text className="KRHeadline-1 graywhite">저장하기</Text>
-        </Button>
       </Container>
     </Container>
   );
@@ -201,23 +201,20 @@ const ApplicationContainer1DividingLineCSS: CSSProperties = {
   left: '185px',
   top: '156.5px',
   backgroundColor: 'var(--gray-gray-002)',
-  width: '184px',
+  width: '198px',
   height: '0.5px',
 };
 
-const ApplicationContainer2FileContainer = styled.div`
-  width: 480px;
-  height: 140px;
-  border-radius: 10px;
-  border: solid 1px var(--brand-orange-002);
-  background-color: var(--gray-white);
-  position: absolute;
-  top: 126px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
+const ApplicationContainer2Text1CSS: CSSProperties = {
+  position: 'absolute',
+  left: '145px',
+  top: '126px',
+};
+const ApplicationContainer2Text2CSS: CSSProperties = {
+  position: 'absolute',
+  left: '145px',
+  top: '172px',
+};
 const ApplicationContainerBackgroundNumber1CSS: CSSProperties = {
   position: 'absolute',
   top: '155px',
