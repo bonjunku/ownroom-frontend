@@ -22,7 +22,7 @@ function App() {
   return (
     <>
       <GlobalStyle />
-      <Modal />
+      {/* <Modal /> */}
       <BrowserRouter>
         <Navbar />
         <Container height="80px" />
