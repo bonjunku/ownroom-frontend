@@ -25,7 +25,7 @@ export const MyPage = () => {
       <Container height="60px" style={BackgroundCSS} />
 
       {/* 마이페이지 본문*/}
-      <Container height="522px" style={BackgroundCSS}>
+      <Container height="532px" style={BackgroundCSS}>
         <Container width="1136px" position="relative">
           {/* 마이페이지 좌측 컨테이너 */}
           <Container
@@ -71,7 +71,11 @@ export const MyPage = () => {
             </Text>
           </Container>
           {/* 마이페이지 우측 컨테이너 */}
-          <Container width="846px" style={MyPageRightContainerCSS}>
+          <Container
+            width="846px"
+            height="522px"
+            style={MyPageRightContainerCSS}
+          >
             <Container
               style={MyPageContainerDecoratorCSS}
               height="12px"
@@ -173,7 +177,7 @@ export const MyPage = () => {
         </Container>
       </Container>
       {/* 여백 */}
-      <Container height="60px" style={BackgroundCSS} />
+      <Container height="50px" style={BackgroundCSS} />
     </>
   );
 };
@@ -187,7 +191,7 @@ const MyPageProfileIconCSS: CSSProperties = {
   height: '42px',
   position: 'absolute',
   left: '30px',
-  top: '38px',
+  top: '50px',
 };
 const MyPageBannerText1CSS: CSSProperties = {
   position: 'absolute',
@@ -206,6 +210,7 @@ const MyPageLeftContainerCSS: CSSProperties = {
   left: 0,
   backgroundColor: 'var(--gray-white)',
   borderRadius: '10px',
+  boxShadow: '0 3px 3px 0 rgba(0, 0, 0, 0.08)',
 };
 
 const MyPageContainerDecoratorCSS: CSSProperties = {
@@ -217,24 +222,19 @@ const MyPageContainerDecoratorCSS: CSSProperties = {
 const MyPageIdCSS: CSSProperties = {
   position: 'absolute',
   left: '86px',
-  top: '38px',
+  top: '50px',
 };
 
 const MyPagePositionCSS: CSSProperties = {
   position: 'absolute',
   left: '30px',
-  top: '102px',
-};
-const MyPageLogOutCSS: CSSProperties = {
-  position: 'absolute',
-  left: '35px',
-  top: '304px',
+  top: '114px',
 };
 
 const MyPagePersonalInfoCSS: CSSProperties = {
   position: 'absolute',
   left: '31px',
-  top: '144px',
+  top: '156px',
   width: '125px',
   height: '64px',
 };
@@ -251,8 +251,13 @@ const MyPagePersonalInfoPhoneNumberCSS: CSSProperties = {
 
 const MyPagePositionConversionCSS: CSSProperties = {
   position: 'absolute',
-  top: '234px',
+  top: '246px',
   left: '29px',
+};
+const MyPageLogOutCSS: CSSProperties = {
+  position: 'absolute',
+  left: '35px',
+  top: '316px',
 };
 
 //본문 우측 컨테이너
@@ -263,12 +268,13 @@ const MyPageRightContainerCSS: CSSProperties = {
   right: 0,
   backgroundColor: 'var(--gray-white)',
   borderRadius: '10px',
+  boxShadow: '0 3px 3px 0 rgba(0, 0, 0, 0.08)',
 };
 
 const MyPageTitle: CSSProperties = {
   position: 'absolute',
   left: '40px',
-  top: '38px',
+  top: '50px',
 };
 
 const MyPageItemContainerCSS: CSSProperties = {
@@ -303,11 +309,11 @@ const MyPageItemButton1CSS: CSSProperties = {
   position: 'absolute',
   top: '28px',
   right: '223px',
-  backgroundColor: 'var(--brand-orange-005)',
+  backgroundColor: 'var(--gray-white)',
 };
 const MyPageItemButton2CSS: CSSProperties = {
   position: 'absolute',
   top: '28px',
   right: '25px',
-  backgroundColor: 'var(--brand-orange-005)',
+  backgroundColor: 'var(--gray-white)',
 };
