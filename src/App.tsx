@@ -17,6 +17,7 @@ import { SignUp } from './pages/signup/signup';
 import { ConsultantApplication } from './pages/application/consultantApplication';
 import { ConsultingApplication } from './pages/application/consultingApplication';
 import { Modal } from './components/@shared/modal';
+import { ScrollToTop } from './components/@shared/scrollToTop';
 
 function App() {
   return (
@@ -24,21 +25,23 @@ function App() {
       <GlobalStyle />
       {/* <Modal /> */}
       <BrowserRouter>
-        <Navbar />
-        <Container height="80px" />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="application">
-            <Route path="consultant" element={<ConsultantApplication />} />
-            <Route path="consulting" element={<ConsultingApplication />} />
-          </Route>
-          <Route path="portfolioList" element={<ConsultantPortfolio />} />
-          <Route path="portfolio/id" element={<Portfolio />}></Route>
-          <Route path="mypage" element={<MyPage />}></Route>
-          <Route path="login" element={<LogIn />}></Route>
-          <Route path="signup" element={<SignUp />}></Route>
-        </Routes>
-        <Footer />
+        <ScrollToTop>
+          <Navbar />
+          <Container height="80px" />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="application">
+              <Route path="consultant" element={<ConsultantApplication />} />
+              <Route path="consulting" element={<ConsultingApplication />} />
+            </Route>
+            <Route path="portfolioList" element={<ConsultantPortfolio />} />
+            <Route path="portfolio/id" element={<Portfolio />}></Route>
+            <Route path="mypage" element={<MyPage />}></Route>
+            <Route path="login" element={<LogIn />}></Route>
+            <Route path="signup" element={<SignUp />}></Route>
+          </Routes>
+          <Footer />
+        </ScrollToTop>
       </BrowserRouter>
     </>
   );
