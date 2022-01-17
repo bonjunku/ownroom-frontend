@@ -12,7 +12,7 @@ export const GlobalStyle = createGlobalStyle`
   --brand-orange-003: #ffe7d9;
   --brand-orange-002: #ffb78e;
   --brand-orange-004: #ffefe7;
-  --brand-orange-005: #fcfaf7;
+  --brand-orange-005: #fdf9f3;
   --brand-yellow-001: #f8f6ea;
   --gray-gray-001: #353535;
   --brand-red-001: #ff3e3e;

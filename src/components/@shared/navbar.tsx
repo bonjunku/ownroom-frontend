@@ -28,7 +28,7 @@ export const Navbar = () => {
                   포트폴리오 둘러보기
                 </Text>
               </StyledLink>
-              <StyledLink to="/consultant/apply">
+              <StyledLink to="/consultant/application">
                 <Text className="KRHeadline-3 gray003">컨설턴트 신청하기</Text>
               </StyledLink>
             </SubConsultant>
