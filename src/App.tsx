@@ -16,11 +16,13 @@ import { LogIn } from './pages/login/login';
 import { SignUp } from './pages/signup/signup';
 import { ConsultantApplication } from './pages/application/consultantApplication';
 import { ConsultingApplication } from './pages/application/consultingApplication';
+import { Modal } from './components/@shared/modal';
 
 function App() {
   return (
     <>
       <GlobalStyle />
+      <Modal />
       <BrowserRouter>
         <Navbar />
         <Container height="80px" />
