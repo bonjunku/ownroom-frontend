@@ -82,8 +82,8 @@ export const PortfolioItem = () => {
           </Text>
         </Container>
         <Text className="KRBody-3 gray001" style={PortfolioBodyCSS}>
-          이곳에 보이는 최대 글자 공백포함 66자입니다 이곳에 보이는 최대 글자
-          공백포함 66자입니다 이곳에 보이는 글...
+          이 곳에 보이는 글자는 공백 포함 77자입니다. 이 곳에 보이는 글자는 공백
+          포함 77자입니다. 이 곳에 보이는 글자는 공백 포함77자입니...
         </Text>
         <StyledLink to="/login">
           <Button width="92px" height="32px" top="310px" right="5px">
