@@ -6,8 +6,21 @@ import { CSSProperties } from 'react';
 import { Button } from '../../components/@shared/button';
 import ProfileIcon from '../../static/images/icon_profile.svg';
 import styled from 'styled-components';
+import { setCookie } from '../../store/modules/user';
+import { useAppDispatch } from '../../store/configureStore.hooks';
+import { useNavigate } from 'react-router-dom';
 
 export const MyPage = () => {
+  const navigate = useNavigate();
+  const dispatch = useAppDispatch();
+
+  const logOut = () => {
+    setCookie('token', undefined);
+    dispatch({ type: 'user/LOG_OUT' });
+    alert('로그아웃되었습니다.');
+    navigate('/');
+  };
+
   return (
     <>
       {/*마이 페이지 상단 배너 */}
@@ -66,7 +79,11 @@ export const MyPage = () => {
             >
               <Text className="KRHeadline-3 gray007">고객으로 전환</Text>
             </Button>
-            <Text className="KRBody-2 gray002" style={MyPageLogOutCSS}>
+            <Text
+              className="KRBody-2 gray002"
+              style={MyPageLogOutCSS}
+              onClick={logOut}
+            >
               로그아웃
             </Text>
           </Container>
@@ -258,6 +275,7 @@ const MyPageLogOutCSS: CSSProperties = {
   position: 'absolute',
   left: '35px',
   top: '316px',
+  cursor: 'pointer',
 };
 
 //본문 우측 컨테이너

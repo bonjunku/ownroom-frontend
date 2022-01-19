@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import styled, { CSSProperties } from 'styled-components';
 import { Button } from '../../components/@shared/button';
 import { Container } from '../../components/@shared/container';
@@ -8,8 +10,51 @@ import { Input } from '../../components/@shared/input';
 import { StyledLink } from '../../components/@shared/link';
 import { Text } from '../../components/@shared/text';
 import SymbolWithText from '../../static/images/symbol_with_text.svg';
+import { useAppDispatch } from '../../store/configureStore.hooks';
+import {
+  addUserAsync,
+  getUserInfo,
+  logInAsync,
+  LoginInfo,
+  setUserAsync,
+  User,
+} from '../../store/modules/user';
 
 export const LogIn = () => {
+  const navigate = useNavigate();
+
+  const [loginInfo, setLoginInfo] = useState<LoginInfo>({
+    id: '',
+    password: '',
+  });
+  const dispatch = useAppDispatch();
+
+  const handleChangeUser = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setLoginInfo({ ...loginInfo, [name]: value });
+  };
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+  };
+
+  const handleSubmit = (
+    loginInfo: LoginInfo,
+    e: React.FormEvent<HTMLFormElement>
+  ) => {
+    e.preventDefault();
+    dispatch(logInAsync(loginInfo)).then((data) => {
+      if (data.type == 'LOG_IN/fulfilled') {
+        navigate('/');
+      }
+      if (data.type == 'LOG_IN/rejected') {
+        setLoginInfo({
+          id: '',
+          password: '',
+        });
+      }
+    });
+  };
+
   return (
     <>
       <Container height="1000px" style={BackgroundCSS}>
@@ -23,7 +68,12 @@ export const LogIn = () => {
             <br />
             나만의 집을 스타일링 해보세요.
           </Text>
-          <Form style={LogInFormCSS}>
+          <Form
+            style={LogInFormCSS}
+            onSubmit={(event: React.FormEvent<HTMLFormElement>) =>
+              handleSubmit(loginInfo, event)
+            }
+          >
             <Text className="KRHeadline-1 orange001" style={LogInText2CSS}>
               아이디
             </Text>
@@ -32,6 +82,9 @@ export const LogIn = () => {
               height={'50px'}
               placeholder="아이디"
               style={LogInInputIdCSS}
+              name="id"
+              onChange={handleChangeUser}
+              value={loginInfo.id}
             ></Input>
             <Text className="KRHeadline-1 orange001" style={LogInText3CSS}>
               비밀번호
@@ -42,8 +95,18 @@ export const LogIn = () => {
               height={'50px'}
               style={LogInInputPasswordCSS}
               placeholder="비밀번호"
+              name="password"
+              onChange={handleChangeUser}
+              value={loginInfo.password}
             ></Input>
-            <Button width="400px" height="60px" style={LogInButtonCSS}>
+            <Button
+              width="400px"
+              height="60px"
+              style={LogInButtonCSS}
+              onChange={(e: React.MouseEvent<HTMLButtonElement>) =>
+                handleClick(e)
+              }
+            >
               <Text className="KRHeadline-1 graywhite">로그인</Text>
             </Button>
           </Form>

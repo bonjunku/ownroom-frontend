@@ -1,11 +1,22 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled, { CSSProperties } from 'styled-components';
+import { useAppSelect } from '../../store/configureStore.hooks';
+import {
+  getCookie,
+  getIsLoggedIn,
+  getNickName,
+  setCookie,
+} from '../../store/modules/user';
 import { Container } from './container';
 import { Img } from './img';
 import { StyledLink } from './link';
 import { Text } from './text';
+import ProfileIcon from '../../static/images/icon_profile.svg';
 
 export const Navbar = () => {
+  const isLoggedin = useAppSelect(getIsLoggedIn);
+  const nickname = useAppSelect(getNickName);
+
   return (
     <Container height="80px" position="fixed" style={navbarCSS}>
       <Container width="1920px">
@@ -30,12 +41,19 @@ export const Navbar = () => {
               </StyledLink>
             </SubConsultant>
           </Consultant>
-          <StyledLink to="/mypage" style={login2CSS}>
-            <Text className="KRHeadline-2 gray002">마이컨설팅</Text>
-          </StyledLink>
-          <StyledLink to="/login" style={loginCSS}>
-            <Text className="KRHeadline-2 gray002">로그인</Text>
-          </StyledLink>
+
+          {isLoggedin ? (
+            <StyledLink to="/mypage" style={myPageLinkCSS}>
+              <Img src={ProfileIcon} width="30px" height="30px"></Img>
+              <Text className="KRHeadline-2 gray002" style={nicknameCSS}>
+                {nickname}님
+              </Text>
+            </StyledLink>
+          ) : (
+            <StyledLink to="/login" style={loginCSS}>
+              <Text className="KRHeadline-2 gray002">로그인</Text>
+            </StyledLink>
+          )}
         </Container>
       </Container>
     </Container>
@@ -79,7 +97,12 @@ const loginCSS: CSSProperties = {
   right: 0,
 };
 
-const login2CSS: CSSProperties = {
+const myPageLinkCSS: CSSProperties = {
   position: 'absolute',
-  right: '100px',
+  right: '0px',
+  display: 'flex',
+  alignContent: 'center',
+};
+const nicknameCSS: CSSProperties = {
+  marginLeft: '12px',
 };
