@@ -67,6 +67,7 @@ export const PortfolioList = () => {
 
   const dispatch = useAppDispatch();
   const concept = useAppSelect(getPortfolioConcept);
+
   const convertConcept = (event: MouseEvent<HTMLElement>) => {
     console.log(event.currentTarget.id);
     dispatch({
@@ -78,8 +79,13 @@ export const PortfolioList = () => {
       ...initialPortfolioNavBarClicked,
       [event.currentTarget.id]: true,
     });
-    console.log(portfolioNavBarClicked);
   };
+  useEffect(() => {
+    dispatch({
+      type: 'portfolio/CONVERT_CONCEPT',
+      payload: 'Modern',
+    });
+  }, []);
 
   useEffect(() => {
     dispatch(fetchPortfolioAsync(concept)).then((data) => {
