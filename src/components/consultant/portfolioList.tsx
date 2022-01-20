@@ -16,7 +16,7 @@ type Image = {
   id: number;
   url: string;
 };
-interface Portfolio {
+export default interface Portfolio {
   budget: number;
   concept: string;
   consultingRange: string;
@@ -29,6 +29,7 @@ interface Portfolio {
   pricePerUnit: number;
   title: string;
   user: { nickname: string };
+  numberOfPossibleConsulting: number;
 }
 
 interface PortfolioNavBarClicked {
@@ -160,7 +161,7 @@ export const PortfolioItem: React.FunctionComponent<Portfolio> = (
   portfolio: Portfolio
 ) => {
   return (
-    <StyledLink to={'/portfolio/id'} style={StyledLinkCSS}>
+    <StyledLink to={`/portfolio/${portfolio.id}`} style={StyledLinkCSS}>
       <StyledPortfolioItem>
         <PortfolioThumbnailContainer>
           <PortfolioThumbnail
@@ -185,7 +186,7 @@ export const PortfolioItem: React.FunctionComponent<Portfolio> = (
             평당 {portfolio.pricePerUnit / 10000}만원
           </Text>
           <Text className="KRBody-3 orange001" style={PortfolioInfo3CSS}>
-            {3}명 가능
+            {portfolio.numberOfPossibleConsulting}명 가능
           </Text>
         </Container>
         <Text className="KRBody-3 gray001" style={PortfolioBodyCSS}>

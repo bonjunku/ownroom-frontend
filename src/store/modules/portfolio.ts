@@ -33,5 +33,16 @@ export const fetchPortfolioAsync = createAsyncThunk(
   }
 );
 
+export const fetchPortfolioByIdAsync = createAsyncThunk(
+  'FETCH_BY_ID',
+  async (id: string | undefined) => {
+    const response = await axios.get(
+      `http://13.209.143.8/api/portfolios/${id}/`
+    );
+
+    return { ...response.data };
+  }
+);
+
 export const getPortfolioConcept = (state: RootState) =>
   state.portfolio.concept;

@@ -1,19 +1,35 @@
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import { CSSProperties } from 'styled-components';
-import { useAppSelect } from '../../store/configureStore.hooks';
-import { getPortfolioConcept } from '../../store/modules/portfolio';
+import { useAppDispatch, useAppSelect } from '../../store/configureStore.hooks';
+import {
+  fetchPortfolioAsync,
+  fetchPortfolioByIdAsync,
+  getPortfolioConcept,
+} from '../../store/modules/portfolio';
 import { Button } from '../@shared/button';
 import { Container } from '../@shared/container';
 import { DecoratedContainer } from '../@shared/decoratedContainer';
 import { StyledLink } from '../@shared/link';
 import { Text } from '../@shared/text';
+import PortfolioInterface from '../consultant/portfolioList';
 
 export const Portfolio = () => {
+  const [portfolio, setPortfolio] = useState<PortfolioInterface>();
+  const { id } = useParams();
+  const dispatch = useAppDispatch();
+  useEffect(() => {
+    dispatch(fetchPortfolioByIdAsync(id)).then((data) => {
+      setPortfolio(data.payload);
+    });
+  }, []);
+
   return (
     <>
       <Container height="300px" style={PortfolioHeaderCSS}>
         <Container width="1136px" position="relative">
           <Text className="KRDisplay-2 gray001" style={PortfolioTitleCSS}>
-            원룸에서도 느낄 수 있는 유러피안 감성
+            {portfolio?.title}
           </Text>
           <Container
             style={PortfolioHeaderTextContainerCSS}
@@ -27,7 +43,7 @@ export const Portfolio = () => {
               className="KRHeadline-2 gray001"
               style={PortfolioHeaderText2CSS}
             >
-              원룸
+              {portfolio?.numberOfRooms}
             </Text>
             <Text className="KRBody-1 gray001" style={PortfolioHeaderText3CSS}>
               평수
@@ -36,7 +52,7 @@ export const Portfolio = () => {
               className="KRHeadline-2 gray001"
               style={PortfolioHeaderText4CSS}
             >
-              6평
+              {portfolio?.floorSpace}평
             </Text>
             <Text className="KRBody-1 gray001" style={PortfolioHeaderText5CSS}>
               스타일
@@ -45,7 +61,7 @@ export const Portfolio = () => {
               className="KRHeadline-2 gray001"
               style={PortfolioHeaderText6CSS}
             >
-              모던
+              {portfolio?.concept}
             </Text>
             <Text className="KRBody-1 gray001" style={PortfolioHeaderText7CSS}>
               범위
@@ -54,7 +70,7 @@ export const Portfolio = () => {
               className="KRHeadline-2 gray001"
               style={PortfolioHeaderText8CSS}
             >
-              가구추천
+              {portfolio?.consultingRange}
             </Text>
             <Text className="KRBody-1 gray001" style={PortfolioHeaderText9CSS}>
               총금액
@@ -63,7 +79,7 @@ export const Portfolio = () => {
               className="KRHeadline-2 gray001"
               style={PortfolioHeaderText10CSS}
             >
-              100만원
+              {Number(portfolio?.budget) / 10000 + '만원'}
             </Text>
           </Container>
         </Container>
@@ -80,21 +96,16 @@ export const Portfolio = () => {
             className="KRHeadline-1 gray001"
             style={PortfolioConsultantIdCSS}
           >
-            hsumiii
+            {portfolio?.user.nickname}
           </Text>
           <Text className="KRBody-2 gray002" style={PortfolioCostCSS}>
-            평당 3만원
+            평당 {Number(portfolio?.pricePerUnit) / 10000}만원
           </Text>
           <Text className="KRHeadline-2 orange001" style={PortfolioCapacityCSS}>
-            2명 가능
+            {portfolio?.numberOfPossibleConsulting}명 가능
           </Text>
           <Container style={PortfolioConsultantInfoCSS}>
-            <Text className="KRBody-2 gray001">
-              안녕하세요 컨설턴트 우민경입니다. SNS에서만 볼 수 있었던 분위기
-              있는 공간을 마들어드립니다. 감각적인 홈스타일링을 통해 집을
-              꾸며보고 싶다면 찾아주세요! 입력가능한 최대 글자수는 공백을
-              포함하여 총 125자입니다.
-            </Text>
+            <Text className="KRBody-2 gray001">{portfolio?.introduction}</Text>
           </Container>
           <StyledLink to="../application/consulting">
             <Button
@@ -116,87 +127,7 @@ export const Portfolio = () => {
           justifyContent="start"
           alignItems="start"
         >
-          본문은 여기 입력됩니다... 본문은 여기 입력됩니다... 본문은 여기
-          입력됩니다... 본문은 여기 입력됩니다... 본문은 여기 입력됩니다...
-          본문은 여기 입력됩니다... 본문은 여기 입력됩니다... 본문은 여기
-          입력됩니다... 본문은 여기 입력됩니다... 본문은 여기 입력됩니다...
-          본문은 여기 입력됩니다... 본문은 여기 입력됩니다... 본문은 여기
-          입력됩니다... 본문은 여기 입력됩니다... 본문은 여기 입력됩니다...
-          본문은 여기 입력됩니다... 본문은 여기 입력됩니다... 본문은 여기
-          입력됩니다... 본문은 여기 입력됩니다... 본문은 여기 입력됩니다...
-          본문은 여기 입력됩니다... 본문은 여기 입력됩니다... 본문은 여기
-          입력됩니다... 본문은 여기 입력됩니다... 본문은 여기 입력됩니다...
-          본문은 여기 입력됩니다... 본문은 여기 입력됩니다... 본문은 여기
-          입력됩니다... 본문은 여기 입력됩니다... 본문은 여기 입력됩니다...
-          본문은 여기 입력됩니다... 본문은 여기 입력됩니다... 본문은 여기
-          입력됩니다... 본문은 여기 입력됩니다... 본문은 여기 입력됩니다...
-          본문은 여기 입력됩니다... 본문은 여기 입력됩니다... 본문은 여기
-          입력됩니다... 본문은 여기 입력됩니다... 본문은 여기 입력됩니다...
-          본문은 여기 입력됩니다... 본문은 여기 입력됩니다... 본문은 여기
-          입력됩니다... 본문은 여기 입력됩니다... 본문은 여기 입력됩니다...
-          본문은 여기 입력됩니다... 본문은 여기 입력됩니다... 본문은 여기
-          입력됩니다... 본문은 여기 입력됩니다... 본문은 여기 입력됩니다...
-          본문은 여기 입력됩니다... 본문은 여기 입력됩니다... 본문은 여기
-          입력됩니다... 본문은 여기 입력됩니다... 본문은 여기 입력됩니다...
-          본문은 여기 입력됩니다... 본문은 여기 입력됩니다... 본문은 여기
-          입력됩니다... 본문은 여기 입력됩니다... 본문은 여기 입력됩니다...
-          본문은 여기 입력됩니다... 본문은 여기 입력됩니다... 본문은 여기
-          입력됩니다... 본문은 여기 입력됩니다... 본문은 여기 입력됩니다...
-          본문은 여기 입력됩니다... 본문은 여기 입력됩니다... 본문은 여기
-          입력됩니다... 본문은 여기 입력됩니다... 본문은 여기 입력됩니다...
-          본문은 여기 입력됩니다... 본문은 여기 입력됩니다... 본문은 여기
-          입력됩니다... 본문은 여기 입력됩니다... 본문은 여기 입력됩니다...
-          본문은 여기 입력됩니다... 본문은 여기 입력됩니다... 본문은 여기
-          입력됩니다... 본문은 여기 입력됩니다... 본문은 여기 입력됩니다...
-          본문은 여기 입력됩니다... 본문은 여기 입력됩니다... 본문은 여기
-          입력됩니다... 본문은 여기 입력됩니다... 본문은 여기 입력됩니다...
-          본문은 여기 입력됩니다... 본문은 여기 입력됩니다... 본문은 여기
-          입력됩니다... 본문은 여기 입력됩니다... 본문은 여기 입력됩니다...
-          본문은 여기 입력됩니다... 본문은 여기 입력됩니다... 본문은 여기
-          입력됩니다... 본문은 여기 입력됩니다... 본문은 여기 입력됩니다...
-          본문은 여기 입력됩니다... 본문은 여기 입력됩니다... 본문은 여기
-          입력됩니다... 본문은 여기 입력됩니다... 본문은 여기 입력됩니다...
-          본문은 여기 입력됩니다... 본문은 여기 입력됩니다... 본문은 여기
-          입력됩니다... 본문은 여기 입력됩니다... 본문은 여기 입력됩니다...
-          본문은 여기 입력됩니다... 본문은 여기 입력됩니다... 본문은 여기
-          입력됩니다... 본문은 여기 입력됩니다... 본문은 여기 입력됩니다...
-          본문은 여기 입력됩니다... 본문은 여기 입력됩니다... 본문은 여기
-          입력됩니다... 본문은 여기 입력됩니다... 본문은 여기 입력됩니다...
-          본문은 여기 입력됩니다... 본문은 여기 입력됩니다... 본문은 여기
-          입력됩니다... 본문은 여기 입력됩니다... 본문은 여기 입력됩니다...
-          본문은 여기 입력됩니다... 본문은 여기 입력됩니다... 본문은 여기
-          입력됩니다... 본문은 여기 입력됩니다... 본문은 여기 입력됩니다...
-          본문은 여기 입력됩니다... 본문은 여기 입력됩니다... 본문은 여기
-          입력됩니다... 본문은 여기 입력됩니다... 본문은 여기 입력됩니다...
-          본문은 여기 입력됩니다... 본문은 여기 입력됩니다... 본문은 여기
-          입력됩니다... 본문은 여기 입력됩니다... 본문은 여기 입력됩니다...
-          본문은 여기 입력됩니다... 본문은 여기 입력됩니다... 본문은 여기
-          입력됩니다... 본문은 여기 입력됩니다... 본문은 여기 입력됩니다...
-          본문은 여기 입력됩니다... 본문은 여기 입력됩니다... 본문은 여기
-          입력됩니다... 본문은 여기 입력됩니다... 본문은 여기 입력됩니다...
-          본문은 여기 입력됩니다... 본문은 여기 입력됩니다... 본문은 여기
-          입력됩니다... 본문은 여기 입력됩니다... 본문은 여기
-          입력됩니다...본문은 여기 입력됩니다... 본문은 여기 입력됩니다...
-          본문은 여기 입력됩니다... 본문은 여기 입력됩니다... 본문은 여기
-          입력됩니다... 본문은 여기 입력됩니다... 본문은 여기 입력됩니다...
-          본문은 여기 입력됩니다... 본문은 여기 입력됩니다... 본문은 여기
-          입력됩니다... 본문은 여기 입력됩니다... 본문은 여기 입력됩니다...
-          본문은 여기 입력됩니다... 본문은 여기 입력됩니다... 본문은 여기
-          입력됩니다... 본문은 여기 입력됩니다... 본문은 여기 입력됩니다...
-          본문은 여기 입력됩니다... 본문은 여기 입력됩니다... 본문은 여기
-          입력됩니다... 본문은 여기 입력됩니다... 본문은 여기 입력됩니다...
-          본문은 여기 입력됩니다... 본문은 여기 입력됩니다... 본문은 여기
-          입력됩니다... 본문은 여기 입력됩니다... 본문은 여기 입력됩니다...
-          본문은 여기 입력됩니다... 본문은 여기 입력됩니다... 본문은 여기
-          입력됩니다... 본문은 여기 입력됩니다... 본문은 여기 입력됩니다...
-          본문은 여기 입력됩니다... 본문은 여기 입력됩니다... 본문은 여기
-          입력됩니다... 본문은 여기 입력됩니다... 본문은 여기 입력됩니다...
-          본문은 여기 입력됩니다... 본문은 여기 입력됩니다... 본문은 여기
-          입력됩니다... 본문은 여기 입력됩니다... 본문은 여기 입력됩니다...
-          본문은 여기 입력됩니다... 본문은 여기 입력됩니다... 본문은 여기
-          입력됩니다... 본문은 여기 입력됩니다... 본문은 여기 입력됩니다...
-          본문은 여기 입력됩니다... 본문은 여기 입력됩니다... 본문은 여기
-          입력됩니다...
+          {portfolio?.description}
         </Container>
       </Container>
     </>

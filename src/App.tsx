@@ -36,7 +36,7 @@ function App() {
               <Route path="consulting" element={<ConsultingApplication />} />
             </Route>
             <Route path="portfolioList" element={<ConsultantPortfolio />} />
-            <Route path="portfolio/id" element={<Portfolio />}></Route>
+            <Route path="portfolio/:id" element={<Portfolio />}></Route>
             <Route path="mypage" element={<MyPage />}></Route>
             <Route path="login" element={<LogIn />}></Route>
             <Route path="signup" element={<SignUp />}></Route>
