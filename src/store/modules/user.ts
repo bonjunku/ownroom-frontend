@@ -85,6 +85,16 @@ const userSlice = createSlice({
 
       return { ...state };
     });
+    // 중복체크
+    builder.addCase(duplicateCheckAsync.fulfilled, (state, action) => {
+      console.log(action.payload);
+      console.log(action.payload.result);
+      if (action.payload.result === 'true') {
+        alert('이미 사용중인 아이디입니다.');
+      } else {
+        alert('사용 가능한 아이디입니다.');
+      }
+    });
 
     // 로그인
     builder.addCase(logInAsync.fulfilled, (state, action) => {
@@ -148,6 +158,17 @@ export const signUpAsync = createAsyncThunk(
     } catch (err) {
       return rejectWithValue(err.response.data);
     }
+  }
+);
+
+export const duplicateCheckAsync = createAsyncThunk(
+  'DUPLICATE_CHECK',
+  async (nickname: string) => {
+    const response = await axios.post('http://13.209.143.8/api/users/check', {
+      nickname: nickname,
+    });
+
+    return { ...response.data, result: `${response.data}` };
   }
 );
 

@@ -10,7 +10,11 @@ import { StyledLink } from '../../components/@shared/link';
 import { Text } from '../../components/@shared/text';
 import SymbolWithText from '../../static/images/symbol_with_text.svg';
 import { useAppDispatch } from '../../store/configureStore.hooks';
-import { signUpAsync, SignUpInfo } from '../../store/modules/user';
+import {
+  duplicateCheckAsync,
+  signUpAsync,
+  SignUpInfo,
+} from '../../store/modules/user';
 
 export const SignUp = () => {
   const navigate = useNavigate();
@@ -38,6 +42,14 @@ export const SignUp = () => {
         navigate('/');
       }
     });
+  };
+
+  const duplicateCheck = (
+    event: React.MouseEvent<HTMLButtonElement>,
+    nickname: string
+  ) => {
+    event.preventDefault();
+    dispatch(duplicateCheckAsync(nickname));
   };
 
   return (
@@ -74,7 +86,14 @@ export const SignUp = () => {
               onChange={handleChange}
               value={signUpInfo.id}
             ></Input>
-            <Button width="100px" height="50px" style={SignUpIdCheckButtonCSS}>
+            <Button
+              width="100px"
+              height="50px"
+              style={SignUpIdCheckButtonCSS}
+              onClick={(event: React.MouseEvent<HTMLButtonElement>) =>
+                duplicateCheck(event, signUpInfo.id)
+              }
+            >
               <Text className="KRHeadline-1 graywhite">중복확인</Text>
             </Button>
             <Text className="KRHeadline-1 orange001" style={SignUpText4CSS}>
