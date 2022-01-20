@@ -29,6 +29,6 @@ export const Container = styled.div<IContainer>`
   @media all and (max-width: 1136px) {
     width: 100%;
   }
-
-  /* border: 1px blue solid; */
+  /* 
+  border: 1px blue solid; */
 `;

@@ -18,6 +18,7 @@ import { ConsultantApplication } from './pages/application/consultantApplication
 import { ConsultingApplication } from './pages/application/consultingApplication';
 import { Modal } from './components/@shared/modal';
 import { ScrollToTop } from './components/@shared/scrollToTop';
+import { Welcome } from './pages/welcome/welcome';
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
             <Route path="mypage" element={<MyPage />}></Route>
             <Route path="login" element={<LogIn />}></Route>
             <Route path="signup" element={<SignUp />}></Route>
+            <Route path="welcome" element={<Welcome />}></Route>
           </Routes>
           <Footer />
         </ScrollToTop>
