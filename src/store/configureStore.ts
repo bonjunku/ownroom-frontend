@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
 import user from './modules/user';
+import portfolio from './modules/portfolio';
 
 const store = configureStore({
   reducer: {
     user,
+    portfolio,
   },
   devTools: process.env.NODE_ENV !== 'production',
 });

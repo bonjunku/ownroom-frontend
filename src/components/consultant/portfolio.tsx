@@ -1,4 +1,6 @@
 import { CSSProperties } from 'styled-components';
+import { useAppSelect } from '../../store/configureStore.hooks';
+import { getPortfolioConcept } from '../../store/modules/portfolio';
 import { Button } from '../@shared/button';
 import { Container } from '../@shared/container';
 import { DecoratedContainer } from '../@shared/decoratedContainer';

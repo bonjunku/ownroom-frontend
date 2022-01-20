@@ -5,18 +5,120 @@ import { StyledLink } from '../@shared/link';
 import { Img } from '../@shared/img';
 import { Button } from '../@shared/button';
 import { buildQueries } from '@testing-library/react';
+import { useAppDispatch, useAppSelect } from '../../store/configureStore.hooks';
+import portfolio, {
+  fetchPortfolioAsync,
+  getPortfolioConcept,
+} from '../../store/modules/portfolio';
+import { MouseEvent, useEffect, useState } from 'react';
+
+type Image = {
+  id: number;
+  url: string;
+};
+interface Portfolio {
+  budget: number;
+  concept: string;
+  consultingRange: string;
+  description: string;
+  floorSpace: number;
+  id: number;
+  images: Image[];
+  introduction: string;
+  numberOfRooms: string;
+  pricePerUnit: number;
+  title: string;
+  user: { nickname: string };
+}
+
+interface PortfolioNavBarClicked {
+  Modern: boolean;
+  Minimal: boolean;
+  Natural: boolean;
+  Antique: boolean;
+  NorthEurope: boolean;
+}
+const portfolioNavBarMap = {
+  Modern: '모던',
+  Minimal: '미니멀',
+  Natural: '내츄럴',
+  Antique: '앤틱',
+  NortEurope: '북유럽',
+};
 
 export const PortfolioList = () => {
+  const [portfolioListResult, setPortfolioListResult] = useState<Portfolio[]>();
+  const initialPortfolioNavBarClicked = {
+    Modern: false,
+    Minimal: false,
+    Natural: false,
+    Antique: false,
+    NorthEurope: false,
+  };
+
+  const [portfolioNavBarClicked, setPortfolioNavBarClicked] =
+    useState<PortfolioNavBarClicked>({
+      Modern: true,
+      Minimal: false,
+      Natural: false,
+      Antique: false,
+      NorthEurope: false,
+    });
+
+  const dispatch = useAppDispatch();
+  const concept = useAppSelect(getPortfolioConcept);
+  const convertConcept = (event: MouseEvent<HTMLElement>) => {
+    console.log(event.currentTarget.id);
+    dispatch({
+      type: 'portfolio/CONVERT_CONCEPT',
+      payload: event.currentTarget.id,
+    });
+
+    setPortfolioNavBarClicked({
+      ...initialPortfolioNavBarClicked,
+      [event.currentTarget.id]: true,
+    });
+    console.log(portfolioNavBarClicked);
+  };
+
+  useEffect(() => {
+    dispatch(fetchPortfolioAsync(concept)).then((data) => {
+      setPortfolioListResult(data.payload);
+    });
+  }, [concept]);
   return (
     <Container type="column">
       <Container width="1920px">
         <Container width="1136px" justifyContent="left">
-          <PortfolioNavbar className="KRHeadline-1 gray002">
-            <Text>모던</Text>
-            <Text>미니멀</Text>
-            <Text>내츄럴</Text>
-            <Text>앤틱</Text>
-            <Text>북유럽</Text>
+          <PortfolioNavbar>
+            {Object.keys(portfolioNavBarMap).map((element) => {
+              if (portfolioNavBarClicked[element])
+                return (
+                  <Text
+                    id={element}
+                    className="KRHeadline-1 orange001"
+                    onClick={(event: MouseEvent<HTMLElement>) => {
+                      convertConcept(event);
+                    }}
+                    style={PortfolioNavbarCSS}
+                  >
+                    {portfolioNavBarMap[element]}
+                  </Text>
+                );
+              else
+                return (
+                  <Text
+                    id={element}
+                    className="KRHeadline-1 gray002"
+                    onClick={(event: MouseEvent<HTMLElement>) => {
+                      convertConcept(event);
+                    }}
+                    style={PortfolioNavbarCSS}
+                  >
+                    {portfolioNavBarMap[element]}
+                  </Text>
+                );
+            })}
           </PortfolioNavbar>
         </Container>
       </Container>
@@ -26,15 +128,10 @@ export const PortfolioList = () => {
           justifyContent="space-between"
           style={PortfolioItemContainerCSS}
         >
-          <PortfolioItem />
-          <PortfolioItem />
-          <PortfolioItem />
-          <PortfolioItem />
-          <PortfolioItem />
-          <PortfolioItem />
-          <PortfolioItem />
-          <PortfolioItem />
-          <PortfolioItem />
+          {portfolioListResult &&
+            Object.keys(portfolioListResult).map((element) => (
+              <PortfolioItem {...portfolioListResult[element]}></PortfolioItem>
+            ))}
         </Container>
       </Container>
       <Container height="20px" />
@@ -53,7 +150,9 @@ const PortfolioItemContainerCSS: CSSProperties = {
   flexWrap: 'wrap',
 };
 
-export const PortfolioItem = () => {
+export const PortfolioItem: React.FunctionComponent<Portfolio> = (
+  portfolio: Portfolio
+) => {
   return (
     <StyledLink to={'/portfolio/id'}>
       <StyledPortfolioItem>
@@ -63,7 +162,9 @@ export const PortfolioItem = () => {
           ></PortfolioThumbnail>
         </PortfolioThumbnailContainer>
         <Text className="KRHeadline-1 gray001" style={PortfolioTitleCSS}>
-          원룸에서도 느낄 수 있는 유러피안 감성
+          {portfolio.title.length > 25
+            ? portfolio.title.slice(0, 25) + '...'
+            : portfolio.title}
         </Text>
         <DividingLine />
         <Container
@@ -72,18 +173,17 @@ export const PortfolioItem = () => {
           justifyContent="left"
         >
           <Text className="KRHeadline-2 gray001" style={PortfolioInfo1CSS}>
-            hsummi
+            {portfolio.user.nickname}
           </Text>
           <Text className="KRBody-3 gray002" style={PortfolioInfo2CSS}>
-            평당 3만원
+            평당 {portfolio.pricePerUnit / 10000}만원
           </Text>
           <Text className="KRBody-3 orange001" style={PortfolioInfo3CSS}>
-            3명 가능
+            {3}명 가능
           </Text>
         </Container>
         <Text className="KRBody-3 gray001" style={PortfolioBodyCSS}>
-          이 곳에 보이는 글자는 공백 포함 77자입니다. 이 곳에 보이는 글자는 공백
-          포함 77자입니다. 이 곳에 보이는 글자는 공백 포함77자입니...
+          {portfolio.introduction}
         </Text>
         <StyledLink to="/application/consulting">
           <Button width="92px" height="32px" top="310px" right="5px">
@@ -118,6 +218,9 @@ const PortfolioTitleCSS: CSSProperties = {
   position: 'absolute',
   top: '262px',
   left: 0,
+};
+const PortfolioNavbarCSS: CSSProperties = {
+  cursor: 'pointer',
 };
 
 const PortfolioInfoContainerCSS: CSSProperties = {
