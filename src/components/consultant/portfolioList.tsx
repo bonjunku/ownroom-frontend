@@ -125,7 +125,7 @@ export const PortfolioList = () => {
       <Container width="1920px">
         <Container
           width="1136px"
-          justifyContent="space-between"
+          justifyContent="left"
           style={PortfolioItemContainerCSS}
         >
           {portfolioListResult &&
@@ -154,7 +154,7 @@ export const PortfolioItem: React.FunctionComponent<Portfolio> = (
   portfolio: Portfolio
 ) => {
   return (
-    <StyledLink to={'/portfolio/id'}>
+    <StyledLink to={'/portfolio/id'} style={StyledLinkCSS}>
       <StyledPortfolioItem>
         <PortfolioThumbnailContainer>
           <PortfolioThumbnail
@@ -193,6 +193,10 @@ export const PortfolioItem: React.FunctionComponent<Portfolio> = (
       </StyledPortfolioItem>
     </StyledLink>
   );
+};
+
+const StyledLinkCSS: CSSProperties = {
+  marginRight: '30px',
 };
 
 const StyledPortfolioItem = styled.div`
