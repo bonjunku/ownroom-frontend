@@ -4,6 +4,7 @@ import {
   createAsyncThunk,
   createSlice,
   configureStore,
+  isRejectedWithValue,
 } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { Cookies } from 'react-cookie';
@@ -28,6 +29,13 @@ export interface User {
 export interface LoginInfo {
   id: string;
   password: string;
+}
+
+export interface SignUpInfo {
+  id: string;
+  password: string;
+  userName: string;
+  phoneNumber: string;
 }
 
 const initialState: User = {
@@ -65,12 +73,26 @@ const userSlice = createSlice({
       console.log(action.payload);
       return { ...state };
     });
+    // 회원가입
+    builder.addCase(signUpAsync.fulfilled, (state, action) => {
+      alert('회원가입에 성공하였습니다.');
+      setCookie('token', action.payload.token);
+      return { ...state, nickname: action.payload.nickname, isLoggedIn: true };
+    });
+    builder.addCase(signUpAsync.rejected, (state, action) => {
+      alert('회원가입에 실패했습니다.');
+      console.log(action.payload);
+
+      return { ...state };
+    });
+
+    // 로그인
     builder.addCase(logInAsync.fulfilled, (state, action) => {
       alert('로그인에 성공하였습니다.');
       setCookie('token', action.payload.token);
       return { ...state, nickname: action.payload.nickname, isLoggedIn: true };
     });
-    builder.addCase(logInAsync.rejected, (state, action) => {
+    builder.addCase(logInAsync.rejected, (state) => {
       alert('아이디 또는 비밀번호가 잘못 입력되었습니다.');
       return { ...state };
     });
@@ -106,6 +128,26 @@ export const logInAsync = createAsyncThunk(
     });
 
     return { ...response.data, password: `${loginInfo.password}` };
+  }
+);
+export const signUpAsync = createAsyncThunk(
+  'SIGN_UP',
+  async (signUpInfo: SignUpInfo, { rejectWithValue }) => {
+    try {
+      const response = await axios.post(
+        'http://13.209.143.8/api/users/signup',
+        {
+          nickname: signUpInfo.id,
+          password: signUpInfo.password,
+          name: signUpInfo.userName,
+          phoneNumber: signUpInfo.phoneNumber,
+        }
+      );
+
+      return { ...response.data, nickname: `${signUpInfo.id}` };
+    } catch (err) {
+      return rejectWithValue(err.response.data);
+    }
   }
 );
 

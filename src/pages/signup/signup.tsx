@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled, { CSSProperties } from 'styled-components';
 import { Button } from '../../components/@shared/button';
 import { Container } from '../../components/@shared/container';
@@ -8,8 +9,37 @@ import { Input } from '../../components/@shared/input';
 import { StyledLink } from '../../components/@shared/link';
 import { Text } from '../../components/@shared/text';
 import SymbolWithText from '../../static/images/symbol_with_text.svg';
+import { useAppDispatch } from '../../store/configureStore.hooks';
+import { signUpAsync, SignUpInfo } from '../../store/modules/user';
 
 export const SignUp = () => {
+  const navigate = useNavigate();
+  const [signUpInfo, setSignUpInfo] = useState<SignUpInfo>({
+    id: '',
+    password: '',
+    userName: '',
+    phoneNumber: '',
+  });
+  const dispatch = useAppDispatch();
+
+  // Input 값 갱신
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = event.target;
+    setSignUpInfo({ ...signUpInfo, [name]: value });
+  };
+
+  const handleSubmit = (
+    event: React.FormEvent<HTMLFormElement>,
+    signUpInfo: SignUpInfo
+  ) => {
+    event.preventDefault();
+    dispatch(signUpAsync(signUpInfo)).then((data) => {
+      if (data.type == 'SIGN_UP/fulfilled') {
+        navigate('/');
+      }
+    });
+  };
+
   return (
     <>
       <Container height="1320px" style={BackgroundCSS}>
@@ -23,7 +53,12 @@ export const SignUp = () => {
             <br />
             나만의 집을 스타일링 해보세요.
           </Text>
-          <Form style={SignUpFormCSS}>
+          <Form
+            style={SignUpFormCSS}
+            onSubmit={(event: React.FormEvent<HTMLFormElement>) => {
+              handleSubmit(event, signUpInfo);
+            }}
+          >
             <Text className="KRHeadline-1 orange001" style={SignUpText2CSS}>
               아이디 *
             </Text>
@@ -35,6 +70,9 @@ export const SignUp = () => {
               height={'50px'}
               placeholder="아이디"
               style={SignUpInputIdCSS}
+              name="id"
+              onChange={handleChange}
+              value={signUpInfo.id}
             ></Input>
             <Button width="100px" height="50px" style={SignUpIdCheckButtonCSS}>
               <Text className="KRHeadline-1 graywhite">중복확인</Text>
@@ -51,6 +89,9 @@ export const SignUp = () => {
               height={'50px'}
               style={SignUpInputPasswordCSS}
               placeholder="비밀번호"
+              name="password"
+              onChange={handleChange}
+              value={signUpInfo.password}
             ></Input>
             <Text className="KRHeadline-1 orange001" style={SignUpText6CSS}>
               이름 *
@@ -60,6 +101,9 @@ export const SignUp = () => {
               height={'50px'}
               style={SignUpInputNameCSS}
               placeholder="이름"
+              name="userName"
+              onChange={handleChange}
+              value={signUpInfo.userName}
             ></Input>
             <Text className="KRHeadline-1 orange001" style={SignUpText7CSS}>
               연락처 *
@@ -69,8 +113,16 @@ export const SignUp = () => {
               height={'50px'}
               style={SignUpInputContactCSS}
               placeholder="연락처"
+              name="phoneNumber"
+              onChange={handleChange}
+              value={signUpInfo.phoneNumber}
             ></Input>
-            <Button width="400px" height="60px" style={SignUpButtonCSS}>
+            <Button
+              type="submit"
+              width="400px"
+              height="60px"
+              style={SignUpButtonCSS}
+            >
               <Text className="KRHeadline-1 graywhite">회원가입</Text>
             </Button>
           </Form>
