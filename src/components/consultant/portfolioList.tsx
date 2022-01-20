@@ -70,7 +70,6 @@ export const PortfolioList = () => {
   const concept = useAppSelect(getPortfolioConcept);
 
   const convertConcept = (event: MouseEvent<HTMLElement>) => {
-    console.log(event.currentTarget.id);
     dispatch({
       type: 'portfolio/CONVERT_CONCEPT',
       payload: event.currentTarget.id,
