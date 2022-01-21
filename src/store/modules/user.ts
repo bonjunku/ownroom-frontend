@@ -226,6 +226,20 @@ export const switchStatusAsync = createAsyncThunk(
   }
 );
 
+export const fetchConsultingInfoAsync = createAsyncThunk(
+  'user/FETCH_CONSULTING_INFO',
+  async () => {
+    const response = await axios({
+      url: `https://api.ownroom.link/api/consultings`,
+      method: 'GET',
+      headers: {
+        Authorization: `Bearer ${getCookie('token')}`,
+      },
+    });
+    return { ...response.data };
+  }
+);
+
 export const getUserInfo = (state: RootState) => state.user;
 export const getNickName = (state: RootState) => state.user.nickname;
 export const getIsLoggedIn = (state: RootState) => state.user.isLoggedIn;

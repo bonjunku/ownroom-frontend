@@ -7,6 +7,7 @@ import { Button } from '../../components/@shared/button';
 import ProfileIcon from '../../static/images/icon_profile.svg';
 import styled from 'styled-components';
 import {
+  fetchConsultingInfoAsync,
   fetchMyInfoAsync,
   getUserInfo,
   setCookie,
@@ -15,6 +16,7 @@ import {
 } from '../../store/modules/user';
 import { useAppDispatch, useAppSelect } from '../../store/configureStore.hooks';
 import { useNavigate } from 'react-router-dom';
+import { MyConsultingListItem } from '../../components/mypage/myConsultingListItem';
 
 export const MyPage = () => {
   const navigate = useNavigate();
@@ -33,6 +35,30 @@ export const MyPage = () => {
     navigate('/');
   };
 
+  // 컨설팅 정보 불러오기
+  interface ConsultingInfo {
+    owner: string;
+    consultant: string;
+    isReported: boolean;
+    created_date: string;
+  }
+  const initialConsultingInfo: ConsultingInfo = {
+    owner: '',
+    consultant: '',
+    isReported: false,
+    created_date: '',
+  };
+
+  const [consultingInfoList, setConsultingInfoList] = useState<
+    ConsultingInfo[]
+  >([initialConsultingInfo]);
+
+  useEffect(() => {
+    dispatch(fetchConsultingInfoAsync()).then((data) =>
+      setConsultingInfoList(data.payload)
+    );
+  }, [userInfo.isConsultant]);
+
   return (
     <>
       {/*마이 페이지 상단 배너 */}
@@ -50,7 +76,14 @@ export const MyPage = () => {
       <Container height="60px" style={BackgroundCSS} />
 
       {/* 마이페이지 본문*/}
-      <Container height="532px" style={BackgroundCSS}>
+      <Container
+        height={
+          Object.keys(consultingInfoList).length > 3
+            ? `${120 + Object.keys(consultingInfoList).length * 126 + 34}px`
+            : '532px'
+        }
+        style={BackgroundCSS}
+      >
         <Container width="1136px" position="relative">
           {/* 마이페이지 좌측 컨테이너 */}
           <Container
@@ -105,7 +138,11 @@ export const MyPage = () => {
           {/* 마이페이지 우측 컨테이너 */}
           <Container
             width="846px"
-            height="522px"
+            height={
+              Object.keys(consultingInfoList).length > 3
+                ? `${120 + Object.keys(consultingInfoList).length * 126 + 24}px`
+                : '522px'
+            }
             style={MyPageRightContainerCSS}
           >
             <Container
@@ -116,94 +153,22 @@ export const MyPage = () => {
               마이 컨설팅
             </Text>
             <Container width="774px" style={MyPageItemContainerCSS}>
-              <Container height="100px" style={MyPageItemCSS}>
-                <Text
-                  className="KRHeadline-2 gray001"
-                  style={MyPageItemText1CSS}
-                >
-                  soyddoyy
+              {Object.keys(consultingInfoList).length > 0 ? (
+                Object.keys(consultingInfoList).map((element) => (
+                  <MyConsultingListItem
+                    key={element}
+                    isConsultant={userInfo.isConsultant}
+                    owner={consultingInfoList[element].owner}
+                    consultant={consultingInfoList[element].consultant}
+                    isReported={consultingInfoList[element].isReported}
+                    created_date={consultingInfoList[element].created_date}
+                  ></MyConsultingListItem>
+                ))
+              ) : (
+                <Text className="KRBody-2 gray002" style={MyPageItemEmptyCSS}>
+                  아직 진행된 컨설팅이 없습니다. 컨설팅을 시작해보세요!
                 </Text>
-                <Text className="KRBody-3 gray002" style={MyPageItemText2CSS}>
-                  시작일 2022.01.03
-                </Text>
-                <Button
-                  width="184px"
-                  height="44px"
-                  style={MyPageItemButton1CSS}
-                >
-                  <Text className="KRHeadline-2 orange001">
-                    컨설팅 신청서 확인
-                  </Text>
-                </Button>
-                <Button
-                  width="184px"
-                  height="44px"
-                  style={MyPageItemButton2CSS}
-                >
-                  <Text className="KRHeadline-2 orange001">
-                    컨설팅 신청서 작성
-                  </Text>
-                </Button>
-              </Container>
-              <Container height="100px" style={MyPageItemCSS}>
-                <Text
-                  className="KRHeadline-2 gray001"
-                  style={MyPageItemText1CSS}
-                >
-                  soyddoyy
-                </Text>
-                <Text className="KRBody-3 gray002" style={MyPageItemText2CSS}>
-                  시작일 2022.01.03
-                </Text>
-                <Button
-                  width="184px"
-                  height="44px"
-                  style={MyPageItemButton1CSS}
-                >
-                  <Text className="KRHeadline-2 orange001">
-                    컨설팅 신청서 확인
-                  </Text>
-                </Button>
-                <Button
-                  width="184px"
-                  height="44px"
-                  style={MyPageItemButton2CSS}
-                >
-                  <Text className="KRHeadline-2 orange001">
-                    컨설팅 신청서 작성
-                  </Text>
-                </Button>
-              </Container>
-
-              <Container height="100px" style={MyPageItemCSS}>
-                <Text
-                  className="KRHeadline-2 gray001"
-                  style={MyPageItemText1CSS}
-                >
-                  soyddoyy
-                </Text>
-                <Text className="KRBody-3 gray002" style={MyPageItemText2CSS}>
-                  시작일 2022.01.03
-                </Text>
-                <Button
-                  width="184px"
-                  height="44px"
-                  style={MyPageItemButton1CSS}
-                >
-                  <Text className="KRHeadline-2 orange001">
-                    컨설팅 신청서 확인
-                  </Text>
-                </Button>
-                <Button
-                  width="184px"
-                  height="44px"
-                  style={MyPageItemButton2CSS}
-                >
-                  <Text className="KRHeadline-2 orange001">
-                    컨설팅 신청서 작성
-                  </Text>
-                </Button>
-              </Container>
+              )}
             </Container>
           </Container>
         </Container>
@@ -318,35 +283,7 @@ const MyPageItemContainerCSS: CSSProperties = {
   justifyContent: 'start',
 };
 
-const MyPageItemCSS: CSSProperties = {
-  width: '100%',
-  height: '100px',
-  backgroundColor: 'var(--brand-orange-005)',
-  marginBottom: '26px',
-  borderRadius: '8px',
-  position: 'relative',
-};
-
-const MyPageItemText1CSS: CSSProperties = {
+const MyPageItemEmptyCSS: CSSProperties = {
   position: 'absolute',
-  left: '40.1px',
-  top: '22px',
-};
-const MyPageItemText2CSS: CSSProperties = {
-  position: 'absolute',
-  left: '40.1px',
-  top: '54px',
-};
-
-const MyPageItemButton1CSS: CSSProperties = {
-  position: 'absolute',
-  top: '28px',
-  right: '223px',
-  backgroundColor: 'var(--gray-white)',
-};
-const MyPageItemButton2CSS: CSSProperties = {
-  position: 'absolute',
-  top: '28px',
-  right: '25px',
-  backgroundColor: 'var(--gray-white)',
+  top: '118px',
 };
