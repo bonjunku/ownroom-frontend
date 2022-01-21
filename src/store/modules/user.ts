@@ -123,6 +123,13 @@ const userSlice = createSlice({
       alert(action.payload.message);
       return { ...state, isConsultant: !state.isConsultant };
     });
+    builder.addCase(switchStatusAsync.rejected, (state, action) => {
+      alert(
+        '먼저 컨설턴트 신청을 진행해주세요.\n승인 후에 전환할 수 있습니다.'
+      );
+
+      return { ...state };
+    });
   },
 });
 
@@ -136,10 +143,13 @@ export default userSlice.reducer;
 export const logInAsync = createAsyncThunk(
   'user/LOG_IN',
   async (loginInfo: LoginInfo) => {
-    const response = await axios.post('http://13.209.143.8/api/users/login', {
-      nickname: loginInfo.id,
-      password: loginInfo.password,
-    });
+    const response = await axios.post(
+      'https://api.ownroom.link/api/users/login',
+      {
+        nickname: loginInfo.id,
+        password: loginInfo.password,
+      }
+    );
 
     return { ...response.data };
   }
@@ -149,7 +159,7 @@ export const signUpAsync = createAsyncThunk(
   async (signUpInfo: SignUpInfo, { rejectWithValue }) => {
     try {
       const response = await axios.post(
-        'http://13.209.143.8/api/users/signup',
+        'https://api.ownroom.link/api/users/signup',
         {
           nickname: signUpInfo.id,
           password: signUpInfo.password,
@@ -168,9 +178,12 @@ export const signUpAsync = createAsyncThunk(
 export const duplicateCheckAsync = createAsyncThunk(
   'user/DUPLICATE_CHECK',
   async (nickname: string) => {
-    const response = await axios.post('http://13.209.143.8/api/users/check', {
-      nickname: nickname,
-    });
+    const response = await axios.post(
+      'https://api.ownroom.link/api/users/check',
+      {
+        nickname: nickname,
+      }
+    );
 
     return { ...response.data, result: `${response.data}` };
   }
@@ -179,7 +192,7 @@ export const duplicateCheckAsync = createAsyncThunk(
 export const fetchMyInfoAsync = createAsyncThunk(
   'user/FETCH_MY_INFO',
   async () => {
-    const response = await axios.get(`http://13.209.143.8/api/users/me`, {
+    const response = await axios.get(`https://api.ownroom.link/api/users/me`, {
       headers: {
         Authorization: `Bearer ${getCookie('token')}`,
       },
@@ -197,7 +210,7 @@ export const switchStatusAsync = createAsyncThunk(
   async (isConsultant: boolean, { rejectWithValue }) => {
     try {
       const response = await axios({
-        url: `http://13.209.143.8/api/users/switch`,
+        url: `https://api.ownroom.link/api/users/switch`,
         method: 'PATCH',
         headers: {
           Authorization: `Bearer ${getCookie('token')}`,

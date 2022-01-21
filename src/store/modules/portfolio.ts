@@ -26,7 +26,7 @@ export const fetchPortfolioAsync = createAsyncThunk(
   'portfolio/FETCH_BY_CONCEPT',
   async (concept: string) => {
     const response = await axios.get(
-      `http://13.209.143.8/api/portfolios/?concept=${concept}`
+      `https://api.ownroom.link/api/portfolios/?concept=${concept}`
     );
 
     return { ...response.data };
@@ -37,7 +37,7 @@ export const fetchPortfolioByIdAsync = createAsyncThunk(
   'portfolio/FETCH_BY_ID',
   async (id: string | undefined) => {
     const response = await axios.get(
-      `http://13.209.143.8/api/portfolios/${id}/`
+      `https://api.ownroom.link/api/portfolios/${id}/`
     );
 
     return { ...response.data };

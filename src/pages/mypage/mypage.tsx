@@ -16,23 +16,11 @@ import {
 import { useAppDispatch, useAppSelect } from '../../store/configureStore.hooks';
 import { useNavigate } from 'react-router-dom';
 
-interface MyInfo {
-  consultantRegisterStatus: string;
-  id: number;
-  isConsultant: boolean;
-  name: string;
-  nickname: string;
-  password: string;
-  phoneNumber: string;
-}
-
 export const MyPage = () => {
   const navigate = useNavigate();
   const userInfo = useAppSelect(getUserInfo);
 
   const dispatch = useAppDispatch();
-
-  const [myInfo, setMyInfo] = useState<MyInfo>();
 
   // 고객,컨설턴트 전환
   const switchStatus = () => {
@@ -42,14 +30,8 @@ export const MyPage = () => {
   // 로그아웃
   const logOut = () => {
     dispatch({ type: 'user/LOG_OUT' });
-
     navigate('/');
   };
-  useEffect(() => {
-    dispatch(fetchMyInfoAsync()).then((data) => {
-      setMyInfo(data.payload);
-    });
-  }, []);
 
   return (
     <>
