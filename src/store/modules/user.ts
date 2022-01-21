@@ -51,7 +51,13 @@ const userSlice = createSlice({
   // 초기상태
   initialState,
   reducers: {
+    SET_USER: (state, action) => {
+      return { ...state, ...action.payload };
+    },
+
     LOG_OUT: () => {
+      setCookie('token', undefined);
+      alert('로그아웃되었습니다.');
       return { nickname: '', isLoggedIn: false };
     },
   },
@@ -91,6 +97,11 @@ const userSlice = createSlice({
     builder.addCase(logInAsync.rejected, (state) => {
       alert('아이디 또는 비밀번호가 잘못 입력되었습니다.');
       return { ...state };
+    });
+
+    // 내 정보 가져오기(새로고침해도 로그인상태 유지)
+    builder.addCase(fetchMyInfoAsync.fulfilled, (state, action) => {
+      return { ...state, nickname: action.payload.nickname, isLoggedIn: true };
     });
   },
 });
@@ -153,9 +164,6 @@ export const fetchMyInfoAsync = createAsyncThunk(
         Authorization: `Bearer ${getCookie('token')}`,
       },
     });
-
-    console.log(response);
-
     return { ...response.data };
   }
 );

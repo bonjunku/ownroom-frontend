@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import styled, { CSSProperties } from 'styled-components';
 import { useAppSelect } from '../../store/configureStore.hooks';
 import {
+  fetchMyInfoAsync,
   getCookie,
   getIsLoggedIn,
   getNickName,
@@ -12,10 +13,15 @@ import { Img } from './img';
 import { StyledLink } from './link';
 import { Text } from './text';
 import ProfileIcon from '../../static/images/icon_profile.svg';
+import { useDispatch } from 'react-redux';
 
 export const Navbar = () => {
   const isLoggedin = useAppSelect(getIsLoggedIn);
+  const dispatch = useDispatch();
   const nickname = useAppSelect(getNickName);
+  useEffect(() => {
+    dispatch(fetchMyInfoAsync());
+  }, []);
 
   return (
     <Container height="80px" position="fixed" style={navbarCSS}>

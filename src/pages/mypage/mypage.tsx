@@ -27,9 +27,8 @@ export const MyPage = () => {
 
   // 로그아웃
   const logOut = () => {
-    setCookie('token', undefined);
     dispatch({ type: 'user/LOG_OUT' });
-    alert('로그아웃되었습니다.');
+
     navigate('/');
   };
   useEffect(() => {
