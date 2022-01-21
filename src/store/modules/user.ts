@@ -240,6 +240,24 @@ export const fetchConsultingInfoAsync = createAsyncThunk(
   }
 );
 
+export const downloadConsultingapplicationAsync = createAsyncThunk(
+  'user/DOWNLOAD_APPLICATION',
+  async () => {
+    const response = await axios({
+      url: `https://api.ownroom.link/api/consultings/application/download`,
+      method: `POST`,
+      headers: {
+        Authorization: `Bearer ${getCookie('token')}`,
+      },
+      data: {
+        userId: 4,
+      },
+    });
+    console.log(response.data);
+    return { ...response.data };
+  }
+);
+
 export const getUserInfo = (state: RootState) => state.user;
 export const getNickName = (state: RootState) => state.user.nickname;
 export const getIsLoggedIn = (state: RootState) => state.user.isLoggedIn;

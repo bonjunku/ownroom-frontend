@@ -1,4 +1,6 @@
-import { CSSProperties } from 'react';
+import React, { CSSProperties } from 'react';
+import { useAppDispatch } from '../../store/configureStore.hooks';
+import { downloadConsultingapplicationAsync } from '../../store/modules/user';
 import { Button } from '../@shared/button';
 import { Container } from '../@shared/container';
 import { Text } from '../@shared/text';
@@ -10,6 +12,10 @@ export const MyConsultingListItem = ({
   isReported,
   created_date,
 }) => {
+  const dispatch = useAppDispatch();
+  const downloadConsultantApplication = () => {
+    dispatch(downloadConsultingapplicationAsync());
+  };
   return (
     <Container height="100px" style={MyPageItemCSS}>
       <Text className="KRHeadline-2 gray001" style={MyPageItemText1CSS}>
@@ -18,12 +24,32 @@ export const MyConsultingListItem = ({
       <Text className="KRBody-3 gray002" style={MyPageItemText2CSS}>
         시작일 {created_date.slice(0, 10)}
       </Text>
-      <Button width="184px" height="44px" style={MyPageItemButton1CSS}>
-        <Text className="KRHeadline-2 orange001">컨설팅 신청서 확인</Text>
-      </Button>
-      <Button width="184px" height="44px" style={MyPageItemButton2CSS}>
-        <Text className="KRHeadline-2 orange001">컨설팅 신청서 작성</Text>
-      </Button>
+      {isConsultant ? (
+        <React.Fragment>
+          <Button
+            width="184px"
+            height="44px"
+            style={MyPageItemButton1CSS}
+            onClick={() => {
+              downloadConsultantApplication();
+            }}
+          >
+            <Text className="KRHeadline-2 orange001">컨설팅 신청서 확인</Text>
+          </Button>
+          <Button width="184px" height="44px" style={MyPageItemButton2CSS}>
+            <Text className="KRHeadline-2 orange001">컨설팅 신청서 작성</Text>
+          </Button>
+        </React.Fragment>
+      ) : (
+        <React.Fragment>
+          <Button width="184px" height="44px" style={MyPageItemButton1CSS}>
+            <Text className="KRHeadline-2 orange001">컨설팅 신청서 확인</Text>
+          </Button>
+          <Button width="184px" height="44px" style={MyPageItemButton2CSS}>
+            <Text className="KRHeadline-2 orange001">컨설팅 신청서 작성</Text>
+          </Button>
+        </React.Fragment>
+      )}
     </Container>
   );
 };
