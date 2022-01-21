@@ -58,21 +58,7 @@ const userSlice = createSlice({
   extraReducers: (builder) => {
     // builder는 Case Reducer로 액션별로 나눠서 액션을 처리할 수 있음.
     // extraReducer를 사용한 이유는 맵핑된 내부 액션 타입이 아니라 외부 액션을 참조하려는 것임.
-    builder.addCase(setUserAsync.fulfilled, (state, action) => {
-      console.log(action.payload);
-      return { ...state, ...action.payload };
-    });
-    builder.addCase(setUserAsync.rejected, (state, action) => {
-      console.log('요청이 거부되었습니다!');
 
-      return { ...state };
-    });
-
-    builder.addCase(addUserAsync.fulfilled, (state, action) => {
-      console.log('현재 actionpayload 출력!');
-      console.log(action.payload);
-      return { ...state };
-    });
     // 회원가입
     builder.addCase(signUpAsync.fulfilled, (state, action) => {
       alert('회원가입에 성공하였습니다.');
@@ -116,21 +102,8 @@ export default userSlice.reducer;
 // thunkActionCreator.pending/fulfilled/rejected 라는 세부 액션타입으로 나눠서 슬라이스의 extraReducer로 처리한다.
 // response.data는 슬라이스에서 action.payload로 받을 수 있다.
 
-export const addUserAsync = createAsyncThunk('ADD_USER', async (user: User) => {
-  const response = await axios.post('http://localhost:8888/user', user);
-  console.log(response.data);
-  return response.data;
-});
-
-export const setUserAsync = createAsyncThunk('SET_USER', async (user: User) => {
-  const response = await axios.get(
-    `http://localhost:8888/user/${user.nickname}`
-  );
-  return response.data;
-});
-
 export const logInAsync = createAsyncThunk(
-  'LOG_IN',
+  'user/LOG_IN',
   async (loginInfo: LoginInfo) => {
     const response = await axios.post('http://13.209.143.8/api/users/login', {
       nickname: loginInfo.id,
@@ -141,7 +114,7 @@ export const logInAsync = createAsyncThunk(
   }
 );
 export const signUpAsync = createAsyncThunk(
-  'SIGN_UP',
+  'user/SIGN_UP',
   async (signUpInfo: SignUpInfo, { rejectWithValue }) => {
     try {
       const response = await axios.post(
@@ -162,7 +135,7 @@ export const signUpAsync = createAsyncThunk(
 );
 
 export const duplicateCheckAsync = createAsyncThunk(
-  'DUPLICATE_CHECK',
+  'user/DUPLICATE_CHECK',
   async (nickname: string) => {
     const response = await axios.post('http://13.209.143.8/api/users/check', {
       nickname: nickname,

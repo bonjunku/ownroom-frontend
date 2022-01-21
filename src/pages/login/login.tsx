@@ -43,10 +43,10 @@ export const LogIn = () => {
   ) => {
     e.preventDefault();
     dispatch(logInAsync(loginInfo)).then((data) => {
-      if (data.type == 'LOG_IN/fulfilled') {
+      if (data.type == 'user/LOG_IN/fulfilled') {
         navigate('/');
       }
-      if (data.type == 'LOG_IN/rejected') {
+      if (data.type == 'user/LOG_IN/rejected') {
         setLoginInfo({
           id: '',
           password: '',

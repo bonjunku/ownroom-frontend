@@ -38,7 +38,7 @@ export const SignUp = () => {
   ) => {
     event.preventDefault();
     dispatch(signUpAsync(signUpInfo)).then((data) => {
-      if (data.type == 'SIGN_UP/fulfilled') {
+      if (data.type == 'user/SIGN_UP/fulfilled') {
         navigate('/welcome');
       }
     });

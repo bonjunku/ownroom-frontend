@@ -23,7 +23,7 @@ const portfolioConceptSlice = createSlice({
 export default portfolioConceptSlice.reducer;
 
 export const fetchPortfolioAsync = createAsyncThunk(
-  'FETCH',
+  'portfolio/FETCH_BY_CONCEPT',
   async (concept: string) => {
     const response = await axios.get(
       `http://13.209.143.8/api/portfolios/?concept=${concept}`
@@ -34,7 +34,7 @@ export const fetchPortfolioAsync = createAsyncThunk(
 );
 
 export const fetchPortfolioByIdAsync = createAsyncThunk(
-  'FETCH_BY_ID',
+  'portfolio/FETCH_BY_ID',
   async (id: string | undefined) => {
     const response = await axios.get(
       `http://13.209.143.8/api/portfolios/${id}/`
