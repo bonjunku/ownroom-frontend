@@ -12,11 +12,9 @@ import { Text } from '../../components/@shared/text';
 import SymbolWithText from '../../static/images/symbol_with_text.svg';
 import { useAppDispatch } from '../../store/configureStore.hooks';
 import {
-  addUserAsync,
   getUserInfo,
   logInAsync,
   LoginInfo,
-  setUserAsync,
   User,
 } from '../../store/modules/user';
 

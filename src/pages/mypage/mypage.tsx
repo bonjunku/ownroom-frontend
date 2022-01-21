@@ -2,24 +2,41 @@ import { Container } from '../../components/@shared/container';
 import { Img } from '../../components/@shared/img';
 import { PortfolioList } from '../../components/consultant/portfolioList';
 import { Text } from '../../components/@shared/text';
-import { CSSProperties } from 'react';
+import { CSSProperties, useEffect, useState } from 'react';
 import { Button } from '../../components/@shared/button';
 import ProfileIcon from '../../static/images/icon_profile.svg';
 import styled from 'styled-components';
-import { setCookie } from '../../store/modules/user';
+import { fetchMyInfoAsync, setCookie } from '../../store/modules/user';
 import { useAppDispatch } from '../../store/configureStore.hooks';
 import { useNavigate } from 'react-router-dom';
+
+interface MyInfo {
+  consultantRegisterStatus: string;
+  id: number;
+  isConsultant: boolean;
+  name: string;
+  nickname: string;
+  password: string;
+  phoneNumber: string;
+}
 
 export const MyPage = () => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
+  const [myInfo, setMyInfo] = useState<MyInfo>();
 
+  // 로그아웃
   const logOut = () => {
     setCookie('token', undefined);
     dispatch({ type: 'user/LOG_OUT' });
     alert('로그아웃되었습니다.');
     navigate('/');
   };
+  useEffect(() => {
+    dispatch(fetchMyInfoAsync()).then((data) => {
+      setMyInfo(data.payload);
+    });
+  }, []);
 
   return (
     <>
@@ -52,7 +69,7 @@ export const MyPage = () => {
             ></Container>
             <Img src={ProfileIcon} style={MyPageProfileIconCSS} />
             <Text className="KRHeadline-1 gray001" style={MyPageIdCSS}>
-              hsumiii
+              {myInfo?.nickname}
             </Text>
             <Text className="KRHeadline-2 orange001" style={MyPagePositionCSS}>
               컨설턴트
@@ -63,13 +80,13 @@ export const MyPage = () => {
                 className="KRBody-2 gray001"
                 style={MyPagePersonalInfoNameCSS}
               >
-                홍수민
+                {myInfo?.name}
               </Text>
               <Text
                 className="KRBody-2 gray001"
                 style={MyPagePersonalInfoPhoneNumberCSS}
               >
-                010-0000-0000
+                {myInfo?.phoneNumber}
               </Text>
             </Container>
             <Button

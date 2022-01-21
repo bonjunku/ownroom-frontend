@@ -145,6 +145,21 @@ export const duplicateCheckAsync = createAsyncThunk(
   }
 );
 
+export const fetchMyInfoAsync = createAsyncThunk(
+  'user/FETCH_MY_INFO',
+  async () => {
+    const response = await axios.get(`http://13.209.143.8/api/users/me`, {
+      headers: {
+        Authorization: `Bearer ${getCookie('token')}`,
+      },
+    });
+
+    console.log(response);
+
+    return { ...response.data };
+  }
+);
+
 export const getUserInfo = (state: RootState) => state.user;
 export const getNickName = (state: RootState) => state.user.nickname;
 export const getIsLoggedIn = (state: RootState) => state.user.isLoggedIn;
