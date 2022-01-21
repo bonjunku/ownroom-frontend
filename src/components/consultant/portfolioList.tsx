@@ -101,6 +101,7 @@ export const PortfolioList = () => {
               if (portfolioNavBarClicked[element])
                 return (
                   <Text
+                    key={element}
                     id={element}
                     className="KRHeadline-1 orange001"
                     onClick={(event: MouseEvent<HTMLElement>) => {
@@ -114,6 +115,7 @@ export const PortfolioList = () => {
               else
                 return (
                   <Text
+                    key={element}
                     id={element}
                     className="KRHeadline-1 gray002"
                     onClick={(event: MouseEvent<HTMLElement>) => {
@@ -136,7 +138,10 @@ export const PortfolioList = () => {
         >
           {portfolioListResult &&
             Object.keys(portfolioListResult).map((element) => (
-              <PortfolioItem {...portfolioListResult[element]}></PortfolioItem>
+              <PortfolioItem
+                {...portfolioListResult[element]}
+                key={portfolioListResult[element].id}
+              />
             ))}
         </Container>
       </Container>
@@ -191,11 +196,10 @@ export const PortfolioItem: React.FunctionComponent<Portfolio> = (
         <Text className="KRBody-3 gray001" style={PortfolioBodyCSS}>
           {portfolio.introduction}
         </Text>
-        <StyledLink to="/application/consulting">
-          <Button width="92px" height="32px" top="310px" right="5px">
-            <Text className="KRHeadline-3 gray007">컨설팅 신청</Text>
-          </Button>
-        </StyledLink>
+
+        <Button width="92px" height="32px" top="310px" right="5px">
+          <Text className="KRHeadline-3 gray007">컨설팅 신청</Text>
+        </Button>
       </StyledPortfolioItem>
     </StyledLink>
   );

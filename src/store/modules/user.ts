@@ -24,6 +24,8 @@ export const getCookie = (name: string) => {
 export interface User {
   nickname: string;
   isLoggedIn?: boolean;
+  status: 'customer' | 'consultant';
+  consultantRegisterStatus: '신청 전' | '신청 후' | '승인 완료';
 }
 
 export interface LoginInfo {
@@ -41,6 +43,8 @@ export interface SignUpInfo {
 const initialState: User = {
   nickname: '',
   isLoggedIn: false,
+  status: 'customer',
+  consultantRegisterStatus: '신청 전',
 };
 
 const userSlice = createSlice({
@@ -55,10 +59,10 @@ const userSlice = createSlice({
       return { ...state, ...action.payload };
     },
 
-    LOG_OUT: () => {
+    LOG_OUT: (state, action) => {
       setCookie('token', undefined);
       alert('로그아웃되었습니다.');
-      return { nickname: '', isLoggedIn: false };
+      return { ...initialState };
     },
   },
   extraReducers: (builder) => {
