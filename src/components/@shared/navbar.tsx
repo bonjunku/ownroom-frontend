@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useLayoutEffect } from 'react';
 import styled, { CSSProperties } from 'styled-components';
 import { useAppSelect } from '../../store/configureStore.hooks';
 import {
@@ -19,7 +19,7 @@ export const Navbar = () => {
   const isLoggedin = useAppSelect(getIsLoggedIn);
   const dispatch = useDispatch();
   const nickname = useAppSelect(getNickName);
-  useEffect(() => {
+  useLayoutEffect(() => {
     dispatch(fetchMyInfoAsync());
   }, []);
 
