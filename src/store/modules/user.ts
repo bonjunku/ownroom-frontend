@@ -1,3 +1,4 @@
+import { useAppDispatch } from './../configureStore.hooks';
 import { useNavigate } from 'react-router-dom';
 import { RootState } from '../configureStore';
 import {
@@ -22,9 +23,13 @@ export const getCookie = (name: string) => {
 };
 
 export interface User {
+  id: number;
   nickname: string;
+  password: string;
+  name: string;
+  phoneNumber: string;
   isLoggedIn?: boolean;
-  status: 'customer' | 'consultant';
+  isConsultant: boolean;
   consultantRegisterStatus: '신청 전' | '신청 후' | '승인 완료';
 }
 
@@ -41,9 +46,13 @@ export interface SignUpInfo {
 }
 
 const initialState: User = {
+  id: -1,
   nickname: '',
+  password: '',
+  name: '',
+  phoneNumber: '',
   isLoggedIn: false,
-  status: 'customer',
+  isConsultant: false,
   consultantRegisterStatus: '신청 전',
 };
 
@@ -96,6 +105,7 @@ const userSlice = createSlice({
     builder.addCase(logInAsync.fulfilled, (state, action) => {
       alert('로그인에 성공하였습니다.');
       setCookie('token', action.payload.token);
+
       return { ...state, nickname: action.payload.nickname, isLoggedIn: true };
     });
     builder.addCase(logInAsync.rejected, (state) => {
@@ -105,7 +115,8 @@ const userSlice = createSlice({
 
     // 내 정보 가져오기(새로고침해도 로그인상태 유지)
     builder.addCase(fetchMyInfoAsync.fulfilled, (state, action) => {
-      return { ...state, nickname: action.payload.nickname, isLoggedIn: true };
+      console.log('현재 개인정보:', action.payload);
+      return { ...state, ...action.payload, isLoggedIn: true };
     });
   },
 });
@@ -125,7 +136,7 @@ export const logInAsync = createAsyncThunk(
       password: loginInfo.password,
     });
 
-    return { ...response.data, password: `${loginInfo.password}` };
+    return { ...response.data };
   }
 );
 export const signUpAsync = createAsyncThunk(

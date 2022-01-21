@@ -12,6 +12,7 @@ import { Text } from '../../components/@shared/text';
 import SymbolWithText from '../../static/images/symbol_with_text.svg';
 import { useAppDispatch } from '../../store/configureStore.hooks';
 import {
+  fetchMyInfoAsync,
   getUserInfo,
   logInAsync,
   LoginInfo,
@@ -42,6 +43,7 @@ export const LogIn = () => {
     e.preventDefault();
     dispatch(logInAsync(loginInfo)).then((data) => {
       if (data.type == 'user/LOG_IN/fulfilled') {
+        dispatch(fetchMyInfoAsync());
         navigate('/');
       }
       if (data.type == 'user/LOG_IN/rejected') {
