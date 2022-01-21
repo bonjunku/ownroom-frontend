@@ -43,7 +43,7 @@ const portfolioNavBarMap = {
   Modern: '모던',
   Minimal: '미니멀',
   Natural: '내츄럴',
-  Antique: '앤틱',
+  Antique: '앤티크',
   NortEurope: '북유럽',
 };
 
