@@ -115,8 +115,13 @@ const userSlice = createSlice({
 
     // 내 정보 가져오기(새로고침해도 로그인상태 유지)
     builder.addCase(fetchMyInfoAsync.fulfilled, (state, action) => {
-      console.log('현재 개인정보:', action.payload);
       return { ...state, ...action.payload, isLoggedIn: true };
+    });
+
+    // 컨설턴트, 고객 전환
+    builder.addCase(switchStatusAsync.fulfilled, (state, action) => {
+      alert(action.payload.message);
+      return { ...state, isConsultant: !state.isConsultant };
     });
   },
 });
@@ -180,6 +185,31 @@ export const fetchMyInfoAsync = createAsyncThunk(
       },
     });
     return { ...response.data };
+  }
+);
+
+const switchStatus = (isConsultant: boolean) => {
+  if (isConsultant === true) return 'customer';
+  else return 'consultant';
+};
+export const switchStatusAsync = createAsyncThunk(
+  'user/SWITCH_STATUS',
+  async (isConsultant: boolean, { rejectWithValue }) => {
+    try {
+      const response = await axios({
+        url: `http://13.209.143.8/api/users/switch`,
+        method: 'PATCH',
+        headers: {
+          Authorization: `Bearer ${getCookie('token')}`,
+        },
+        data: {
+          switchTo: `${switchStatus(isConsultant)}`,
+        },
+      });
+      return { ...response.data };
+    } catch (err) {
+      return rejectWithValue(err.response.data);
+    }
   }
 );
 

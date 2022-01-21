@@ -6,8 +6,14 @@ import { CSSProperties, useEffect, useState } from 'react';
 import { Button } from '../../components/@shared/button';
 import ProfileIcon from '../../static/images/icon_profile.svg';
 import styled from 'styled-components';
-import { fetchMyInfoAsync, setCookie } from '../../store/modules/user';
-import { useAppDispatch } from '../../store/configureStore.hooks';
+import {
+  fetchMyInfoAsync,
+  getUserInfo,
+  setCookie,
+  switchStatusAsync,
+  User,
+} from '../../store/modules/user';
+import { useAppDispatch, useAppSelect } from '../../store/configureStore.hooks';
 import { useNavigate } from 'react-router-dom';
 
 interface MyInfo {
@@ -22,8 +28,16 @@ interface MyInfo {
 
 export const MyPage = () => {
   const navigate = useNavigate();
+  const userInfo = useAppSelect(getUserInfo);
+
   const dispatch = useAppDispatch();
+
   const [myInfo, setMyInfo] = useState<MyInfo>();
+
+  // 고객,컨설턴트 전환
+  const switchStatus = () => {
+    dispatch(switchStatusAsync(userInfo.isConsultant));
+  };
 
   // 로그아웃
   const logOut = () => {
@@ -68,10 +82,10 @@ export const MyPage = () => {
             ></Container>
             <Img src={ProfileIcon} style={MyPageProfileIconCSS} />
             <Text className="KRHeadline-1 gray001" style={MyPageIdCSS}>
-              {myInfo?.nickname}
+              {userInfo.nickname}
             </Text>
             <Text className="KRHeadline-2 orange001" style={MyPagePositionCSS}>
-              컨설턴트
+              {userInfo.isConsultant ? '컨설턴트' : '고객'}
             </Text>
 
             <Container style={MyPagePersonalInfoCSS}>
@@ -79,21 +93,24 @@ export const MyPage = () => {
                 className="KRBody-2 gray001"
                 style={MyPagePersonalInfoNameCSS}
               >
-                {myInfo?.name}
+                {userInfo.name}
               </Text>
               <Text
                 className="KRBody-2 gray001"
                 style={MyPagePersonalInfoPhoneNumberCSS}
               >
-                {myInfo?.phoneNumber}
+                {userInfo.phoneNumber}
               </Text>
             </Container>
             <Button
               width="184px"
               height="44px"
               style={MyPagePositionConversionCSS}
+              onClick={switchStatus}
             >
-              <Text className="KRHeadline-3 gray007">고객으로 전환</Text>
+              <Text className="KRHeadline-3 gray007">
+                {userInfo.isConsultant ? '고객으' : '컨설턴트'}로 전환
+              </Text>
             </Button>
             <Text
               className="KRBody-2 gray002"
