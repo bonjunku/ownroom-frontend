@@ -127,7 +127,26 @@ export const Portfolio = () => {
           justifyContent="start"
           alignItems="start"
         >
-          {portfolio?.description}
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center',
+              alignContent: 'right',
+            }}
+          >
+            {portfolio?.images?.map((element) => {
+              return (
+                <>
+                  <img src={element?.url} style={{ width: '830px' }}></img>
+
+                  <br />
+                </>
+              );
+            })}
+
+            {portfolio?.description}
+          </div>
         </Container>
       </Container>
     </>
