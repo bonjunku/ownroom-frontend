@@ -26,12 +26,17 @@ export const Portfolio = () => {
       setPortfolio(data.payload);
     });
   }, []);
-  const onClick = (nickname: string | undefined) => {
+  const onClick = (
+    nickname: string | undefined,
+    possibleNumber: number | undefined
+  ) => {
     if (isLoggedIn) navigate(`../application/consulting/${nickname}`);
-    else {
+    else if (possibleNumber == 0) {
+      alert('해당 서비스는 모집이 마감되었습니다.');
+    } else {
       alert('로그인 후 이용이 가능한 서비스입니다.');
+      navigate('/login');
     }
-    navigate('/login');
   };
 
   return (
@@ -123,7 +128,10 @@ export const Portfolio = () => {
             height="32px"
             style={PortfolioConsultantButtonCSS}
             onClick={() => {
-              onClick(portfolio?.user.nickname);
+              onClick(
+                portfolio?.user.nickname,
+                portfolio?.numberOfPossibleConsulting
+              );
             }}
           >
             <Text className="KRHeadline-3 gray007">컨설팅 신청</Text>

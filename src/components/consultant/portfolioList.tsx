@@ -177,6 +177,8 @@ export const PortfolioItem: React.FunctionComponent<Portfolio> = (
       alert(
         '컨설팅 신청은 고객만 가능합니다.\n마이페이지에서 고객으로 전환해주세요.'
       );
+    } else if (portfolio.numberOfPossibleConsulting == 0) {
+      alert('해당 서비스는 모집이 마감되었습니다.');
     } else {
       navigate(`application/consulting/${portfolio.user.nickname}`);
     }
@@ -221,7 +223,9 @@ export const PortfolioItem: React.FunctionComponent<Portfolio> = (
           height="32px"
           top="310px"
           right="5px"
-          onClick={handleConsultingApplication}
+          onClick={() => {
+            handleConsultingApplication();
+          }}
         >
           <Text className="KRHeadline-3 gray007">컨설팅 신청</Text>
         </Button>
