@@ -6,6 +6,7 @@ import { Img } from '../../components/@shared/img';
 import { Text } from '../../components/@shared/text';
 import IconDownload from '../../static/images/icon_download.svg';
 export const ConsultantApplication = () => {
+  const blob = new Blob();
   return (
     <Container type="column">
       <Container height="300px" style={backgroundColorCSS}>
@@ -14,6 +15,8 @@ export const ConsultantApplication = () => {
             src={
               process.env.PUBLIC_URL + '/img/consultant/applicationbanner.jpg'
             }
+            width={'1920px'}
+            height={'300px'}
             style={ApplicationBannerCSS}
           ></Img>
           <Text
@@ -48,18 +51,22 @@ export const ConsultantApplication = () => {
           >
             컨설턴트 신청서를 다운받아 작성해 주세요.
           </Text>
+
           <Img
             src={IconDownload}
             width="35px"
             height="35px"
             style={ApplicationContainer1IconCSS}
           ></Img>
-          <Text
-            className="KRBody-2 gray001"
-            style={ApplicationContainer1Text1CSS}
-          >
-            온룸 컨설턴트 신청서 양식.docx
-          </Text>
+          <a href="/format/온룸 컨설턴트 신청서 양식.docx" download>
+            <Text
+              className="KRBody-2 gray001"
+              style={ApplicationContainer1Text1CSS}
+            >
+              온룸 컨설턴트 신청서 양식.docx
+            </Text>
+          </a>
+
           <div style={ApplicationContainer1DividingLineCSS} />
           <Text
             className="KRBody-3 gray002"
@@ -124,12 +131,10 @@ export const ConsultantApplication = () => {
 
 const backgroundColorCSS: CSSProperties = {
   backgroundColor: 'var(--brand-orange-005)',
-  zIndex: -2,
 };
 
 const ApplicationBannerCSS: CSSProperties = {
   position: 'absolute',
-  zIndex: -1,
 };
 
 const ApplicationBannerText1CSS: CSSProperties = {
