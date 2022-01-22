@@ -166,10 +166,12 @@ const PortfolioItemContainerCSS: CSSProperties = {
 export const PortfolioItem: React.FunctionComponent<Portfolio> = (
   portfolio: Portfolio
 ) => {
-  const { isConsultant } = useAppSelect(getUserInfo);
+  const { isConsultant, isLoggedIn } = useAppSelect(getUserInfo);
   const navigate = useNavigate();
   const handleConsultingApplication = () => {
-    if (isConsultant) {
+    if (!isLoggedIn) {
+      alert('로그인 후 이용이 가능한 서비스입니다.');
+    } else if (isConsultant) {
       alert(
         '컨설팅 신청은 고객만 가능합니다.\n마이페이지에서 고객으로 전환해주세요.'
       );
