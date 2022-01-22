@@ -33,7 +33,10 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="application">
               <Route path="consultant" element={<ConsultantApplication />} />
-              <Route path="consulting" element={<ConsultingApplication />} />
+              <Route
+                path="consulting/:nickname"
+                element={<ConsultingApplication />}
+              />
             </Route>
             <Route path="portfolioList" element={<ConsultantPortfolio />} />
             <Route path="portfolio/:id" element={<Portfolio />}></Route>

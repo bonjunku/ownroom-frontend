@@ -244,16 +244,18 @@ export const downloadConsultingapplicationAsync = createAsyncThunk(
   'user/DOWNLOAD_APPLICATION',
   async () => {
     const response = await axios({
-      url: `https://api.ownroom.link/api/consultings/application/download`,
-      method: `POST`,
+      url: `https://api.ownroom.link/api/consultings/report/download?nickname=soyddoyy`,
+      method: `get`,
       headers: {
         Authorization: `Bearer ${getCookie('token')}`,
       },
-      data: {
-        userId: 4,
-      },
+      responseType: 'blob',
+      data: {},
     });
-    console.log(response.data);
+    const url = window.URL.createObjectURL(response.data);
+    const a = document.createElement('a');
+    a.href = url;
+    a.click();
     return { ...response.data };
   }
 );

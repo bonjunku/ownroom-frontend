@@ -1,11 +1,51 @@
-import React from 'react';
+import axios from 'axios';
+import React, { ChangeEvent, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { useNavigate, useParams } from 'react-router-dom';
 import styled, { CSSProperties } from 'styled-components';
 import { Button } from '../../components/@shared/button';
 import { Container } from '../../components/@shared/container';
 import { Img } from '../../components/@shared/img';
 import { Text } from '../../components/@shared/text';
 import IconDownload from '../../static/images/icon_download.svg';
+import { uploadConsultingApplicationAsync } from '../../store/modules/consulting';
+import { getCookie } from '../../store/modules/user';
 export const ConsultingApplication = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const { nickname } = useParams();
+
+  const [file, setFile] = useState<FileList | null>(null);
+  const handleChangeFile = (event: ChangeEvent<HTMLInputElement>) => {
+    console.log(event.target.files);
+    setFile(event.target.files);
+  };
+  const handleSubmitFile = async () => {
+    const formData = new FormData();
+    console.log('현재file출력:', file);
+    if (file) formData.append('file', file[0]);
+    formData.append('nickname', `${nickname}`);
+    // for (var key of formData.entries()) {
+    //   console.log(key[0] + ', ' + key[1]);
+    // }
+
+    const response = await axios({
+      url: `https://api.ownroom.link/api/consultings/application/upload`,
+      method: `POST`,
+      headers: {
+        Authorization: `Bearer ${getCookie('token')}`,
+      },
+      data: formData,
+    });
+    if (response.status == 200) {
+      alert(
+        '컨설팅 신청서가 성공적으로 전송되었습니다.\n메인화면으로 이동합니다.'
+      );
+      navigate('/');
+    } else {
+      alert('컨설팅 신청서 전송을 실패했습니다.');
+    }
+  };
   return (
     <Container type="column">
       <Container height="300px" style={backgroundColorCSS}>
@@ -16,6 +56,7 @@ export const ConsultingApplication = () => {
             }
             style={ApplicationBannerCSS}
           ></Img>
+
           <Text
             className="KRDisplay-2 gray001"
             style={ApplicationBannerText1CSS}
@@ -36,6 +77,7 @@ export const ConsultingApplication = () => {
           style={ApplicationContainer1CSS}
         >
           <Container height="11px" style={ApplicationContainerDecoratorCSS} />
+
           <Text
             className="ENHeadline-1 gray001"
             style={ApplicationContainerNumberCSS}
@@ -54,12 +96,14 @@ export const ConsultingApplication = () => {
             height="35px"
             style={ApplicationContainer1IconCSS}
           ></Img>
-          <Text
-            className="KRBody-2 gray001"
-            style={ApplicationContainer1Text1CSS}
-          >
-            온룸 컨설팅 신청서 양식.docx
-          </Text>
+          <a href="/format/온룸 컨설팅 신청서 양식.docx" download>
+            <Text
+              className="KRBody-2 gray001"
+              style={ApplicationContainer1Text1CSS}
+            >
+              온룸 컨설팅 신청서 양식.docx
+            </Text>
+          </a>
           <div style={ApplicationContainer1DividingLineCSS} />
           <Text
             className="KRBody-3 gray002"
@@ -96,6 +140,7 @@ export const ConsultingApplication = () => {
           >
             2.
           </Text>
+
           <Text
             className="KRDisplay-3 gray001"
             style={ApplicationContainerTitleCSS}
@@ -103,9 +148,18 @@ export const ConsultingApplication = () => {
             작성한 양식을 업로드해 주세요.
           </Text>
           <ApplicationContainer2FileContainer>
-            <Text className="KRBody-3 gray003">
+            {/* <Text className="KRBody-3 gray003">
               작성한 양식을 업로드해 주세요.
-            </Text>
+            </Text> */}
+
+            <input
+              type="file"
+              id="file"
+              onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                handleChangeFile(event);
+              }}
+              multiple={true}
+            ></input>
           </ApplicationContainer2FileContainer>
           <Img
             src={process.env.PUBLIC_URL + '/img/consultant/2.png'}
@@ -114,7 +168,12 @@ export const ConsultingApplication = () => {
             style={ApplicationContainerBackgroundNumber2CSS}
           ></Img>
         </Container>
-        <Button width="400px" height="50px" style={SaveButtonCSS}>
+        <Button
+          width="400px"
+          height="50px"
+          style={SaveButtonCSS}
+          onClick={handleSubmitFile}
+        >
           <Text className="KRHeadline-1 graywhite">저장하기</Text>
         </Button>
       </Container>
@@ -124,12 +183,10 @@ export const ConsultingApplication = () => {
 
 const backgroundColorCSS: CSSProperties = {
   backgroundColor: 'var(--brand-orange-005)',
-  zIndex: -2,
 };
 
 const ApplicationBannerCSS: CSSProperties = {
   position: 'absolute',
-  zIndex: -1,
 };
 
 const ApplicationBannerText1CSS: CSSProperties = {

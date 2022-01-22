@@ -11,6 +11,8 @@ import portfolio, {
   getPortfolioConcept,
 } from '../../store/modules/portfolio';
 import { MouseEvent, useEffect, useState } from 'react';
+import { getUserInfo } from '../../store/modules/user';
+import { useNavigate } from 'react-router-dom';
 
 type Image = {
   id: number;
@@ -164,55 +166,69 @@ const PortfolioItemContainerCSS: CSSProperties = {
 export const PortfolioItem: React.FunctionComponent<Portfolio> = (
   portfolio: Portfolio
 ) => {
+  const { isConsultant } = useAppSelect(getUserInfo);
+  const navigate = useNavigate();
+  const handleConsultingApplication = () => {
+    if (isConsultant) {
+      alert(
+        '컨설팅 신청은 고객만 가능합니다.\n마이페이지에서 고객으로 전환해주세요.'
+      );
+    } else {
+      navigate(`application/consulting/${portfolio.user.nickname}`);
+    }
+  };
   return (
-    <StyledLink to={`/portfolio/${portfolio.id}`} style={StyledLinkCSS}>
+    <>
       <StyledPortfolioItem>
-        <PortfolioThumbnailContainer>
-          <PortfolioThumbnail
-            src={process.env.PUBLIC_URL + '/img/home/home6.jpg'}
-          ></PortfolioThumbnail>
-        </PortfolioThumbnailContainer>
-        <Text className="KRHeadline-1 gray001" style={PortfolioTitleCSS}>
-          {portfolio.title.length > 25
-            ? portfolio.title.slice(0, 25) + '...'
-            : portfolio.title}
-        </Text>
-        <DividingLine />
-        <Container
-          style={PortfolioInfoContainerCSS}
-          height="23px"
-          justifyContent="left"
+        <StyledLink to={`/portfolio/${portfolio.id}`} style={StyledLinkCSS}>
+          <PortfolioThumbnailContainer>
+            <img src={portfolio?.images[0]?.url}></img>
+          </PortfolioThumbnailContainer>
+          <Text className="KRHeadline-1 gray001" style={PortfolioTitleCSS}>
+            {portfolio.title.length > 25
+              ? portfolio.title.slice(0, 25) + '...'
+              : portfolio.title}
+          </Text>
+          <DividingLine />
+          <Container
+            style={PortfolioInfoContainerCSS}
+            height="23px"
+            justifyContent="left"
+          >
+            <Text className="KRHeadline-2 gray001" style={PortfolioInfo1CSS}>
+              {portfolio.user.nickname}
+            </Text>
+            <Text className="KRBody-3 gray002" style={PortfolioInfo2CSS}>
+              평당 {portfolio.pricePerUnit / 10000}만원
+            </Text>
+            <Text className="KRBody-3 orange001" style={PortfolioInfo3CSS}>
+              {portfolio.numberOfPossibleConsulting}명 가능
+            </Text>
+          </Container>
+          <Text className="KRBody-3 gray001" style={PortfolioBodyCSS}>
+            {portfolio.introduction}
+          </Text>
+        </StyledLink>
+        <Button
+          width="92px"
+          height="32px"
+          top="310px"
+          right="5px"
+          onClick={handleConsultingApplication}
         >
-          <Text className="KRHeadline-2 gray001" style={PortfolioInfo1CSS}>
-            {portfolio.user.nickname}
-          </Text>
-          <Text className="KRBody-3 gray002" style={PortfolioInfo2CSS}>
-            평당 {portfolio.pricePerUnit / 10000}만원
-          </Text>
-          <Text className="KRBody-3 orange001" style={PortfolioInfo3CSS}>
-            {portfolio.numberOfPossibleConsulting}명 가능
-          </Text>
-        </Container>
-        <Text className="KRBody-3 gray001" style={PortfolioBodyCSS}>
-          {portfolio.introduction}
-        </Text>
-
-        <Button width="92px" height="32px" top="310px" right="5px">
           <Text className="KRHeadline-3 gray007">컨설팅 신청</Text>
         </Button>
       </StyledPortfolioItem>
-    </StyledLink>
+    </>
   );
 };
 
-const StyledLinkCSS: CSSProperties = {
-  marginRight: '30px',
-};
+const StyledLinkCSS: CSSProperties = {};
 
 const StyledPortfolioItem = styled.div`
   width: 360px;
   height: 478px;
-
+  margin-right: 30px;
   position: relative;
 `;
 
