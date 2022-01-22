@@ -235,7 +235,7 @@ const StyledLinkCSS: CSSProperties = {};
 const StyledPortfolioItem = styled.div`
   width: 360px;
   height: 478px;
-  margin-right: 15px;
+  margin-right: 17px;
   position: relative;
 `;
 
