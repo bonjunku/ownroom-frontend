@@ -130,6 +130,12 @@ const userSlice = createSlice({
 
       return { ...state };
     });
+
+    // 컨설팅 보고서 다운로드 실패시
+    builder.addCase(downloadConsultingReportAsync.rejected, (state, action) => {
+      alert('컨설팅 보고서가 아직 등록되지 않았습니다!');
+      return { ...state };
+    });
   },
 });
 
