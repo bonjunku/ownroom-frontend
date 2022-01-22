@@ -107,7 +107,9 @@ export const Portfolio = () => {
           <Container style={PortfolioConsultantInfoCSS}>
             <Text className="KRBody-2 gray001">{portfolio?.introduction}</Text>
           </Container>
-          <StyledLink to="../application/consulting">
+          <StyledLink
+            to={`../application/consulting/${portfolio?.user.nickname}`}
+          >
             <Button
               width="92px"
               height="32px"
