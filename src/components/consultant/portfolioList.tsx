@@ -171,6 +171,7 @@ export const PortfolioItem: React.FunctionComponent<Portfolio> = (
   const handleConsultingApplication = () => {
     if (!isLoggedIn) {
       alert('로그인 후 이용이 가능한 서비스입니다.');
+      navigate('/login');
     } else if (isConsultant) {
       alert(
         '컨설팅 신청은 고객만 가능합니다.\n마이페이지에서 고객으로 전환해주세요.'
