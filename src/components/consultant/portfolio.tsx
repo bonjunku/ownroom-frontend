@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { CSSProperties } from 'styled-components';
 import { useAppDispatch, useAppSelect } from '../../store/configureStore.hooks';
 import {
@@ -7,6 +7,7 @@ import {
   fetchPortfolioByIdAsync,
   getPortfolioConcept,
 } from '../../store/modules/portfolio';
+import { getUserInfo } from '../../store/modules/user';
 import { Button } from '../@shared/button';
 import { Container } from '../@shared/container';
 import { DecoratedContainer } from '../@shared/decoratedContainer';
@@ -15,6 +16,8 @@ import { Text } from '../@shared/text';
 import PortfolioInterface from '../consultant/portfolioList';
 
 export const Portfolio = () => {
+  const navigate = useNavigate();
+  const { isLoggedIn } = useAppSelect(getUserInfo);
   const [portfolio, setPortfolio] = useState<PortfolioInterface>();
   const { id } = useParams();
   const dispatch = useAppDispatch();
@@ -23,6 +26,13 @@ export const Portfolio = () => {
       setPortfolio(data.payload);
     });
   }, []);
+  const onClick = (nickname: string | undefined) => {
+    if (isLoggedIn) navigate(`../application/consulting/${nickname}`);
+    else {
+      alert('로그인 후 이용이 가능한 서비스입니다.');
+    }
+    navigate('/login');
+  };
 
   return (
     <>
@@ -107,17 +117,17 @@ export const Portfolio = () => {
           <Container style={PortfolioConsultantInfoCSS}>
             <Text className="KRBody-2 gray001">{portfolio?.introduction}</Text>
           </Container>
-          <StyledLink
-            to={`../application/consulting/${portfolio?.user.nickname}`}
+
+          <Button
+            width="92px"
+            height="32px"
+            style={PortfolioConsultantButtonCSS}
+            onClick={() => {
+              onClick(portfolio?.user.nickname);
+            }}
           >
-            <Button
-              width="92px"
-              height="32px"
-              style={PortfolioConsultantButtonCSS}
-            >
-              <Text className="KRHeadline-3 gray007">컨설팅 신청</Text>
-            </Button>
-          </StyledLink>
+            <Text className="KRHeadline-3 gray007">컨설팅 신청</Text>
+          </Button>
         </Container>
       </Container>
       <Container height="128.4px" style={PortfolioBodyContainerCSS}></Container>
