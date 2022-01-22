@@ -13,6 +13,7 @@ import portfolio, {
 import { MouseEvent, useEffect, useState } from 'react';
 import { getUserInfo } from '../../store/modules/user';
 import { useNavigate } from 'react-router-dom';
+import { transform } from 'typescript';
 
 type Image = {
   id: number;
@@ -185,7 +186,10 @@ export const PortfolioItem: React.FunctionComponent<Portfolio> = (
       <StyledPortfolioItem>
         <StyledLink to={`/portfolio/${portfolio.id}`} style={StyledLinkCSS}>
           <PortfolioThumbnailContainer>
-            <img src={portfolio?.images[0]?.url}></img>
+            <img
+              src={portfolio?.images[0]?.url}
+              style={{ height: '240px', transform: 'scale(1.2)' }}
+            ></img>
           </PortfolioThumbnailContainer>
           <Text className="KRHeadline-1 gray001" style={PortfolioTitleCSS}>
             {portfolio.title.length > 25
