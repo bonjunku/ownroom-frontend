@@ -240,21 +240,36 @@ export const fetchConsultingInfoAsync = createAsyncThunk(
   }
 );
 
-export const downloadConsultingapplicationAsync = createAsyncThunk(
+export const downloadConsultingApplicationAsync = createAsyncThunk(
   'user/DOWNLOAD_APPLICATION',
-  async () => {
+  async (nickname: string) => {
     const response = await axios({
-      url: `https://api.ownroom.link/api/consultings/report/download?nickname=soyddoyy`,
+      url: `https://api.ownroom.link/api/consultings/application/download?nickname=${nickname}`,
       method: `get`,
       headers: {
         Authorization: `Bearer ${getCookie('token')}`,
       },
-      responseType: 'blob',
-      data: {},
     });
-    const url = window.URL.createObjectURL(response.data);
+    console.log(response.data);
     const a = document.createElement('a');
-    a.href = url;
+    a.href = response.data.url;
+    a.click();
+    return { ...response.data };
+  }
+);
+export const downloadConsultingReportAsync = createAsyncThunk(
+  'user/DOWNLOAD_APPLICATION',
+  async (customer: string) => {
+    const response = await axios({
+      url: `https://api.ownroom.link/api/consultings/report/download?nickname=${customer}`,
+      method: `get`,
+      headers: {
+        Authorization: `Bearer ${getCookie('token')}`,
+      },
+    });
+    console.log(response.data);
+    const a = document.createElement('a');
+    a.href = response.data.url;
     a.click();
     return { ...response.data };
   }

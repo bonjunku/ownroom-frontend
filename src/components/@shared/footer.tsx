@@ -5,55 +5,62 @@ import { Text } from '../@shared/text';
 import InstaIcon from '../../static/images/icon_insta.svg';
 import FooterLogo from '../../static/images/logo_footer.svg';
 import styled from 'styled-components';
+import { useNavigate } from 'react-router-dom';
+import { StyledLink } from './link';
 
-export const Footer = () => (
-  <Container height="300px" style={FooterCSS}>
-    <Container width="1136px" position="relative">
-      <Img
-        src={FooterLogo}
-        width="131px"
-        height="55px"
-        style={FooterLogoCSS}
-      ></Img>
-      <Text className="KRHeadline-3 orange001" style={FooterLogoTextCSS}>
-        1인 가구를 위한
-        <br />
-        홈스타일링 컨설팅
-        <br />
-        중계 플랫폼
-      </Text>
-      <Text className="KRHeadline-2 gray002" style={FooterConsultantCSS}>
-        컨설턴트
-      </Text>
-      <Text style={FooterConsultantMenuCSS}>
-        포트폴리오 둘러보기
-        <br />
-        컨설턴트 신청하기
-      </Text>
+export const Footer = () => {
+  const navigate = useNavigate();
 
-      <Text className="KRHeadline-2 gray002" style={FooterFormDownloadCSS}>
-        양식 다운받기
-      </Text>
-      <Text style={FooterFormDownloadMenuCSS}>
-        컨설턴트 전환 신청서
-        <br />
-        컨설팅 신청서
-        <br />
-        컨설팅 보고서
-      </Text>
-      <Img
-        src={InstaIcon}
-        width="18px"
-        height="18px"
-        style={FooterInstaIconCSS}
-      ></Img>
-      <FooterInstaLink></FooterInstaLink>
-      <Text className="KRBody-2 orange001" style={FooterInstaLinkCSS}>
-        ownroom.official
-      </Text>
+  return (
+    <Container height="300px" style={FooterCSS}>
+      <Container width="1136px" position="relative">
+        <Img
+          src={FooterLogo}
+          width="131px"
+          height="55px"
+          style={FooterLogoCSS}
+        ></Img>
+        <Text className="KRHeadline-3 orange001" style={FooterLogoTextCSS}>
+          1인 가구를 위한
+          <br />
+          홈스타일링 컨설팅
+          <br />
+          중계 플랫폼
+        </Text>
+        <Text className="KRHeadline-2 gray002" style={FooterConsultantCSS}>
+          컨설턴트
+        </Text>
+
+        <Text style={FooterConsultantMenuCSS}>
+          포트폴리오 둘러보기
+          <br />
+          컨설턴트 신청하기
+        </Text>
+
+        <Text className="KRHeadline-2 gray002" style={FooterFormDownloadCSS}>
+          양식 다운받기
+        </Text>
+        <Text style={FooterFormDownloadMenuCSS}>
+          컨설턴트 전환 신청서
+          <br />
+          컨설팅 신청서
+          <br />
+          컨설팅 보고서
+        </Text>
+        <Img
+          src={InstaIcon}
+          width="18px"
+          height="18px"
+          style={FooterInstaIconCSS}
+        ></Img>
+        <FooterInstaLink></FooterInstaLink>
+        <Text className="KRBody-2 orange001" style={FooterInstaLinkCSS}>
+          ownroom.official
+        </Text>
+      </Container>
     </Container>
-  </Container>
-);
+  );
+};
 
 const FooterCSS: CSSProperties = {
   backgroundColor: 'var(--brand-yellow-001)',

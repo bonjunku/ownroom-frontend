@@ -39,7 +39,7 @@ export const ConsultingApplication = () => {
     });
     if (response.status == 200) {
       alert(
-        '컨설팅 신청서가 성공적으로 전송되었습니다.\n메인화면으로 이동합니다.'
+        '컨설팅 신청서가 성공적으로 전송되었습니다.\n마이페이지에서 의뢰내역을 확인하실 수 있습니다.'
       );
       navigate('/');
     } else {
