@@ -180,7 +180,7 @@ export const PortfolioItem: React.FunctionComponent<Portfolio> = (
     } else if (portfolio.numberOfPossibleConsulting == 0) {
       alert('해당 서비스는 모집이 마감되었습니다.');
     } else {
-      navigate(`application/consulting/${portfolio.user.nickname}`);
+      navigate(`../application/consulting/${portfolio.user.nickname}`);
     }
   };
   return (
