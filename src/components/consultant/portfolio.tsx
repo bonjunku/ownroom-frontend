@@ -30,13 +30,13 @@ export const Portfolio = () => {
     nickname: string | undefined,
     possibleNumber: number | undefined
   ) => {
-    if (isLoggedIn) navigate(`../application/consulting/${nickname}`);
-    else if (possibleNumber == 0) {
-      alert('해당 서비스는 모집이 마감되었습니다.');
-    } else {
+    if (!isLoggedIn) {
       alert('로그인 후 이용이 가능한 서비스입니다.');
       navigate('/login');
-    }
+    } else if (possibleNumber == 0) {
+      alert('해당 서비스는 모집이 마감되었습니다.');
+    } else if (possibleNumber && possibleNumber > 0)
+      navigate(`../application/consulting/${nickname}`);
   };
 
   return (
