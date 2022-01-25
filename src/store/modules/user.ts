@@ -43,6 +43,7 @@ export interface SignUpInfo {
   password: string;
   userName: string;
   phoneNumber: string;
+  duplicateChecked: boolean;
 }
 
 const initialState: User = {

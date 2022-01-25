@@ -23,6 +23,7 @@ export const SignUp = () => {
     password: '',
     userName: '',
     phoneNumber: '',
+    duplicateChecked: false,
   });
   const dispatch = useAppDispatch();
 
@@ -37,11 +38,35 @@ export const SignUp = () => {
     signUpInfo: SignUpInfo
   ) => {
     event.preventDefault();
-    dispatch(signUpAsync(signUpInfo)).then((data) => {
-      if (data.type == 'user/SIGN_UP/fulfilled') {
-        navigate('/welcome');
-      }
-    });
+    if (signUpInfo.id.length == 0) {
+      alert('아이디를 입력해주세요.');
+    } else if (signUpInfo.password.length == 0) {
+      alert('비밀번호를 입력해주세요.');
+    } else if (signUpInfo.password.length < 8) {
+      alert('비밀번호는 8자리 이상이어야 합니다.');
+    } else if (signUpInfo.userName.length == 0) {
+      alert('이름을 입력해주세요.');
+    } else if (signUpInfo.phoneNumber.length == 0) {
+      alert('휴대폰 번호를 입력해주세요.');
+    } else if (signUpInfo.duplicateChecked == false) {
+      alert('아이디 중복 확인을 진행해주세요.');
+    } else if (/\d{3}\d{3,4}\d{4}/.test(signUpInfo.phoneNumber)) {
+      alert('전화번호 사이에 - 을 넣어주세요.');
+      setSignUpInfo({
+        ...signUpInfo,
+        phoneNumber:
+          signUpInfo.phoneNumber.slice(0, 3) +
+          '-' +
+          signUpInfo.phoneNumber.slice(3, 7) +
+          '-' +
+          signUpInfo.phoneNumber.slice(7, 11),
+      });
+    } else
+      dispatch(signUpAsync(signUpInfo)).then((data) => {
+        if (data.type == 'user/SIGN_UP/fulfilled') {
+          navigate('/welcome');
+        }
+      });
   };
 
   const duplicateCheck = (
@@ -49,7 +74,14 @@ export const SignUp = () => {
     nickname: string
   ) => {
     event.preventDefault();
-    dispatch(duplicateCheckAsync(nickname));
+    dispatch(duplicateCheckAsync(nickname)).then((data) => {
+      if (data.type) {
+        console.log('데이터:', data.payload.result);
+        if (data.payload.result == 'false') {
+          setSignUpInfo({ ...signUpInfo, duplicateChecked: true });
+        }
+      }
+    });
   };
 
   return (
@@ -77,25 +109,49 @@ export const SignUp = () => {
             <Text className="KRBody-2 gray003" style={SignUpText3CSS}>
               영문, 숫자를 포함한 아이디를 입력해주세요.(5-10자)
             </Text>
-            <Input
-              width={'264px'}
-              height={'50px'}
-              placeholder="아이디"
-              style={SignUpInputIdCSS}
-              name="id"
-              onChange={handleChange}
-              value={signUpInfo.id}
-            ></Input>
-            <Button
-              width="100px"
-              height="50px"
-              style={SignUpIdCheckButtonCSS}
-              onClick={(event: React.MouseEvent<HTMLButtonElement>) =>
-                duplicateCheck(event, signUpInfo.id)
-              }
-            >
-              <Text className="KRHeadline-1 graywhite">중복확인</Text>
-            </Button>
+            {console.log('상태', signUpInfo.duplicateChecked)}
+            {signUpInfo.duplicateChecked == false ? (
+              <Input
+                width={'264px'}
+                height={'50px'}
+                placeholder="아이디"
+                style={SignUpInputIdCSS}
+                name="id"
+                onChange={handleChange}
+                value={signUpInfo.id}
+              />
+            ) : (
+              <Input
+                width={'264px'}
+                height={'50px'}
+                placeholder={signUpInfo.id}
+                style={SignUpInputIdCSS}
+                name="id"
+                disabled
+                value={signUpInfo.id}
+              />
+            )}
+            {signUpInfo.duplicateChecked ? (
+              <Button
+                width="100px"
+                height="50px"
+                style={SignUpAfterIdCheckButtonCSS}
+                disabled
+              >
+                <Text className="KRHeadline-1 gray004">확인완료</Text>
+              </Button>
+            ) : (
+              <Button
+                width="100px"
+                height="50px"
+                style={SignUpIdCheckButtonCSS}
+                onClick={(event: React.MouseEvent<HTMLButtonElement>) =>
+                  duplicateCheck(event, signUpInfo.id)
+                }
+              >
+                <Text className="KRHeadline-1 graywhite">확인완료</Text>
+              </Button>
+            )}
             <Text className="KRHeadline-1 orange001" style={SignUpText4CSS}>
               비밀번호 *
             </Text>
@@ -125,13 +181,13 @@ export const SignUp = () => {
               value={signUpInfo.userName}
             ></Input>
             <Text className="KRHeadline-1 orange001" style={SignUpText7CSS}>
-              연락처 *
+              휴대폰 번호 *
             </Text>
             <Input
               width={'380px'}
               height={'50px'}
               style={SignUpInputContactCSS}
-              placeholder="연락처"
+              placeholder="010-0000-0000"
               name="phoneNumber"
               onChange={handleChange}
               value={signUpInfo.phoneNumber}
@@ -250,7 +306,16 @@ const SignUpIdCheckButtonCSS: CSSProperties = {
   top: '80px',
   right: 0,
 };
-
+const SignUpAfterIdCheckButtonCSS: CSSProperties = {
+  position: 'absolute',
+  top: '80px',
+  right: 0,
+  backgroundColor: 'var(--gray-graywhite)',
+  cursor: 'default',
+};
+const SignUpAfterIdCheckTextCSS: CSSProperties = {
+  color: 'var(--gray-gray-004)',
+};
 const SignUpButtonCSS: CSSProperties = {
   position: 'absolute',
   top: '624px',
