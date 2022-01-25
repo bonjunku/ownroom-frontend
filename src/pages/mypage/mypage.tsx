@@ -153,7 +153,11 @@ export const MyPage = () => {
               마이 컨설팅
             </Text>
             <Container width="774px" style={MyPageItemContainerCSS}>
-              {Object.keys(consultingInfoList).length > 0 ? (
+              {Object.keys(consultingInfoList).length == 0 ? (
+                <Text className="KRBody-2 gray002" style={MyPageItemEmptyCSS}>
+                  아직 진행된 컨설팅이 없습니다. 컨설팅을 시작해보세요!
+                </Text>
+              ) : (
                 Object.keys(consultingInfoList).map((element) => (
                   <MyConsultingListItem
                     key={element}
@@ -164,10 +168,6 @@ export const MyPage = () => {
                     created_date={consultingInfoList[element].created_date}
                   ></MyConsultingListItem>
                 ))
-              ) : (
-                <Text className="KRBody-2 gray002" style={MyPageItemEmptyCSS}>
-                  아직 진행된 컨설팅이 없습니다. 컨설팅을 시작해보세요!
-                </Text>
               )}
             </Container>
           </Container>

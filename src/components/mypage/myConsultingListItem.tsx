@@ -1,4 +1,5 @@
 import React, { CSSProperties } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useAppDispatch } from '../../store/configureStore.hooks';
 import {
   downloadConsultingApplicationAsync,
@@ -16,6 +17,7 @@ export const MyConsultingListItem = ({
   created_date,
 }) => {
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
   const downloadConsultantApplication = () => {
     if (isConsultant) {
       dispatch(downloadConsultingApplicationAsync(owner));
@@ -24,7 +26,9 @@ export const MyConsultingListItem = ({
     }
   };
   const downloadConsultantReport = () => {
-    if (isConsultant) {
+    if (!isReported && isConsultant) {
+      navigate(`/consulting/report/${owner}`);
+    } else if (isConsultant) {
       dispatch(downloadConsultingReportAsync(owner));
     } else {
       dispatch(downloadConsultingReportAsync(consultant));
@@ -38,52 +42,77 @@ export const MyConsultingListItem = ({
       <Text className="KRBody-3 gray002" style={MyPageItemText2CSS}>
         시작일 {created_date.slice(0, 10)}
       </Text>
-      {isConsultant ? (
-        <React.Fragment>
-          <Button
-            width="184px"
-            height="44px"
-            style={MyPageItemButton1CSS}
-            onClick={() => {
-              downloadConsultantApplication();
-            }}
-          >
-            <Text className="KRHeadline-2 orange001">컨설팅 신청서 확인</Text>
-          </Button>
-          <Button
-            width="184px"
-            height="44px"
-            style={MyPageItemButton2CSS}
-            onClick={() => {
-              downloadConsultantReport();
-            }}
-          >
-            <Text className="KRHeadline-2 orange001">컨설팅 보고서 확인</Text>
-          </Button>
-        </React.Fragment>
-      ) : (
-        <React.Fragment>
-          <Button
-            width="184px"
-            height="44px"
-            style={MyPageItemButton1CSS}
-            onClick={() => {
-              downloadConsultantApplication();
-            }}
-          >
-            <Text className="KRHeadline-2 orange001">컨설팅 신청서 확인</Text>
-          </Button>
-          <Button
-            width="184px"
-            height="44px"
-            style={MyPageItemButton2CSS}
-            onClick={() => {
-              downloadConsultantReport();
-            }}
-          >
-            <Text className="KRHeadline-2 orange001">컨설팅 보고서 확인</Text>
-          </Button>
-        </React.Fragment>
+      {isConsultant && (
+        <Button
+          width="184px"
+          height="44px"
+          style={MyPageItemButton1CSS}
+          onClick={() => {
+            downloadConsultantApplication();
+          }}
+        >
+          <Text className="KRHeadline-2 orange001">컨설팅 신청서 확인</Text>
+        </Button>
+      )}
+      {isConsultant && isReported && (
+        <Button
+          width="184px"
+          height="44px"
+          style={MyPageItemButton2CSS}
+          onClick={() => {
+            downloadConsultantReport();
+          }}
+        >
+          <Text className="KRHeadline-2 orange001">컨설팅 보고서 확인</Text>
+        </Button>
+      )}
+      {isConsultant && !isReported && (
+        <Button
+          width="184px"
+          height="44px"
+          style={MyPageItemButton2CSS}
+          onClick={() => {
+            downloadConsultantReport();
+          }}
+        >
+          <Text className="KRHeadline-2 orange001">컨설팅 보고서 작성</Text>
+        </Button>
+      )}
+      {!isConsultant && (
+        <Button
+          width="184px"
+          height="44px"
+          style={MyPageItemButton1CSS}
+          onClick={() => {
+            downloadConsultantApplication();
+          }}
+        >
+          <Text className="KRHeadline-2 orange001">컨설팅 신청서 확인</Text>
+        </Button>
+      )}
+      {!isConsultant && isReported && (
+        <Button
+          width="184px"
+          height="44px"
+          style={MyPageItemButton2CSS}
+          onClick={() => {
+            downloadConsultantReport();
+          }}
+        >
+          <Text className="KRHeadline-2 orange001">컨설팅 보고서 확인</Text>
+        </Button>
+      )}
+      {!isConsultant && !isReported && (
+        <Button
+          width="184px"
+          height="44px"
+          style={MyPageItemButton2CSS}
+          onClick={() => {
+            downloadConsultantReport();
+          }}
+        >
+          <Text className="KRHeadline-2 gray004">컨설팅 보고서 확인</Text>
+        </Button>
       )}
     </Container>
   );

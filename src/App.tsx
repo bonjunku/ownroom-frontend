@@ -19,6 +19,7 @@ import { ConsultingApplication } from './pages/application/consultingApplication
 import { Modal } from './components/@shared/modal';
 import { ScrollToTop } from './components/@shared/scrollToTop';
 import { Welcome } from './pages/welcome/welcome';
+import { ConsultingReport } from './pages/consulting/consultingreport';
 
 function App() {
   return (
@@ -38,6 +39,10 @@ function App() {
                 element={<ConsultingApplication />}
               />
             </Route>
+            <Route
+              path="consulting/report/:nickname"
+              element={<ConsultingReport />}
+            />
             <Route path="portfolioList" element={<ConsultantPortfolio />} />
             <Route path="portfolio/:id" element={<Portfolio />}></Route>
             <Route path="mypage" element={<MyPage />}></Route>
