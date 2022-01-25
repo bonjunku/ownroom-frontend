@@ -155,7 +155,7 @@ export const SignUp = () => {
                   duplicateCheck(event, signUpInfo.id)
                 }
               >
-                <Text className="KRHeadline-1 graywhite">확인완료</Text>
+                <Text className="KRHeadline-1 graywhite">중복확인</Text>
               </Button>
             )}
             <Text className="KRHeadline-1 orange001" style={SignUpText4CSS}>
