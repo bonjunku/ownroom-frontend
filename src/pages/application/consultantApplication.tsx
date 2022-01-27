@@ -106,7 +106,7 @@ export const ConsultantApplication = () => {
             className="KRBody-3 gray002"
             style={ApplicationContainer2Text1CSS}
           >
-            ownroom@gmail.com으로 제출해 주시면
+            ownroom01@gmail.com으로 제출해 주시면
             <br />
             확인 후 컨설턴트 전환을 진행해 드립니다.
           </Text>
@@ -213,11 +213,14 @@ const ApplicationContainer2Text1CSS: CSSProperties = {
   position: 'absolute',
   left: '145px',
   top: '126px',
+  fontSize: '14px',
+  lineHeight: '27px',
 };
 const ApplicationContainer2Text2CSS: CSSProperties = {
   position: 'absolute',
   left: '145px',
-  top: '172px',
+  top: '180px',
+  fontSize: '14px',
 };
 const ApplicationContainerBackgroundNumber1CSS: CSSProperties = {
   position: 'absolute',

@@ -241,11 +241,14 @@ const ApplicationContainer1Text2CSS: CSSProperties = {
   position: 'absolute',
   left: '145px',
   top: '195px',
+  fontSize: '14px',
+  lineHeight: '27px',
 };
 const ApplicationContainer1Text3CSS: CSSProperties = {
   position: 'absolute',
   left: '145px',
-  top: '241px',
+  top: '249px',
+  fontSize: '14px',
 };
 const ApplicationContainer1IconCSS: CSSProperties = {
   position: 'absolute',
