@@ -6,7 +6,6 @@ import { Img } from '../../components/@shared/img';
 import { Text } from '../../components/@shared/text';
 import IconDownload from '../../static/images/icon_download.svg';
 export const ConsultantApplication = () => {
-  const blob = new Blob();
   return (
     <Container type="column">
       <Container height="300px" style={backgroundColorCSS}>
@@ -30,7 +29,7 @@ export const ConsultantApplication = () => {
           </Text>
         </Container>
       </Container>
-      <Container height="870px" position="relative" style={backgroundColorCSS}>
+      <Container height="860px" position="relative" style={backgroundColorCSS}>
         {/* 1번 컨테이너 */}
         <Container
           width="846px"
@@ -150,7 +149,7 @@ const ApplicationContainer1CSS: CSSProperties = {
   backgroundColor: 'var(--gray-white)',
   borderRadius: '10px',
   position: 'absolute',
-  top: '60px',
+  top: '50px',
   boxShadow: '0 3px 3px 0 rgba(0, 0, 0, 0.08)',
 };
 
@@ -158,7 +157,7 @@ const ApplicationContainer2CSS: CSSProperties = {
   backgroundColor: 'var(--gray-white)',
   borderRadius: '10px',
   position: 'absolute',
-  top: '457px',
+  top: '447px',
   boxShadow: '0 3px 3px 0 rgba(0, 0, 0, 0.08)',
 };
 
