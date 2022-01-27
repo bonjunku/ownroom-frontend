@@ -287,24 +287,28 @@ const SignUpInputIdCSS: CSSProperties = {
   position: 'absolute',
   top: '80px',
   left: '0px',
+  borderRadius: '8px',
 };
 
 const SignUpInputPasswordCSS: CSSProperties = {
   position: 'absolute',
   top: '250px',
   left: '0px',
+  borderRadius: '8px',
 };
 
 const SignUpInputNameCSS: CSSProperties = {
   position: 'absolute',
   top: '382px',
   left: '0px',
+  borderRadius: '8px',
 };
 
 const SignUpInputContactCSS: CSSProperties = {
   position: 'absolute',
   top: '514px',
   left: '0px',
+  borderRadius: '8px',
 };
 
 const SignUpIdCheckButtonCSS: CSSProperties = {

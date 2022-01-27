@@ -179,12 +179,14 @@ const LogInFormCSS: CSSProperties = {
 const LogInInputIdCSS: CSSProperties = {
   position: 'absolute',
   left: '100px',
+  borderRadius: '8px',
 };
 
 const LogInInputPasswordCSS: CSSProperties = {
   position: 'absolute',
   top: '78px',
   left: '100px',
+  borderRadius: '8px',
 };
 
 const LogInButtonCSS: CSSProperties = {
