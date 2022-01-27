@@ -201,7 +201,7 @@ export const SignUp = () => {
             <Button
               type="submit"
               width="400px"
-              height="60px"
+              height="50px"
               style={SignUpButtonCSS}
             >
               <Text className="KRHeadline-1 graywhite">회원가입</Text>
