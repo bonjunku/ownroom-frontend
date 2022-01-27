@@ -382,7 +382,7 @@ const Banner6WindowText2CSS: CSSProperties = {
   top: '405px',
   fontFamily: 'Noto Sans KR',
   fontSize: '15px',
-  fontWeight: 'bold',
+  fontWeight: 'normal',
   fontStretch: 'normal',
   fontStyle: 'normal',
   lineHeight: '1.33',
