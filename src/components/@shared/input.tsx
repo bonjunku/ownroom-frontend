@@ -11,7 +11,7 @@ export const Input = styled.input`
   color: var(--gray-gray-001);
   font-family: 'Noto Sans KR';
   ::placeholder {
-    font-size: 20px;
+    font-size: 18px;
     color: var(--gray-gray-003);
   }
 `;
