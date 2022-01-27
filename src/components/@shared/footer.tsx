@@ -41,7 +41,7 @@ export const Footer = () => {
           양식 다운받기
         </Text>
         <Text style={FooterFormDownloadMenuCSS}>
-          컨설턴트 전환 신청서
+          컨설턴트 신청서
           <br />
           컨설팅 신청서
           <br />
@@ -75,11 +75,13 @@ const FooterLogoTextCSS: CSSProperties = {
   position: 'absolute',
   left: 0,
   top: '159px',
+  fontSize: '15px',
 };
 const FooterConsultantCSS: CSSProperties = {
   position: 'absolute',
   left: '290px',
   top: '56px',
+  fontSize: '15px',
 };
 const FooterConsultantMenuCSS: CSSProperties = {
   position: 'absolute',
@@ -88,12 +90,14 @@ const FooterConsultantMenuCSS: CSSProperties = {
   fontFamily: 'Noto Sans KR',
   lineHeight: '30px',
   color: 'var(--gray-gray-002)',
+  fontSize: '15px',
 };
 
 const FooterFormDownloadCSS: CSSProperties = {
   position: 'absolute',
   top: '56px',
   left: '483px',
+  fontSize: '15px',
 };
 
 const FooterFormDownloadMenuCSS: CSSProperties = {
@@ -103,6 +107,7 @@ const FooterFormDownloadMenuCSS: CSSProperties = {
   fontFamily: 'Noto Sans KR',
   lineHeight: '30px',
   color: 'var(--gray-gray-002)',
+  fontSize: '15px',
 };
 
 const FooterInstaIconCSS: CSSProperties = {
