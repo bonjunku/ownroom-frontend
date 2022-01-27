@@ -29,7 +29,7 @@ export const ConsultantApplication = () => {
           </Text>
         </Container>
       </Container>
-      <Container height="860px" position="relative" style={backgroundColorCSS}>
+      <Container height="854px" position="relative" style={backgroundColorCSS}>
         {/* 1번 컨테이너 */}
         <Container
           width="846px"
@@ -157,7 +157,7 @@ const ApplicationContainer2CSS: CSSProperties = {
   backgroundColor: 'var(--gray-white)',
   borderRadius: '10px',
   position: 'absolute',
-  top: '447px',
+  top: '437px',
   boxShadow: '0 3px 3px 0 rgba(0, 0, 0, 0.08)',
 };
 
