@@ -7,5 +7,5 @@
     "skipLibCheck": true,
     "module": "esnext"
   },
-  "include": ["src/custom.d.ts"]
+  "include": ["*"]
 }
