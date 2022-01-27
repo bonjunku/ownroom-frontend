@@ -101,7 +101,7 @@ export const LogIn = () => {
             ></Input>
             <Button
               width="400px"
-              height="60px"
+              height="50px"
               style={LogInButtonCSS}
               onChange={(e: React.MouseEvent<HTMLButtonElement>) =>
                 handleClick(e)
