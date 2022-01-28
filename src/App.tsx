@@ -1,25 +1,25 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { GlobalStyle } from './styles/globalstyle';
+import { GlobalStyle } from './common/globalstyle';
 
-import Home from './pages/home/home';
+import Home from './features/home/home';
 import styled, { CSSProperties } from 'styled-components';
-import { Navbar } from './components/@shared/navbar';
-import { Banner1, Banner2 } from './components/home/banner';
-import { PortfolioList } from './components/consultant/portfolioList';
-import { Footer } from './components/@shared/footer';
-import { ConsultantPortfolio } from './pages/consultant/consultantPortfolio';
-import { Container } from './components/@shared/container';
-import { Portfolio } from './components/consultant/portfolio';
-import { MyPage } from './pages/mypage/mypage';
-import { LogIn } from './pages/login/login';
-import { SignUp } from './pages/signup/signup';
-import { ConsultantApplication } from './pages/application/consultantApplication';
-import { ConsultingApplication } from './pages/application/consultingApplication';
-import { Modal } from './components/@shared/modal';
-import { ScrollToTop } from './components/@shared/scrollToTop';
-import { Welcome } from './pages/welcome/welcome';
-import { ConsultingReport } from './pages/consulting/consultingreport';
+import { Navbar } from './common/navbar';
+import { Banner1, Banner2 } from './features/home/components/banner';
+import { PortfolioList } from './features/consultantPortfolio/components/portfolioList';
+import { Footer } from './common/footer';
+import { ConsultantPortfolio } from './features/consultantPortfolio/consultantPortfolio';
+import { Container } from './common/container';
+import { PortfolioDetail } from './features/portfolioDetail/portfolioDetail';
+import { MyPage } from './features/myPage/mypage';
+import { LogIn } from './features/login/login';
+import { SignUp } from './features/signUp/signup';
+import { ConsultantApplication } from './features/consultantApplication/consultantApplication';
+import { ConsultingApplication } from './features/consultingApplication/consultingApplication';
+import { Modal } from './common/modal';
+import { ScrollToTop } from './common/scrollToTop';
+import { Welcome } from './features/welcome/welcome';
+import { ConsultingReport } from './features/consultingReport/consultingreport';
 
 function App() {
   return (
@@ -44,7 +44,7 @@ function App() {
               element={<ConsultingReport />}
             />
             <Route path="portfolioList" element={<ConsultantPortfolio />} />
-            <Route path="portfolio/:id" element={<Portfolio />}></Route>
+            <Route path="portfolio/:id" element={<PortfolioDetail />}></Route>
             <Route path="mypage" element={<MyPage />}></Route>
             <Route path="login" element={<LogIn />}></Route>
             <Route path="signup" element={<SignUp />}></Route>
