@@ -2,11 +2,9 @@ import { CSSProperties } from 'react';
 import { Container } from './container';
 import { Img } from './img';
 import { Text } from '../common/text';
-import InstaIcon from '../static/images/icon_insta.svg';
-import FooterLogo from '../static/images/logo_footer.svg';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
-import { StyledLink } from './link';
+import { icon_insta, logo_footer } from '../static/images/svg';
 
 export const Footer = () => {
   const navigate = useNavigate();
@@ -15,7 +13,7 @@ export const Footer = () => {
     <Container height="300px" style={FooterCSS}>
       <Container width="1136px" position="relative">
         <Img
-          src={FooterLogo}
+          src={logo_footer}
           width="131px"
           height="55px"
           style={FooterLogoCSS}
@@ -48,7 +46,7 @@ export const Footer = () => {
           컨설팅 보고서
         </Text>
         <Img
-          src={InstaIcon}
+          src={icon_insta}
           width="18px"
           height="18px"
           style={FooterInstaIconCSS}

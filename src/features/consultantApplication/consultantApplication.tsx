@@ -4,7 +4,8 @@ import { Button } from '../../common/button';
 import { Container } from '../../common/container';
 import { Img } from '../../common/img';
 import { Text } from '../../common/text';
-import IconDownload from '../../static/images/icon_download.svg';
+import { icon_download } from '../../static/images/svg';
+
 export const ConsultantApplication = () => {
   return (
     <Container type="column">
@@ -52,7 +53,7 @@ export const ConsultantApplication = () => {
           </Text>
 
           <Img
-            src={IconDownload}
+            src={icon_download}
             width="35px"
             height="35px"
             style={ApplicationContainer1IconCSS}
