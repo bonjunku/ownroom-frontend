@@ -24,45 +24,50 @@ export const Navbar = () => {
   }, []);
 
   return (
-    <Container height="80px" position="fixed" style={navbarCSS}>
-      <Container width="1920px">
-        <Container width="1136px" position="relative">
-          <StyledLink to="/" style={logoCSS}>
-            <Img
-              src={process.env.PUBLIC_URL + '/img/home/logo_symbol.png'}
-              width="100px"
-              height="27.1px"
-            />
-          </StyledLink>
-          <Consultant style={consultantCSS}>
-            <Text className="KRHeadline-2 gray002">컨설턴트</Text>
-            <SubConsultant>
-              <StyledLink to="/portfolioList" style={subconsultantCSS}>
-                <Text className="KRHeadline-3 gray003">
-                  포트폴리오 둘러보기
+    <>
+      <Container height="80px" position="fixed" style={navbarCSS}>
+        <Container width="1920px">
+          <Container width="1136px" position="relative">
+            <StyledLink to="/" style={logoCSS}>
+              <Img
+                src={process.env.PUBLIC_URL + '/img/home/logo_symbol.png'}
+                width="100px"
+                height="27.1px"
+              />
+            </StyledLink>
+            <Consultant style={consultantCSS}>
+              <Text className="KRHeadline-2 gray002">컨설턴트</Text>
+              <SubConsultant>
+                <StyledLink to="/consultantPortfolio" style={subconsultantCSS}>
+                  <Text className="KRHeadline-3 gray003">
+                    포트폴리오 둘러보기
+                  </Text>
+                </StyledLink>
+                <StyledLink to="/consultant/application">
+                  <Text className="KRHeadline-3 gray003">
+                    컨설턴트 신청하기
+                  </Text>
+                </StyledLink>
+              </SubConsultant>
+            </Consultant>
+
+            {isLoggedin ? (
+              <StyledLink to="/mypage" style={myPageLinkCSS}>
+                <Img src={ProfileIcon} width="30px" height="30px"></Img>
+                <Text className="KRHeadline-2 gray002" style={nicknameCSS}>
+                  {nickname}님
                 </Text>
               </StyledLink>
-              <StyledLink to="/application/consultant">
-                <Text className="KRHeadline-3 gray003">컨설턴트 신청하기</Text>
+            ) : (
+              <StyledLink to="/login" style={loginCSS}>
+                <Text className="KRHeadline-2 gray002">로그인</Text>
               </StyledLink>
-            </SubConsultant>
-          </Consultant>
-
-          {isLoggedin ? (
-            <StyledLink to="/mypage" style={myPageLinkCSS}>
-              <Img src={ProfileIcon} width="30px" height="30px"></Img>
-              <Text className="KRHeadline-2 gray002" style={nicknameCSS}>
-                {nickname}님
-              </Text>
-            </StyledLink>
-          ) : (
-            <StyledLink to="/login" style={loginCSS}>
-              <Text className="KRHeadline-2 gray002">로그인</Text>
-            </StyledLink>
-          )}
+            )}
+          </Container>
         </Container>
       </Container>
-    </Container>
+      <Container height="80px" />
+    </>
   );
 };
 

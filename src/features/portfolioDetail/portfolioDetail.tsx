@@ -36,7 +36,7 @@ export const PortfolioDetail = () => {
     } else if (possibleNumber == 0) {
       alert('해당 서비스는 모집이 마감되었습니다.');
     } else if (possibleNumber && possibleNumber > 0)
-      navigate(`../application/consulting/${nickname}`);
+      navigate(`/consulting/application/${nickname}`);
   };
 
   return (

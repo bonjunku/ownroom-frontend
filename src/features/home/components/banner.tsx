@@ -159,7 +159,7 @@ export const Banner4 = () => {
       alert('로그인 후 이용이 가능한 서비스입니다.');
       navigate('/login');
     } else {
-      navigate('/application/consultant');
+      navigate('/consultant/application');
     }
   };
 

@@ -44,7 +44,7 @@ export const Welcome = () => {
                   <Text className="KRHeadline-1 orange001">홈으로</Text>
                 </Button>
               </StyledLink>
-              <StyledLink to="/application/consultant">
+              <StyledLink to="/consultant/application">
                 <Button
                   width="220px"
                   height="50px"
