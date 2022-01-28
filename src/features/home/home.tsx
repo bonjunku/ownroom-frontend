@@ -1,5 +1,5 @@
 import React from 'react';
-import { PortfolioList } from '../consultantPortfolio/components/portfolioList';
+import { PortfolioPreviewList } from '../consultantPortfolio/components/portfolioList';
 import { ConsultantTitle } from './components/consultantTitle';
 import {
   Banner1,
@@ -17,7 +17,7 @@ const Home = () => (
     <Banner3 />
     <Banner4 />
     <ConsultantTitle />
-    <PortfolioList />
+    <PortfolioPreviewList />
     <Banner5 />
     <Banner6 />
   </>

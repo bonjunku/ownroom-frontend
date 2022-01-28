@@ -1,6 +1,5 @@
 import { Container } from '../../common/container';
 import { Img } from '../../common/img';
-import { PortfolioList } from '../consultantPortfolio/components/portfolioList';
 import { Text } from '../../common/text';
 import { CSSProperties, useEffect, useState } from 'react';
 import { Button } from '../../common/button';

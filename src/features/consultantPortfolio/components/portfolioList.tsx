@@ -53,7 +53,7 @@ const portfolioNavBarMap = {
   NorthEurope: '북유럽',
 };
 
-export const PortfolioList = () => {
+export const PortfolioPreviewList = () => {
   const [portfolioListResult, setPortfolioListResult] = useState<Portfolio[]>();
   const initialPortfolioNavBarClicked = {
     Modern: false,

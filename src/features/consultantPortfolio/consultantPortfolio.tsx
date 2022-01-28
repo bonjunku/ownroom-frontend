@@ -1,6 +1,6 @@
 import { Container } from '../../common/container';
 import { Img } from '../../common/img';
-import { PortfolioList } from './components/portfolioList';
+import { PortfolioPreviewList } from './components/portfolioList';
 import { Text } from '../../common/text';
 import { CSSProperties } from 'styled-components';
 
@@ -24,7 +24,7 @@ export const ConsultantPortfolio = () => {
         </Text>
       </Container>
       <Container height="50px" />
-      <PortfolioList></PortfolioList>
+      <PortfolioPreviewList />
     </>
   );
 };
