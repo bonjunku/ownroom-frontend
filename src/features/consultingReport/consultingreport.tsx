@@ -7,8 +7,9 @@ import { Container } from '../../common/container';
 import { Img } from '../../common/img';
 import { getCookie } from '../../store/modules/user';
 import { Text } from '../../common/text';
-import IconDownload from '../../static/images/icon_download.svg';
+
 import styled from 'styled-components';
+import { icon_download } from '../../static/images/svg';
 
 export const ConsultingReport = () => {
   const dispatch = useDispatch();
@@ -88,7 +89,7 @@ export const ConsultingReport = () => {
             컨설팅 보고서를 다운받아 작성해 주세요.
           </Text>
           <Img
-            src={IconDownload}
+            src={icon_download}
             width="35px"
             height="35px"
             style={ApplicationContainer1IconCSS}

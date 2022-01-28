@@ -12,8 +12,9 @@ import { Container } from './container';
 import { Img } from './img';
 import { StyledLink } from './link';
 import { Text } from './text';
-import ProfileIcon from '../static/images/icon_profile.svg';
+
 import { useDispatch } from 'react-redux';
+import { icon_profile } from '../static/images/svg';
 
 export const Navbar = () => {
   const isLoggedin = useAppSelect(getIsLoggedIn);
@@ -53,7 +54,7 @@ export const Navbar = () => {
 
             {isLoggedin ? (
               <StyledLink to="/mypage" style={myPageLinkCSS}>
-                <Img src={ProfileIcon} width="30px" height="30px"></Img>
+                <Img src={icon_profile} width="30px" height="30px"></Img>
                 <Text className="KRHeadline-2 gray002" style={nicknameCSS}>
                   {nickname}님
                 </Text>

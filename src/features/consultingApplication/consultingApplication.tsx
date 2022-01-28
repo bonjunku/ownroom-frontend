@@ -7,7 +7,8 @@ import { Button } from '../../common/button';
 import { Container } from '../../common/container';
 import { Img } from '../../common/img';
 import { Text } from '../../common/text';
-import IconDownload from '../../static/images/icon_download.svg';
+import { icon_download } from '../../static/images/svg';
+
 import { uploadConsultingApplicationAsync } from '../../store/modules/consulting';
 import { getCookie } from '../../store/modules/user';
 export const ConsultingApplication = () => {
@@ -91,7 +92,7 @@ export const ConsultingApplication = () => {
             컨설팅 신청서를 다운받아 작성해 주세요.
           </Text>
           <Img
-            src={IconDownload}
+            src={icon_download}
             width="35px"
             height="35px"
             style={ApplicationContainer1IconCSS}

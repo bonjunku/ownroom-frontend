@@ -3,7 +3,6 @@ import { Img } from '../../common/img';
 import { Text } from '../../common/text';
 import { CSSProperties, useEffect, useState } from 'react';
 import { Button } from '../../common/button';
-import ProfileIcon from '../../static/images/icon_profile.svg';
 import styled from 'styled-components';
 import {
   fetchConsultingInfoAsync,
@@ -16,6 +15,7 @@ import {
 import { useAppDispatch, useAppSelect } from '../../store/configureStore.hooks';
 import { useNavigate } from 'react-router-dom';
 import { MyConsultingListItem } from './components/myConsultingListItem';
+import { icon_profile } from '../../static/images/svg';
 
 export const MyPage = () => {
   const navigate = useNavigate();
@@ -94,7 +94,7 @@ export const MyPage = () => {
               style={MyPageContainerDecoratorCSS}
               height="12px"
             ></Container>
-            <Img src={ProfileIcon} style={MyPageProfileIconCSS} />
+            <Img src={icon_profile} style={MyPageProfileIconCSS} />
             <Text className="KRHeadline-1 gray001" style={MyPageIdCSS}>
               {userInfo.nickname}
             </Text>

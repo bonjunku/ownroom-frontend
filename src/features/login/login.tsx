@@ -9,7 +9,7 @@ import { Img } from '../../common/img';
 import { Input } from '../../common/input';
 import { StyledLink } from '../../common/link';
 import { Text } from '../../common/text';
-import SymbolWithText from '../../static/images/symbol_with_text.svg';
+import { symbol_with_text } from '../../static/images/svg';
 import { useAppDispatch } from '../../store/configureStore.hooks';
 import {
   fetchMyInfoAsync,
@@ -120,7 +120,7 @@ export const LogIn = () => {
             </StyledLink>
           </Container>
           <Img
-            src={SymbolWithText}
+            src={symbol_with_text}
             width="170px"
             height="77px"
             style={LoginBottomLogoCSS}
