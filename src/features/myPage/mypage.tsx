@@ -34,7 +34,13 @@ export const MyPage = () => {
 
   // 고객,컨설턴트 전환
   const switchStatus = () => {
-    dispatch(switchStatusAsync(userInfo.isConsultant));
+    if (userInfo.consultantRegisterStatus !== '승인 완료') {
+      alert(
+        '먼저 컨설턴트 신청을 진행해주세요.\n승인 후에 전환할 수 있습니다.'
+      );
+    } else {
+      dispatch(switchStatusAsync(userInfo.isConsultant));
+    }
   };
 
   // 로그아웃
