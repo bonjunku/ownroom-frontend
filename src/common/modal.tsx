@@ -1,28 +1,38 @@
+import { useDispatch } from 'react-redux';
 import styled, { CSSProperties } from 'styled-components';
 import { icon_success } from '../static/images/svg';
+import { useAppSelect } from '../store/configureStore.hooks';
+import modal, { getModalState } from '../store/modules/modal';
 import { Container } from './container';
 import { Img } from './img';
 
 import { Text } from './text';
 
 export const Modal = () => {
+  const modalState = useAppSelect(getModalState);
+  const dispatch = useDispatch();
+
   return (
-    <ModalBackground>
-      <Container width="470px" height="300px" style={ModalWindow}>
-        <Img
-          src={icon_success}
-          width="88px"
-          height="88px"
-          style={ModalImgCSS}
-        ></Img>
-        <Text className="KRDisplay-3 gray001" style={ModalMessage1CSS}>
-          저장이 완료되었습니다.
-        </Text>
-        <Text className="KRBody-1 gray002" style={ModalMessage2CSS}>
-          마이페이지로 이동합니다.
-        </Text>
-      </Container>
-    </ModalBackground>
+    <>
+      {modalState.isVisible && (
+        <ModalBackground>
+          <Container width="470px" height="300px" style={ModalWindow}>
+            <Img
+              src={modalState.imgSrc}
+              width="88px"
+              height="88px"
+              style={ModalImgCSS}
+            ></Img>
+            <Text className="KRDisplay-3 gray001" style={ModalMessage1CSS}>
+              {modalState.mainMessage}
+            </Text>
+            <Text className="KRBody-1 gray002" style={ModalMessage2CSS}>
+              {modalState.subMessage}
+            </Text>
+          </Container>
+        </ModalBackground>
+      )}
+    </>
   );
 };
 

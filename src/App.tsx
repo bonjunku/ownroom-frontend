@@ -20,7 +20,7 @@ function App() {
   return (
     <>
       <GlobalStyle />
-      {/* <Modal /> */}
+      <Modal />
       <BrowserRouter>
         <ScrollToTop>
           <Navbar />

@@ -7,13 +7,12 @@ import { Button } from '../../common/button';
 import { Container } from '../../common/container';
 import { Img } from '../../common/img';
 import { Text } from '../../common/text';
-import { icon_download } from '../../static/images/svg';
+import { icon_download, icon_success } from '../../static/images/svg';
 import { getCookie } from '../../store/modules/user';
 export const ConsultingApplication = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { nickname } = useParams();
-
   const [file, setFile] = useState<FileList | null>(null);
   const defaultFileTitle = '이 곳을 클릭하여 작성한 양식을 업로드해 주세요.';
   const [fileTitle, setFileTitle] = useState<string>(defaultFileTitle);
@@ -28,9 +27,6 @@ export const ConsultingApplication = () => {
     console.log('현재file출력:', file);
     if (file) formData.append('file', file[0]);
     formData.append('nickname', `${nickname}`);
-    // for (var key of formData.entries()) {
-    //   console.log(key[0] + ', ' + key[1]);
-    // }
 
     const response = await axios({
       url: `https://api.ownroom.link/api/consultings/application/upload`,
@@ -41,10 +37,27 @@ export const ConsultingApplication = () => {
       data: formData,
     });
     if (response.status == 200) {
-      alert(
-        '컨설팅 신청서가 성공적으로 전송되었습니다.\n마이페이지에서 의뢰내역을 확인하실 수 있습니다.'
-      );
-      navigate('/');
+      dispatch({
+        type: 'modal/SET_MODAL',
+        payload: {
+          imgSrc: `${icon_success}`,
+          mainMessage: '저장이 완료되었습니다.',
+          subMessage: '마이페이지로 이동합니다.',
+          isVisible: true,
+        },
+      });
+      setTimeout(() => {
+        dispatch({
+          type: 'modal/SET_MODAL',
+          payload: {
+            imgSrc: ``,
+            mainMessage: '',
+            subMessage: '',
+            isVisible: false,
+          },
+        });
+        navigate('/mypage');
+      }, 3000);
     } else {
       alert('컨설팅 신청서 전송을 실패했습니다.');
     }
@@ -312,6 +325,7 @@ const ApplicationContainer2FileContainer = styled.div`
   background-color: var(--gray-white);
   position: absolute;
   top: 126px;
+  left: 145px;
   display: flex;
   justify-content: center;
   align-items: center;

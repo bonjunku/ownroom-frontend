@@ -9,7 +9,7 @@ import { getCookie } from '../../store/modules/user';
 import { Text } from '../../common/text';
 
 import styled from 'styled-components';
-import { icon_download } from '../../static/images/svg';
+import { icon_download, icon_success } from '../../static/images/svg';
 import {
   FileTitle,
   inputCSS,
@@ -45,10 +45,27 @@ export const ConsultingReport = () => {
       data: formData,
     });
     if (response.status == 200) {
-      alert(
-        '컨설팅 보고서가 성공적으로 전송되었습니다.\n마이페이지에서 전송내역을 확인하실 수 있습니다.'
-      );
-      navigate('/');
+      dispatch({
+        type: 'modal/SET_MODAL',
+        payload: {
+          imgSrc: `${icon_success}`,
+          mainMessage: '저장이 완료되었습니다.',
+          subMessage: '마이페이지로 이동합니다.',
+          isVisible: true,
+        },
+      });
+      setTimeout(() => {
+        dispatch({
+          type: 'modal/SET_MODAL',
+          payload: {
+            imgSrc: ``,
+            mainMessage: '',
+            subMessage: '',
+            isVisible: false,
+          },
+        });
+        navigate('/mypage');
+      }, 3000);
     } else {
       alert('컨설팅 보고서 전송을 실패했습니다.');
     }
@@ -278,6 +295,7 @@ const ApplicationContainer2FileContainer = styled.div`
   background-color: var(--gray-white);
   position: absolute;
   top: 126px;
+  left: 145px;
   display: flex;
   justify-content: center;
   align-items: center;
