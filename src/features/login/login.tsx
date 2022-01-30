@@ -49,12 +49,6 @@ export const LogIn = () => {
         dispatch(fetchMyInfoAsync());
         navigate('/');
       }
-      if (data.type == 'user/LOG_IN/rejected') {
-        setLoginInfo({
-          id: '',
-          password: '',
-        });
-      }
     });
   };
 
