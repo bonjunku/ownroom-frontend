@@ -190,7 +190,7 @@ interface fileTitle {
   isFile?: boolean;
 }
 
-const FileTitle = styled.span<fileTitle>`
+export const FileTitle = styled.span<fileTitle>`
   font-family: Noto Sans KR;
   font-size: 13px;
   font-weight: normal;
@@ -211,7 +211,7 @@ const FileTitle = styled.span<fileTitle>`
 const backgroundColorCSS: CSSProperties = {
   backgroundColor: 'var(--brand-orange-005)',
 };
-const labelCSS: CSSProperties = {
+export const labelCSS: CSSProperties = {
   width: '100%',
   height: '100%',
   display: 'flex',
@@ -220,7 +220,7 @@ const labelCSS: CSSProperties = {
   cursor: 'pointer',
 };
 
-const inputCSS: CSSProperties = {
+export const inputCSS: CSSProperties = {
   display: 'none',
 };
 

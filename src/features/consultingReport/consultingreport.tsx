@@ -10,6 +10,11 @@ import { Text } from '../../common/text';
 
 import styled from 'styled-components';
 import { icon_download } from '../../static/images/svg';
+import {
+  FileTitle,
+  inputCSS,
+  labelCSS,
+} from '../consultingApplication/consultingApplication';
 
 export const ConsultingReport = () => {
   const dispatch = useDispatch();
@@ -17,9 +22,13 @@ export const ConsultingReport = () => {
   const { nickname } = useParams();
 
   const [file, setFile] = useState<FileList | null>(null);
+  const defaultFileTitle = '이 곳을 클릭하여 작성한 양식을 업로드해 주세요.';
+  const [fileTitle, setFileTitle] = useState<string>(defaultFileTitle);
+  const [isFile, setIsfFile] = useState<boolean>(false);
   const handleChangeFile = (event: ChangeEvent<HTMLInputElement>) => {
-    console.log(event.target.files);
+    if (event.target.files) setFileTitle(event.target.files[0]['name']);
     setFile(event.target.files);
+    setIsfFile(true);
   };
   const handleSubmitFile = async () => {
     const formData = new FormData();
@@ -146,10 +155,9 @@ export const ConsultingReport = () => {
             작성한 양식을 업로드해 주세요.
           </Text>
           <ApplicationContainer2FileContainer>
-            {/* <Text className="KRBody-3 gray003">
-              작성한 양식을 업로드해 주세요.
-            </Text> */}
-
+            <label htmlFor="file" style={labelCSS}>
+              <FileTitle isFile={isFile}>{fileTitle}</FileTitle>
+            </label>
             <input
               type="file"
               id="file"
@@ -157,7 +165,8 @@ export const ConsultingReport = () => {
                 handleChangeFile(event);
               }}
               multiple={true}
-            ></input>
+              style={inputCSS}
+            />
           </ApplicationContainer2FileContainer>
           <Img
             src={process.env.PUBLIC_URL + '/img/consultant/2.png'}
@@ -171,6 +180,8 @@ export const ConsultingReport = () => {
           height="50px"
           style={SaveButtonCSS}
           onClick={handleSubmitFile}
+          isActive={isFile}
+          disabled={!isFile}
         >
           <Text className="KRHeadline-1 graywhite">저장하기</Text>
         </Button>
