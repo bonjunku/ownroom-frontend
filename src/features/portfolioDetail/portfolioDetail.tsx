@@ -127,6 +127,7 @@ export const PortfolioDetail = () => {
             width="92px"
             height="32px"
             style={PortfolioConsultantButtonCSS}
+            isActive={portfolio?.numberOfPossibleConsulting !== 0}
             onClick={() => {
               onClick(
                 portfolio?.user.nickname,
