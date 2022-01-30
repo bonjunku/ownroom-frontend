@@ -26,6 +26,8 @@ export const Banner4 = () => {
   useEffect(() => {
     if (consultantRegisterStatus === '신청 전') {
       setIsActive(true);
+    } else {
+      setIsActive(false);
     }
   });
 
@@ -58,7 +60,7 @@ export const Banner4 = () => {
             top="305px"
             left="0"
             onClick={handleClick}
-            isActive={isLoggedIn && isActive}
+            isActive={isActive}
           >
             <Text className="KRHeadline-2 graywhite">컨설턴트 신청하기</Text>
           </Button>
