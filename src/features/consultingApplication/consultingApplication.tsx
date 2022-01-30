@@ -2,14 +2,12 @@ import axios from 'axios';
 import React, { ChangeEvent, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
-import styled, { CSSProperties } from 'styled-components';
+import styled, { css, CSSProperties } from 'styled-components';
 import { Button } from '../../common/button';
 import { Container } from '../../common/container';
 import { Img } from '../../common/img';
 import { Text } from '../../common/text';
 import { icon_download } from '../../static/images/svg';
-
-import { uploadConsultingApplicationAsync } from '../../store/modules/consulting';
 import { getCookie } from '../../store/modules/user';
 export const ConsultingApplication = () => {
   const dispatch = useDispatch();
@@ -17,9 +15,13 @@ export const ConsultingApplication = () => {
   const { nickname } = useParams();
 
   const [file, setFile] = useState<FileList | null>(null);
+  const defaultFileTitle = '이 곳을 클릭하여 작성한 양식을 업로드해 주세요.';
+  const [fileTitle, setFileTitle] = useState<string>(defaultFileTitle);
+  const [isFile, setIsfFile] = useState<boolean>(false);
   const handleChangeFile = (event: ChangeEvent<HTMLInputElement>) => {
-    console.log(event.target.files);
+    if (event.target.files) setFileTitle(event.target.files[0]['name']);
     setFile(event.target.files);
+    setIsfFile(true);
   };
   const handleSubmitFile = async () => {
     const formData = new FormData();
@@ -149,10 +151,9 @@ export const ConsultingApplication = () => {
             작성한 양식을 업로드해 주세요.
           </Text>
           <ApplicationContainer2FileContainer>
-            {/* <Text className="KRBody-3 gray003">
-              작성한 양식을 업로드해 주세요.
-            </Text> */}
-
+            <label htmlFor="file" style={labelCSS}>
+              <FileTitle isFile={isFile}>{fileTitle}</FileTitle>
+            </label>
             <input
               type="file"
               id="file"
@@ -160,7 +161,8 @@ export const ConsultingApplication = () => {
                 handleChangeFile(event);
               }}
               multiple={true}
-            ></input>
+              style={inputCSS}
+            />
           </ApplicationContainer2FileContainer>
           <Img
             src={process.env.PUBLIC_URL + '/img/consultant/2.png'}
@@ -174,6 +176,8 @@ export const ConsultingApplication = () => {
           height="50px"
           style={SaveButtonCSS}
           onClick={handleSubmitFile}
+          isActive={isFile}
+          disabled={!isFile}
         >
           <Text className="KRHeadline-1 graywhite">저장하기</Text>
         </Button>
@@ -182,8 +186,42 @@ export const ConsultingApplication = () => {
   );
 };
 
+interface fileTitle {
+  isFile?: boolean;
+}
+
+const FileTitle = styled.span<fileTitle>`
+  font-family: Noto Sans KR;
+  font-size: 13px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 23px;
+  letter-spacing: normal;
+  ${(props) =>
+    props.isFile
+      ? css`
+          color: var(--gray-gray-001);
+        `
+      : css`
+          color: var(--gray-gray-003);
+        `}
+`;
+
 const backgroundColorCSS: CSSProperties = {
   backgroundColor: 'var(--brand-orange-005)',
+};
+const labelCSS: CSSProperties = {
+  width: '100%',
+  height: '100%',
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  cursor: 'pointer',
+};
+
+const inputCSS: CSSProperties = {
+  display: 'none',
 };
 
 const ApplicationBannerCSS: CSSProperties = {
