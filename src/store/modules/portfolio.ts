@@ -1,12 +1,18 @@
 import { RootState } from './../configureStore';
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import axios from 'axios';
+import axios, { AxiosResponse } from 'axios';
 export interface Portfolio {
-  concept: 'Modern' | 'Minimal' | 'Natural' | 'Europe' | 'NorthEurope';
+  concept:
+    | 'Total'
+    | 'Modern'
+    | 'Minimal'
+    | 'Natural'
+    | 'Europe'
+    | 'NorthEurope';
 }
 
 const initialState: Portfolio = {
-  concept: 'Modern',
+  concept: 'Total',
 };
 
 const portfolioConceptSlice = createSlice({
@@ -25,9 +31,14 @@ export default portfolioConceptSlice.reducer;
 export const fetchPortfolioAsync = createAsyncThunk(
   'portfolio/FETCH_BY_CONCEPT',
   async (concept: string) => {
-    const response = await axios.get(
-      `https://api.ownroom.link/api/portfolios/?concept=${concept}`
-    );
+    let response: AxiosResponse<any, any>;
+    if (concept === 'Total') {
+      response = await axios.get(`https://api.ownroom.link/api/portfolios/`);
+    } else {
+      response = await axios.get(
+        `https://api.ownroom.link/api/portfolios/?concept=${concept}`
+      );
+    }
 
     return { ...response.data };
   }

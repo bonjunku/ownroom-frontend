@@ -39,6 +39,7 @@ export default interface Portfolio {
 }
 
 interface PortfolioNavBarClicked {
+  Total: boolean;
   Modern: boolean;
   Minimal: boolean;
   Natural: boolean;
@@ -46,6 +47,7 @@ interface PortfolioNavBarClicked {
   NorthEurope: boolean;
 }
 const portfolioNavBarMap = {
+  Total: '전체',
   Modern: '모던',
   Minimal: '미니멀',
   Natural: '내츄럴',
@@ -56,6 +58,7 @@ const portfolioNavBarMap = {
 export const PortfolioPreviewList = () => {
   const [portfolioListResult, setPortfolioListResult] = useState<Portfolio[]>();
   const initialPortfolioNavBarClicked = {
+    Total: false,
     Modern: false,
     Minimal: false,
     Natural: false,
@@ -65,7 +68,8 @@ export const PortfolioPreviewList = () => {
 
   const [portfolioNavBarClicked, setPortfolioNavBarClicked] =
     useState<PortfolioNavBarClicked>({
-      Modern: true,
+      Total: true,
+      Modern: false,
       Minimal: false,
       Natural: false,
       Antique: false,
@@ -89,7 +93,7 @@ export const PortfolioPreviewList = () => {
   useEffect(() => {
     dispatch({
       type: 'portfolio/CONVERT_CONCEPT',
-      payload: 'Modern',
+      payload: 'Total',
     });
   }, []);
 
