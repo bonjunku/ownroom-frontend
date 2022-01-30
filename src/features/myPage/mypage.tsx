@@ -20,8 +20,17 @@ import { icon_profile } from '../../static/images/svg';
 export const MyPage = () => {
   const navigate = useNavigate();
   const userInfo = useAppSelect(getUserInfo);
+  const [isActive, setIsActive] = useState<boolean>(false);
 
   const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    if (userInfo.consultantRegisterStatus === '승인 완료') {
+      setIsActive(true);
+    } else {
+      setIsActive(false);
+    }
+  });
 
   // 고객,컨설턴트 전환
   const switchStatus = () => {
@@ -121,6 +130,7 @@ export const MyPage = () => {
               height="44px"
               style={MyPagePositionConversionCSS}
               onClick={switchStatus}
+              isActive={isActive}
             >
               <Text className="KRHeadline-3 gray007">
                 {userInfo.isConsultant ? '고객으' : '컨설턴트'}로 전환

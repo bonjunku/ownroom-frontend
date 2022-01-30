@@ -229,6 +229,7 @@ export const PortfolioItem: React.FunctionComponent<Portfolio> = (
           onClick={() => {
             handleConsultingApplication();
           }}
+          isActive={portfolio.numberOfPossibleConsulting > 0}
         >
           <Text className="KRHeadline-3 gray007">컨설팅 신청</Text>
         </Button>
