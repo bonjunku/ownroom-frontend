@@ -26,14 +26,17 @@ export const LogIn = () => {
     id: '',
     password: '',
   });
+  const [isActive, setIsActive] = useState<boolean>(false);
   const dispatch = useAppDispatch();
 
   const handleChangeUser = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setLoginInfo({ ...loginInfo, [name]: value });
-  };
-  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault();
+    if (loginInfo.id.length > 0 && loginInfo.password.length > 0) {
+      setIsActive(true);
+    } else {
+      setIsActive(false);
+    }
   };
 
   const handleSubmit = (
@@ -103,9 +106,8 @@ export const LogIn = () => {
               width="400px"
               height="50px"
               style={LogInButtonCSS}
-              onChange={(e: React.MouseEvent<HTMLButtonElement>) =>
-                handleClick(e)
-              }
+              isActive={isActive}
+              disabled={!isActive}
             >
               <Text className="KRHeadline-1 graywhite">로그인</Text>
             </Button>
