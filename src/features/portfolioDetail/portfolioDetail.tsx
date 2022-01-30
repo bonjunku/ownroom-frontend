@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { CSSProperties } from 'styled-components';
 import { useAppDispatch, useAppSelect } from '../../store/configureStore.hooks';
@@ -157,11 +157,10 @@ export const PortfolioDetail = () => {
           >
             {portfolio?.images?.map((element) => {
               return (
-                <>
+                <React.Fragment key={element.id}>
                   <img src={element?.url} style={{ width: '830px' }}></img>
-
                   <br />
-                </>
+                </React.Fragment>
               );
             })}
 
