@@ -18,3 +18,11 @@ export const logo_navbar =
 
 export const symbol_with_text =
   'https://user-images.githubusercontent.com/62752488/151570588-637951fe-2b83-4ee3-b91d-166bb3ee1da9.svg';
+
+export const docs_activated = `https://user-images.githubusercontent.com/62752488/151696887-0911841d-a726-4587-be98-d0c9996d7de9.svg`;
+
+export const docs_deactivated = `https://user-images.githubusercontent.com/62752488/151696892-9e3cd9e1-ba26-4ebe-8b6d-b28c988a0eff.svg`;
+
+export const write_activated = `https://user-images.githubusercontent.com/62752488/151696873-513884e7-67cb-46fb-a566-0f027d5632cb.svg`;
+
+export const write_deactivated = `https://user-images.githubusercontent.com/62752488/151696881-12c31fcc-1133-4220-849f-4d8a48a08e9e.svg`;
