@@ -1,6 +1,5 @@
 import React from 'react';
 import styled, { CSSProperties } from 'styled-components';
-import { Button } from '../../common/button';
 import { Container } from '../../common/container';
 import { Img } from '../../common/img';
 import { Text } from '../../common/text';
@@ -233,9 +232,4 @@ const ApplicationContainerBackgroundNumber2CSS: CSSProperties = {
   position: 'absolute',
   top: '156px',
   right: '34.5px',
-};
-
-const SaveButtonCSS: CSSProperties = {
-  position: 'absolute',
-  top: '870px',
 };
