@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled, { CSSProperties } from 'styled-components';
 import { Button } from '../../common/button';
@@ -27,12 +27,33 @@ export const SignUp = () => {
     duplicateChecked: false,
   });
   const dispatch = useAppDispatch();
+  const [isActive, setIsActive] = useState<boolean>(false);
+  const [isDuplicateCheckActive, setIsDuplicateCheckActive] =
+    useState<boolean>(false);
 
   // Input 값 갱신
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     setSignUpInfo({ ...signUpInfo, [name]: value });
   };
+
+  useEffect(() => {
+    if (signUpInfo.id.length > 0) {
+      setIsDuplicateCheckActive(true);
+    } else {
+      setIsDuplicateCheckActive(false);
+    }
+    if (
+      signUpInfo.id.length > 0 &&
+      signUpInfo.password.length > 0 &&
+      signUpInfo.phoneNumber.length > 0 &&
+      signUpInfo.userName.length > 0
+    ) {
+      setIsActive(true);
+    } else {
+      setIsActive(false);
+    }
+  }, [handleChange]);
 
   const handleSubmit = (
     event: React.FormEvent<HTMLFormElement>,
@@ -152,6 +173,7 @@ export const SignUp = () => {
                 width="100px"
                 height="50px"
                 style={SignUpIdCheckButtonCSS}
+                isActive={isDuplicateCheckActive}
                 onClick={(event: React.MouseEvent<HTMLButtonElement>) =>
                   duplicateCheck(event, signUpInfo.id)
                 }
@@ -204,6 +226,7 @@ export const SignUp = () => {
               width="400px"
               height="50px"
               style={SignUpButtonCSS}
+              isActive={isActive}
             >
               <Text className="KRHeadline-1 graywhite">회원가입</Text>
             </Button>

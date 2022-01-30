@@ -1,4 +1,4 @@
-import { CSSProperties } from 'react';
+import { CSSProperties, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '../../../common/button';
 import { Container } from '../../../common/container';
@@ -9,15 +9,25 @@ import { Text } from '../../../common/text';
 
 export const Banner4 = () => {
   const navigate = useNavigate();
-  const { isLoggedIn } = useAppSelect(getUserInfo);
+  const [isActive, setIsActive] = useState<boolean>(false);
+  const { isLoggedIn, consultantRegisterStatus } = useAppSelect(getUserInfo);
   const handleClick = () => {
     if (!isLoggedIn) {
       alert('로그인 후 이용이 가능한 서비스입니다.');
       navigate('/login');
+    } else if (consultantRegisterStatus === '신청 후') {
+      alert('현재 컨설턴트 신청 서류를 심사 중입니다.');
+    } else if (consultantRegisterStatus === '승인 완료') {
+      alert('이미 컨설턴트 승인이 완료되었습니다.');
     } else {
       navigate('/consultant/application');
     }
   };
+  useEffect(() => {
+    if (consultantRegisterStatus === '신청 전') {
+      setIsActive(true);
+    }
+  });
 
   return (
     <Container height="420px" style={BackGroundColorCSS}>
@@ -48,6 +58,7 @@ export const Banner4 = () => {
             top="305px"
             left="0"
             onClick={handleClick}
+            isActive={isLoggedIn && isActive}
           >
             <Text className="KRHeadline-2 graywhite">컨설턴트 신청하기</Text>
           </Button>
