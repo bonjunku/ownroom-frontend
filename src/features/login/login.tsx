@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import styled, { CSSProperties } from 'styled-components';
@@ -32,12 +32,14 @@ export const LogIn = () => {
   const handleChangeUser = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setLoginInfo({ ...loginInfo, [name]: value });
+  };
+  useEffect(() => {
     if (loginInfo.id.length > 0 && loginInfo.password.length > 0) {
       setIsActive(true);
     } else {
       setIsActive(false);
     }
-  };
+  }, [handleChangeUser]);
 
   const handleSubmit = (
     loginInfo: LoginInfo,
