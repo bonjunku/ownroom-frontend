@@ -25,8 +25,8 @@ export const Navbar = () => {
   const dispatch = useDispatch();
   const nickname = useAppSelect(getNickName);
   useLayoutEffect(() => {
-    dispatch(fetchMyInfoAsync());
-  }, []);
+    if (isLoggedin) dispatch(fetchMyInfoAsync());
+  }, [isLoggedin]);
 
   const handleClickConsultantPortfolio = () => {
     navigate('/consultantPortfolio');
