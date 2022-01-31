@@ -33,8 +33,10 @@ export const Navbar = () => {
   };
 
   const handleClickConsultantApplication = () => {
-    if (!isLoggedin) alert('로그인 후 이용이 가능한 서비스입니다.');
-    else if (userInfo.consultantRegisterStatus === '승인 완료') {
+    if (!isLoggedin) {
+      alert('로그인 후 이용이 가능한 서비스입니다.');
+      navigate('/login');
+    } else if (userInfo.consultantRegisterStatus === '승인 완료') {
       alert('이미 컨설턴트 승인이 완료되었습니다.');
     } else {
       navigate('/consultant/application');
