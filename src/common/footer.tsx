@@ -37,7 +37,7 @@ export const Footer = () => {
           <br />
           홈스타일링 컨설팅
           <br />
-          중계 플랫폼
+          중개 플랫폼
         </Text>
         <Text className="KRHeadline-2 gray002" style={FooterConsultantCSS}>
           컨설턴트

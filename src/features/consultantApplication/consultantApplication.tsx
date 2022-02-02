@@ -25,7 +25,7 @@ export const ConsultantApplication = () => {
             컨설턴트 신청서
           </Text>
           <Text className="KRBody-2 gray001" style={ApplicationBannerText2CSS}>
-            컨설턴트와 함께 나만의 방을 만들어보세요.
+            인테리어에 관심이 있는 누구나 컨설턴트가 될 수 있습니다.
           </Text>
         </Container>
       </Container>
