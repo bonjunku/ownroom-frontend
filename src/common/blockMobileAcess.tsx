@@ -30,8 +30,9 @@ export const BlockMobileAccess = () => {
           <MessageContainer>
             <Exclamation src="https://user-images.githubusercontent.com/62752488/152343140-02b9175e-d60b-4433-8cd8-defa2fde2739.png" />
             <Message>
-              온룸은 PC에 최적화되어 있어요.
-              <br /> PC로 확인해주세요.
+              화면 폭이 너무 좁아요!
+              <br />
+              PC로 접속 후 브라우저 폭을 늘려주세요.
             </Message>
             <Button
               width="12vw"
