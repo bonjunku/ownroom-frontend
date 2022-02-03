@@ -15,11 +15,13 @@ import { Modal } from './common/modal';
 import { ScrollToTop } from './common/scrollToTop';
 import { Welcome } from './features/welcome/welcome';
 import { ConsultingReport } from './features/consultingReport/consultingreport';
+import { BlockMobileAccess } from './common/blockMobileAcess';
 
 function App() {
   return (
     <>
       <GlobalStyle />
+      <BlockMobileAccess />
       <Modal />
       <BrowserRouter>
         <ScrollToTop>

@@ -8,7 +8,6 @@ export const Banner5 = () => (
     <Container width="1920px">
       <Img
         src={process.env.PUBLIC_URL + 'img/home/home5.png'}
-        width="1920px"
         height="466px"
         style={Banner5ImgCSS}
       ></Img>
