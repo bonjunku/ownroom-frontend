@@ -1,19 +1,51 @@
+import { CSSProperties, useEffect, useState } from 'react';
 import styled from 'styled-components';
+import { Button } from './button';
 
 export const BlockMobileAccess = () => {
+  const [visible, setVisible] = useState<boolean>(false);
+  const handleVisible = () => {
+    if (window.innerWidth < 942) {
+      setVisible(true);
+    } else {
+      setVisible(false);
+    }
+  };
+  const handleClick = () => {
+    setVisible(false);
+  };
+
+  useEffect(() => {
+    handleVisible();
+    window.addEventListener('resize', handleVisible);
+    return () => {
+      window.removeEventListener('resize', handleVisible);
+    };
+  }, []);
+
   return (
-    <StyledMobileAccess>
-      <MessageContainer>
-        <Exclamation src="https://user-images.githubusercontent.com/62752488/152343140-02b9175e-d60b-4433-8cd8-defa2fde2739.png" />
-        <Message>
-          앗, 화면 폭이 너무 좁아요!
-          <br />
-          브라우저 크기를 늘려주시거나
-          <br />
-          PC로 접속해주세요.
-        </Message>
-      </MessageContainer>
-    </StyledMobileAccess>
+    <>
+      {visible ? (
+        <StyledMobileAccess>
+          <MessageContainer>
+            <Exclamation src="https://user-images.githubusercontent.com/62752488/152343140-02b9175e-d60b-4433-8cd8-defa2fde2739.png" />
+            <Message>
+              온룸은 PC에 최적화되어 있어요.
+              <br /> PC로 확인해주세요.
+            </Message>
+            <Button
+              width="12vw"
+              height="5vw"
+              isActive
+              onClick={handleClick}
+              style={ButtonCSS}
+            >
+              확인
+            </Button>
+          </MessageContainer>
+        </StyledMobileAccess>
+      ) : null}
+    </>
   );
 };
 
@@ -54,5 +86,13 @@ const Message = styled.div`
   font-weight: bold;
   position: absolute;
   top: 16vw;
-  font-size: 3.5vw;
+  font-size: 3vw;
 `;
+
+const ButtonCSS: CSSProperties = {
+  position: 'absolute',
+  top: '27vw',
+  fontFamily: 'Noto Sans KR',
+  fontWeight: 'bold',
+  fontSize: '2vw',
+};
