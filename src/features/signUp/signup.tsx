@@ -100,6 +100,8 @@ export const SignUp = () => {
     event.preventDefault();
     if (signUpInfo.id.length < 5) {
       alert('아이디는 5자리 이상이어야 합니다.');
+    } else if (signUpInfo.id.length > 10) {
+      alert('아이디는 10자리 이하여야 합니다.');
     } else {
       dispatch(duplicateCheckAsync(nickname)).then((data) => {
         if (data.type) {
