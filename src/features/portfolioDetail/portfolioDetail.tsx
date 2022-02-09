@@ -17,7 +17,7 @@ import PortfolioInterface from '../consultantPortfolio/components/portfolioList'
 
 export const PortfolioDetail = () => {
   const navigate = useNavigate();
-  const { isLoggedIn } = useAppSelect(getUserInfo);
+  const { isLoggedIn, isConsultant } = useAppSelect(getUserInfo);
   const [portfolio, setPortfolio] = useState<PortfolioInterface>();
   const { id } = useParams();
   const dispatch = useAppDispatch();
@@ -33,6 +33,10 @@ export const PortfolioDetail = () => {
     if (!isLoggedIn) {
       alert('로그인 후 이용이 가능한 서비스입니다.');
       navigate('/login');
+    } else if (isConsultant) {
+      alert(
+        '컨설팅 신청은 고객만 가능합니다.\n마이페이지에서 고객으로 전환해주세요.'
+      );
     } else if (possibleNumber == 0) {
       alert('해당 서비스는 모집이 마감되었습니다.');
     } else if (possibleNumber && possibleNumber > 0)
