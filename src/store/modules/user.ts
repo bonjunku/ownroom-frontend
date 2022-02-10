@@ -1,12 +1,5 @@
-import { useAppDispatch } from './../configureStore.hooks';
-import { useNavigate } from 'react-router-dom';
 import { RootState } from '../configureStore';
-import {
-  createAsyncThunk,
-  createSlice,
-  configureStore,
-  isRejectedWithValue,
-} from '@reduxjs/toolkit';
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { Cookies } from 'react-cookie';
 
