@@ -23,5 +23,4 @@ const Container = styled.div<ColProps>`
     justify-content : ${({mainAxisAlignment})=>mainAxisAlignment};
     align-items: ${({crossAxisAlignment})=>crossAxisAlignment};
     height : 100%;
-    border: 5px red solid;
 `
