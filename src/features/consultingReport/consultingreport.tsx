@@ -6,7 +6,7 @@ import { Button } from '../../common/button';
 import { Container } from '../../common/container';
 import { Img } from '../../common/img';
 import { getCookie } from '../../store/modules/user';
-import { Text } from '../../common/text';
+import { Text } from '../../common/Text';
 
 import styled from 'styled-components';
 import { icon_download, icon_success } from '../../static/images/svg';

@@ -6,7 +6,7 @@ import modal, { getModalState } from '../store/modules/modal';
 import { Container } from './container';
 import { Img } from './img';
 
-import { Text } from './text';
+import { Text } from './Text';
 
 export const Modal = () => {
   const modalState = useAppSelect(getModalState);

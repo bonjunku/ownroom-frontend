@@ -2,7 +2,7 @@ import React from 'react';
 import styled, { CSSProperties } from 'styled-components';
 import { Container } from '../../common/container';
 import { Img } from '../../common/img';
-import { Text } from '../../common/text';
+import { Text } from '../../common/Text';
 import { icon_download } from '../../static/images/svg';
 
 export const ConsultantApplication = () => {
