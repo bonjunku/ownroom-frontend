@@ -1,6 +1,6 @@
 import styled, { CSSProperties } from 'styled-components';
 import { Container } from '../../../common/container';
-import { Text } from '../../../common/text';
+import { Text } from '../../../common/Text';
 import { StyledLink } from '../../../common/link';
 import { Img } from '../../../common/img';
 import { Button } from '../../../common/button';

@@ -5,7 +5,7 @@ import { Container } from '../../../common/container';
 import { Img } from '../../../common/img';
 import { useAppSelect } from '../../../store/configureStore.hooks';
 import { getUserInfo } from '../../../store/modules/user';
-import { Text } from '../../../common/text';
+import { Text } from '../../../common/Text';
 
 export const Banner4 = () => {
   const navigate = useNavigate();

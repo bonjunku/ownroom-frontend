@@ -3,7 +3,7 @@ import { Button } from '../../common/button';
 import { Container } from '../../common/container';
 import { Img } from '../../common/img';
 import { StyledLink } from '../../common/link';
-import { Text } from '../../common/text';
+import { Text } from '../../common/Text';
 import { useAppSelect } from '../../store/configureStore.hooks';
 import { getNickName } from '../../store/modules/user';
 

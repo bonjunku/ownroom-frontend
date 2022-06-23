@@ -12,7 +12,7 @@ import { Button } from '../../common/button';
 import { Container } from '../../common/container';
 import { DecoratedContainer } from '../../common/decoratedContainer';
 import { StyledLink } from '../../common/link';
-import { Text } from '../../common/text';
+import { Text } from '../../common/Text';
 import PortfolioInterface from '../consultantPortfolio/components/portfolioList';
 
 export const PortfolioDetail = () => {

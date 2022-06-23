@@ -1,6 +1,6 @@
 import { Container } from '../../common/container';
 import { Img } from '../../common/img';
-import { Text } from '../../common/text';
+import { Text } from '../../common/Text';
 import { CSSProperties, useEffect, useState } from 'react';
 import { Button } from '../../common/button';
 import styled from 'styled-components';

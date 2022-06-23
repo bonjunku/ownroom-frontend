@@ -12,7 +12,7 @@ import {
 import { Container } from './container';
 import { Img } from './img';
 import { StyledLink } from './link';
-import { Text } from './text';
+import { Text } from './Text';
 
 import { useDispatch } from 'react-redux';
 import { icon_profile } from '../static/images/svg';

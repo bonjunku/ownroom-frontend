@@ -7,7 +7,7 @@ import {
 } from '../../../store/modules/user';
 import { Button } from '../../../common/button';
 import { Container } from '../../../common/container';
-import { Text } from '../../../common/text';
+import { Text } from '../../../common/Text';
 import { Img } from '../../../common/img';
 import {
   docs_activated,

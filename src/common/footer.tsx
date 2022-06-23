@@ -1,7 +1,7 @@
 import { CSSProperties } from 'react';
 import { Container } from './container';
 import { Img } from './img';
-import { Text } from '../common/text';
+import { Text } from './Text';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 import { icon_insta, logo_footer } from '../static/images/svg';

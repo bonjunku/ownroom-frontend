@@ -8,7 +8,7 @@ import { Form } from '../../common/Form';
 import { Img } from '../../common/img';
 import { Input } from '../../common/input';
 import { StyledLink } from '../../common/link';
-import { Text } from '../../common/text';
+import { Text } from '../../common/Text';
 import { symbol_with_text } from '../../static/images/svg';
 import { useAppDispatch } from '../../store/configureStore.hooks';
 import {

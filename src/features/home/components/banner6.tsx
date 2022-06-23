@@ -1,7 +1,7 @@
 import { CSSProperties } from 'react';
 import { Container } from '../../../common/container';
 import { Img } from '../../../common/img';
-import { Text } from '../../../common/text';
+import { Text } from '../../../common/Text';
 
 export const Banner6 = () => (
   <Container type="column" position="relative">

@@ -6,7 +6,7 @@ import styled, { css, CSSProperties } from 'styled-components';
 import { Button } from '../../common/button';
 import { Container } from '../../common/container';
 import { Img } from '../../common/img';
-import { Text } from '../../common/text';
+import { Text } from '../../common/Text';
 import { icon_download, icon_success } from '../../static/images/svg';
 import { getCookie } from '../../store/modules/user';
 export const ConsultingApplication = () => {
